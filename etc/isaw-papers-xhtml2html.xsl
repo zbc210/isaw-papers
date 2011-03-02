@@ -58,6 +58,11 @@
   <ol>
    <xsl:apply-templates select="//*[@typeof='nm:hoard']" mode="enhancer" ><xsl:sort select="."/></xsl:apply-templates>
   </ol>
+  <h2>Coin Types</h2>
+  <ol>
+   <xsl:apply-templates select="//*[@typeof='nm:typology_entry']" mode="enhancer" ><xsl:sort select="."/></xsl:apply-templates>
+  </ol>
+  
  </div>
    </div>
    </body>
