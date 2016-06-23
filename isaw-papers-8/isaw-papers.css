@@ -17,6 +17,11 @@ header {
 header > h2 {
  text-align: center;
  }
+ 
+ header > p.handle {
+ text-align: center;
+ margin-top:1em;
+ }
 
 
 footer {
