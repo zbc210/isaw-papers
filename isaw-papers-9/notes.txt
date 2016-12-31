@@ -55,11 +55,11 @@ corrected tacitus annales from 12.335 to 12.35
  
  
  UNIQ'D
-* Alise-Sainte-Reine/Alesia / F ## http://pleiades.stoa.org/places/177434
+* Alise-Sainte-Reine/Alesia / F ## https://pleiades.stoa.org/places/177434
 
-* ancient Naukratis near An-Nibayrah / ET ## http://pleiades.stoa.org/places/727169
+* ancient Naukratis near An-Nibayrah / ET ## https://pleiades.stoa.org/places/727169
 
-*Arlon / B ## http://pleiades.stoa.org/places/109232
+*Arlon / B ## https://pleiades.stoa.org/places/109232
 * Arlon (prov. Luxemburg / B ...
 
 * Bergama/Pergamon / TR
@@ -80,7 +80,7 @@ corrected tacitus annales from 12.335 to 12.35
 
 * Empel ('s-Hertogenbosch, prov. Noord-Brabant / NL)
 
-* Kom El-Ahmar/Hierakonpolis / ET ## http://pleiades.stoa.org/places/786037
+* Kom El-Ahmar/Hierakonpolis / ET ## https://pleiades.stoa.org/places/786037
 * Kom El-Ahmar/Hierakonpolis
 * Kom El-Ahmar/<i>Hierakonpolis</i>
 
@@ -93,17 +93,17 @@ corrected tacitus annales from 12.335 to 12.35
 
 * Istanbul / TR
 
-* Jericho / West Bank ## http://pleiades.stoa.org/places/687917
+* Jericho / West Bank ## https://pleiades.stoa.org/places/687917
 
-* Khorsabad / IRQ ## http://pleiades.stoa.org/places/874458
+* Khorsabad / IRQ ## https://pleiades.stoa.org/places/874458
 
 * Mâcon (Dep Sâone-et-Loire / F ...
 
-* Mainz/Mogontiacum, Rheinland-Pfalz / D ## http://pleiades.stoa.org/places/109169
+* Mainz/Mogontiacum, Rheinland-Pfalz / D ## https://pleiades.stoa.org/places/109169
 
-* Mentana/Nomentum / I ## http://pleiades.stoa.org/places/422986
+* Mentana/Nomentum / I ## https://pleiades.stoa.org/places/422986
 
-* Modena / I ## http://pleiades.stoa.org/places/383715
+* Modena / I ## https://pleiades.stoa.org/places/383715
 
 * Muhafazah Homs / SYR
 
@@ -111,13 +111,13 @@ corrected tacitus annales from 12.335 to 12.35
 
 
 
-* Padova / I ## http://pleiades.stoa.org/places/393473
+* Padova / I ## https://pleiades.stoa.org/places/393473
 * Padua / I
 * Padua (prov. Padova / I
 
 * Per. Kendrikí Makedonía / GR
 
-Rom / I ## http://pleiades.stoa.org/places/423025s
+Rom / I ## https://pleiades.stoa.org/places/423025s
 Roma / I
 
 San Bernardo in Ornavasso / I
@@ -127,9 +127,9 @@ Sâone-et-Loire / F
 
 Šmihel pod Nanosom (Občina Postojna / SLO ...
 
-Schusch/Susa / IR ## http://pleiades.stoa.org/places/912936
+Schusch/Susa / IR ## https://pleiades.stoa.org/places/912936
 
-Tadmur/Palmyra / SYR ## http://pleiades.stoa.org/places/668331
+Tadmur/Palmyra / SYR ## https://pleiades.stoa.org/places/668331
 
 Ulm, Baden-Württemberg / D
 
