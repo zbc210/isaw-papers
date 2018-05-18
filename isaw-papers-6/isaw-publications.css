@@ -22,7 +22,7 @@ header:before {
    display: block;
    text-align: center;
    font-weight:bold;
-   content: "The original version of this work can be found at http://isaw.nyu.edu/publications/isaw-papers"
+   content: "The original version of this work, which is the one that should be cited, can be found via <http://isaw.nyu.edu/publications/isaw-papers>."
 
 }
 }
