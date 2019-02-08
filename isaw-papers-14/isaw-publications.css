@@ -28,10 +28,6 @@ body {
  margin-top:5px;
  }
 
-figcaption {
- 
-}
-
 footer {
  text-indent:0;
  border-style-top:dotted;
@@ -195,7 +191,7 @@ img {
  display: block;
  max-width:500px;
  max-height: 500px;
-margin-left: auto;
+ margin-left: auto;
  margin-right: auto
 } 
 
