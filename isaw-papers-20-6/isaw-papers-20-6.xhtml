@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" prefix="bibo: http://purl.org/ontology/bibo/
+ cc: http://creativecommons.org/ns#
+ dcmitype: http://purl.org/dc/dcmitype/
+ dcterms: http://purl.org/dc/terms/
+ foaf: http://xmlns.com/foaf/0.1/
+ nm: http://nomisma.org/id/
+ owl:  http://www.w3.org/2002/07/owl#
+ rdfs: http://www.w3.org/2000/01/rdf-schema# 
+ rdfa: http://www.w3.org/ns/rdfa#
+ rdf:  http://www.w3.org/1999/02/22-rdf-syntax-ns#
+ skos: http://www.w3.org/2004/02/skos/core#
+ ">
+ <head>
+ 
+ <title>Linked Open Data based on <i>La Syntaxe du Codex</i> for Manuscripts in Beta maṣāḥǝft</title>
+  
+ <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+ <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+ 
+ <meta name="DC.title" content="Linked Open Data based on La Syntaxe du Codex for Manuscripts in Beta maṣāḥǝft" /> 
+ <meta name="DC.date" content="2020-??-00" />
+ <meta name="DC.format" content="application/xhtml+xml" />
+ <meta name="DC.creator" content="Pietro Maria Liuzzo" /> 
+ <meta name="DC.language" content="en" /> 
+ <meta name="DC.abstract" content="TK" />
+ <meta name="DC.subject" content="Cataloging of manuscripts" />
+ <meta name="DC.subject" content="Linked data" />
+ <meta name="DCTERMS.license" content="Creative Commons Attribution 4.0 Unported (CC-BY)" />
+ <meta name="DCTERMS.bibliographicCitation" content="Pietro Maria Liuzzo. 2020. Linked Open Data based on La Syntaxe du Codex for Manuscripts in Beta maṣāḥǝft. ISAW Papers 20.6." />
+ <meta name="DCTERMS.isPartOf" content="ISAW Papers" />
+ <meta name="DCTERMS.identifier.URI" content="TK"/>
+
+ <link rel="dcterms:isPartOf" href="http://www.worldcat.org/oclc/756047783" />
+ <link rel="dcterms:isPartOf" href="urn:issn:2164-1471" />
+ <link rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers" />
+
+<link rel="stylesheet" href="isaw-publications.css"/>
+
+</head>
+
+<body>
+
+<article>
+
+<header>
+
+<h2>ISAW Papers 20.6 (2020)</h2>
+
+<h1><span rel="dcterms:title">Linked Open Data based on <i>La Syntaxe du Codex</i> for Manuscripts in Beta maṣāḥǝft</span><sup><a class="footnote-reference" id="footnote-reference-1" href="#footnote-1">1</a></sup></h1>
+
+<h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0001-5714-4011" property="foaf:name">Pietro Maria Liuzzo</a></span>, Hiob Ludolf Center for Ethiopian Studies, Universität Hamburg</h2>
+
+<p class="doi">URI: <a rel="dcterms:identifier" href="TK">TK</a></p>
+ 
+
+<p class="abstract"><em>Abstract: </em><span id="abstract" property="dcterms:abstract">TK</span></p>
+ 
+
+<p class="subjects"><em>Library of Congress Subjects:</em> <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh85020860">Cataloging of manuscripts</a>; <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh2013002090">Linked data</a>.</p>
+
+
+<nav id="toc">
+
+<h2>Table of Contents</h2>
+
+<ul>
+
+<li><a href="#section1">1. Introduction</a></li>
+
+	<ul>
+	<li><a href="#section1.1">1.1. Beta maṣāḥǝft</a></li>
+	
+	<li><a href="#section1.2">1.2. La Syntaxe du Codex</a></li>
+	</ul>
+
+<li><a href="#section2">2. Using TEI to Encode</a></li>
+
+<li><a href="#section3">3. From TEI to RDF: <i>La Syntaxe</i> as Ontology</a></li>
+
+<li><a href="#section4">4. Examples</a></li>
+
+	<ul>
+	 <li><a href="#section4.1">4.1. Example 1 - Oxford, Bodleian Library, Bodleian Aeth. e. 8</a></li>
+
+	 <li><a href="#section4.2">4.2. Example 2 - Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37</a></li>
+
+	 <li><a href="#section4.3">4.3. Example 3 - Oxford, Bodleian Library, Bodleian Aeth. f. 11 (R) and Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R)</a></li>
+
+	 <li><a href="#section4.4">4.4. Example 4 - Paris, Bibliothèque nationale de France, BnF Éthiopien 45 and Paris, Bibliothèque nationale de France, BnF Éthiopien 165</a></li>
+
+	 <li><a href="#section4.5">4.5. Example Application 1 - Grottaferrata, Exarchic Greek Abbey of St. Mary of Grottaferrata, Crypt. Aet. 7</a></li>
+
+	 <li><a href="#section4.6">4.6. Example Application 2 - Bern, Burgerbibliothek, Cod. 459</a></li>
+	 
+	 <li><a href="#section4.7">4.7. Workflow</a></li>
+	</ul>
+
+<li><a href="#section5">5. Potential of Linked Open Data for Manuscripts</a></li>
+
+	<ul>
+	<li><a href="#section5.1">5.1. Federated queries</a></li>
+	
+	<li><a href="#section5.2">5.2. Vocabularies and mappings</a></li>
+	</ul>
+
+<li><a href="#references">References</a></li>
+
+<li><a href="#footnotes">Notes</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<section id="section1">
+
+<h2>1. Introduction</h2>
+
+<div class="P9">There is a surprising number of manuscripts which still wait for any form of description and cataloguing. A large number are catalogued and a smaller but still very significant and increasing number are <i>digitally</i> catalogued. There are also many ways to catalogue and digitally encode catalogue information about manuscripts. Several of the institutional repositories which digitally catalogue manuscripts in their collections are also producing RDF (Resource Description Framework) and Linked Open Data for manuscripts in different ways and for different reasons.<sup><a class="footnote-reference" id="footnote-reference-2" href="#footnote-2">2</a></sup> This chapter will deal with none of these. </div>
+
+<div class="P9">Instead, this contribution will present one possible way to produce RDF and Linked Open Data for a specific kind of information about manuscripts.<sup><a class="footnote-reference" id="footnote-reference-3" href="#footnote-3">3</a></sup> Starting from a specific set of needs within a project, it will focus on the subset of RDF triples generated to answer these needs according to a specific ontology empirically designed to support a specific methodology for the study of manuscripts, namely the one described in the book <i>La Syntaxe du Codex. Essai de codicologie structurale </i>(Andrist, Canart, and Maniaci 2013) henceforth <i>La Syntaxe</i>.</div>
+
+<div class="P9">This chapter will not try in any way to give an overview of how to encode manuscripts or to describe a potential ontology for the description of manuscripts. The amount of information that can be gathered from a single manuscript, from the many points of view from which it can be analyzed, is overwhelming for any data modelling attempt which does not have a cooperative international team at its basis<sup><a class="footnote-reference" id="footnote-reference-4" href="#footnote-4">4</a></sup> and I am not here calling for a comprehensive ontology for the description of manuscripts. Conversely, this chapter will focus on the specific needs of a selected methodology and show how RDF and Linked Open Data can support it in connection with other data formats. The chapter supports the heuristic potential of the solid and theoretically grounded research methodology as presented by its authors in <i>La Syntaxe</i> (1.2) and presents here only how, within the project <i>Beta maṣāḥǝft, Manuscripts of Ethiopia and Eritrea </i>(1.1), Linked Open Data is used to support the exploitation of this methodology for research purposes in a digital environment. The RDF triples produced (3)<sup><a class="footnote-reference" id="footnote-reference-5" href="#footnote-5">5</a></sup> are used in the project, together with the core TEI encoding of the data (2), not just for the representation of the results of the research process but <i>along</i> the research process, to facilitate the analysis of the ground data and the formulation of interpretative hypotheses and to support different collaborative interests. Four examples of the digitally based research workflow will be given (4.1, 4.2, 4.3, 4.4) and two examples will be provided to show how the method described is used to encode events relative to the binding (4.5 Example Application 1) and to clarify how the different hypotheses are encoded and visualized progressively (4.6 Example Application 2) as the research process progresses.</div>
+
+<div class="P9">The practical starting scenario at the origin of the digitally based research workflow described in this article is quite simple. Let us imagine for example that the same manuscript is studied by a codicologist for a catalogue, then by a book historian interested in the production of the artefact, later on by a specialist in decorative patterns and miniatures and then by a philologist interested in some of the intellectual contents.<sup><a class="footnote-reference" id="footnote-reference-6" href="#footnote-6">6</a></sup> The observations and annotations of each of these specialists should find their place and converge to an increasingly diversified understanding of the manuscript (Michelson 2016b, 160–61), without affecting the specificity of the types of analysis and intents of the collection of information by each researcher. Linked Open Data (LOD) serves this scenario very well with its flexibility and lack of hierarchy and at the same time it crosses the boundaries of the adopted encoding or data storage technologies allowing projects with different aims and scope to interoperate.</div>
+
+<div class="P9">The drafting of the ontology presented here was motivated and carried out in response to the practical issues of encoding and cataloguing faced by the project team, some of which are presented in the examples. The test implementation started after the workshop “Linking Manuscripts from the Coptic, Ethiopian and Syriac domain: Present and Future Synergy Strategies,” held in Hamburg at the end of February 2018<sup><a class="footnote-reference" id="footnote-reference-7" href="#footnote-7">7</a></sup> with the aim of setting the basis for actual interoperations between the involved projects, which culminated in a proposal to produce RDF data about manuscripts and literary works capable of supporting federated queries across the dataset independently from the implementation technologies chosen.</div>
+
+<p class="P9">The questions of representation of information, as presented in the examples below, are all related to the history of the manuscript and its stratigraphy. The starting point is thus the understanding of a manuscript as a complex object which carries signs of the changes it incurred into, which can be read by scholars to identify stages of its history and thus access also information about earlier manuscript units which might not exist anymore but whose production or circulation is attested in the manuscript being observed, and studied (Andrist, Canart, and Maniaci 2013, 7–9).</p>
+
+<p class="P9">The driving motivation is to describe the manuscript with only the necessary minimal annotations to be able to access and navigate both the description of the current object and the different stages of its history without having to reconstruct a description for each of them. It is indeed a very practical need, grounded also in the necessity not to waste time during the project. On the other side, it is a methodological need, which requires us to offer data in the most complete and most simple and clear way.</p>
+
+<p class="P9">Although the reading of the book is essential to the understanding of the methodology and it is not my intent to try to summarize it, let me attempt to highlight right here at the outset what I believe to be the key concepts on which <i>La Syntaxe</i> is based (Andrist, Canart, and Maniaci 2013, 7; Andrist 2015, 511) some of which will be better described in the following sections,</p>
+
+<ul>
+  <li>A medieval codex is a complex object from its origin and is subject to many changes during its life; it carries most of the time traces of these changes which the scholar needs to be trained to identify methodically.</li>
+  <li>The analysis of a manuscript identifies primarily discontinuities and different categories of elements constituting the codex. Elements can be grouped into Units of different kinds which are meaningful. The identification of concomitant discontinuities supports the identification of codicological units.</li>
+  
+  <li>The concept of codicological unit is refined into production units (UniProd) and circulation units (UniCirc). This core theoretical distinction allows to describe the manuscript (indeed not only the codex) history clearly and effectively.</li>
+  
+  <li>The stratigraphy of a codex can be studied systematically but needs a new approach and new eyes, familiar to the signs of the transformation and able to read the language these signs speak (Andrist 2015, 511).</li>
+</ul>
+
+<p class="P9">The syntactic description of the codex, which is the outcome of the syntactical and stratigraphic study of its complex structure reflects the history of all the units which have been added, subtracted and/or modified in the course of its history and accounts for the depth of the tradition, giving us virtually access to the units which are not there anymore and thus allowing us to describe them in their proper relation to the object we are studying. The ways in which the adoption of this methodology is reflected in the design of a database or is presented online or in print is a different order of problems (Andrist 2014, 2015; Gippert 2015) and this article is concerned mainly with the first of this secondary problems. </p>
+
+<div class="P9">The examples proposed should be taken as a work-in-progress description of temporary results for the project <i>Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea</i>, which has provided the examples which have led to the development of the ontology and the implementation of the workflow based on <i>La Syntaxe</i>. The examples are meant to illustrate the workflow design, not to provide a definitive description of the manuscripts. The project also does not apply systematically at this stage the method proposed in <i>La Syntaxe</i>, being in a phase where catalogue descriptions are encoded from existing catalogues which used old and very old methodologies, different from one another and harmonized thanks to their TEI encoding.<sup><a class="footnote-reference" id="footnote-reference-8" href="#footnote-8">8</a></sup> Taking a realistic approach, we want to be able to apply the method as far as possible, without redoing all description from scratch. We want to allow researchers to look with new eyes at the existing data and build on top of it using the conceptual and practical tools offered by <i>La Syntaxe.</i></div>
+
+<p class="P9">I will outline in the following two subsections of this introduction the project in which this study has been based, <i>Beta maṣāḥǝft</i>, and give a summary of some relevant concepts in <i>La Syntaxe</i>. In the second section, the reader will find a description of how the TEI encoding is used in the project to produce RDF triples and the method used to map TEI to RDF. The third section includes the description of the translation of the methodology described in <i>La Syntaxe</i> into OWL (Web Ontology Language). The fourth section contains four real-life examples and two more complex applications which demonstrate how the methodology supports the research process and collaboration. The final section highlights the potential of this model with some examples of queries.</p>
+
+
+<section id="section1.1">
+
+<h3>1.1. Beta maṣāḥǝft</h3>
+
+<div class="P9">The project <i>Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea / Schriftkultur des christlichen Äthiopiens und Eritreas: Eine multimediale Forschungsumgebung</i><sup><a class="footnote-reference" id="footnote-reference-9" href="#footnote-9">9</a></sup> (hence <i>Beta maṣāḥǝft</i>, which means ‘library’) is currently encoding already existing catalogues of Ethiopian manuscripts<sup><a class="footnote-reference" id="footnote-reference-10" href="#footnote-10">10</a></sup> while building the first <i>Clavis Aethiopica</i> and a digital gazetteer of ancient places in Ethiopia<sup><a class="footnote-reference" id="footnote-reference-11" href="#footnote-11">11</a></sup> based on the <i>Encyclopaedia Aethiopica</i> (Uhlig and Bausi 2003–2014).<sup><a class="footnote-reference" id="footnote-reference-12" href="#footnote-12">12</a></sup> All data is encoded in TEI,<sup><a class="footnote-reference" id="footnote-reference-13" href="#footnote-13">13</a></sup> following in many respects the model set by the Syriaca.org project (<a href="http://syriaca.org/">http://syriaca.org/</a>). The project aims at offering to all different specialists in the field the possibility to use the resources for their purposes and to allow them to collaborate easily in the encoding and digitization of resources relevant to this field of study. <i>Beta maṣāḥǝft</i> has already benefited from active collaboration with major projects and institutions involved in the study of ancient Ethiopian manuscripts<sup><a class="footnote-reference" id="footnote-reference-14" href="#footnote-14">14</a></sup> and from the constant collaboration with the Centre for the Study of Manuscript Cultures<sup><a class="footnote-reference" id="footnote-reference-15" href="#footnote-15">15</a></sup> in Hamburg.</div>
+
+<div class="P9">The current phase of the project deals with the encoding of already catalogued manuscripts, which requires in most cases a thorough rethinking of the description of the manuscript. Fortunately, many images of these manuscripts are now available online,<sup><a class="footnote-reference" id="footnote-reference-16" href="#footnote-16">16</a></sup> and many more are becoming available thanks to the effort of many projects, people and institutions. This fact allows the team to revise many statements which together with the critical act of encoding the available description results in providing what is a new codicological description, not a digitization of existing works. Additionally, the team also performs an assiduous identification and verification work, linking each named entity (e.g. a date in a text, a toponym, a personal name attested in the text) to an authority file which has the core data about that entity. The following example is a colophon from Paris, Bibliothèque Nationale de France, BnF Éthiopien 80 (Reule 2016b).</div>
+
+<figure id="code1">
+<pre><code>
+	በአኰቴተ፡ እግዚእነ፡ ኢየሱስ፡ ክርስቶስ፡ ተጽሕፈት፡ ዛቲ፡ መጽሐፍ፡ አመ፡ &lt;date calendar="grace"&gt;፻፷ወ፯፡ 
+	ዓመተ፡ ምሕረት፡&lt;/date&gt; &lt;date type="evangelists"&gt;በመዋዕለ፡ ሉቃስ፡ ወንጌላዊ፡&lt;/date&gt; አሜሃ፡ አበቅቴ፡ ፬፡
+	ወመጥቅዕ፡ ፳ወ፯፡ ወተፈጸመት፡ በ&lt;placeName ref="Q1218"&gt;ኢየሩሳሌም፡&lt;/placeName&gt; ሀገረ፡ ሰላም። 
+	አመ፡ &lt;date&gt;፳ወ፭፡ ለመስከረም፡ በዕለተ፡ ዐርብ፡ ጊዜ፡ &lt;gap reason="omitted" extent="unknown" resp="PRS10747Zotenbe"/&gt; 
+	ሰዓተ፡&lt;/date&gt; መዓልት። በመዋዕለ፡ ራይስ፡ &lt;persName ref="PRS11115FereKr"&gt;ፍሬ፡ ክርስቶስ፡&lt;/persName&gt; ወልደ፡ አቡነ፡ 
+	&lt;persName ref="PRS11208HouseTakla"&gt;ተክለ፡ ሃይማኖት&lt;/persName&gt;። ወ&lt;persName ref="PRS11116GabraN"&gt;
+	&lt;roleName type="title"&gt;መጋቢ፡&lt;/roleName&gt; ገብረ፡ ኖላዊ፡&lt;/persName&gt;
+</code></pre>
+</figure>
+
+<div class="P9">Although the articulation of the project schema based on TEI supports most of the needs of the team, there are cases which have been encountered in these first two years which have led us to rethink some of the encoding and indeed the cataloguing practice. There was especially the need to describe more than one of the stages in the life of a manuscript, or to state that a physical part was added at some point, without being able to say more in terms of when, how, etc. <i>La Syntaxe </i>offered us a solid theory and a clearly described methodology on which to base our practical solutions. We have decided to try to support in our workflow all the phases of the research process described in the book, although at this very early stage of development and testing we have probably still a lot to refine.<sup><a class="footnote-reference" id="footnote-reference-17" href="#footnote-17">17</a></sup> We can now turn to see very briefly what these stages are and what the methodology looks like, to then move on to describe the way its usage is translated in the workflow for <i>Beta maṣāḥǝft</i>. </div>
+</section>
+
+
+<section id="section1.2">
+
+<h3>1.2. La Syntaxe du Codex</h3>
+
+<p class="P9">A very useful and reasoned “State of the art” in codicology can be found at the beginning of <i>La Syntaxe</i> (Andrist, Canart, and Maniaci 2013, 11–44). This work can be complemented with parts of the COMST Handbook (Bausi et al. 2015) for the represented oriental traditions and also with the introduction to a recent volume about composite and multi-text manuscripts (Friedrich and Schwarke 2016).</p>
+
+<div class="P9"><i>La Syntaxe</i> is a book where examples are based on Greek and Latin manuscripts, but the proposed methodology can be applied, with necessary adjustments, to any manuscript, including papyri, palm leaves, etc.<sup><a class="footnote-reference" id="footnote-reference-18" href="#footnote-18">18</a></sup> It is the simplicity and clarity of the research process it describes that makes it so powerful. The observation stages are thought of in a way that bases the resulting analysis of well-structured observation data. The tabulation stages of the observation which help highlight concomitant discontinuities (see below) are then translated into an event-oriented description (“Du codex observé à la reconstruction de son histoire” is the title of the fourth chapter).</div>
+
+<p class="P9">The methodology aims to “mettre en relation ces éléments pour comprendre comment le codex ‘<i>tient ensemble</i>’ et se modifie avec le temps” [tr: to bring together these elements to understand how the codex “takes shape” and is modified over time.] (Andrist, Canart, and Maniaci 2013, 9), which is precisely what we needed to encode in the project <i>Beta maṣāḥǝft</i>.</p>
+
+<div class="P9">The methodology, whose ground concepts have been stated in the first section of this introduction, starts with the definition and identification of <i>discontinuités</i> (discontinuities) which identify<i> éléments</i> (elements) and potential <i>unités</i> (units). An element<sup><a class="footnote-reference" id="footnote-reference-19" href="#footnote-19">19</a></sup> is necessarily comprised between two discontinuities (including the beginning and the end of the manuscript). An element corresponds to one or more of the observable discontinuities of one category and a unit corresponds to one or a series of elements (not necessarily adjacent) and is the meaningful building block of a description (Andrist, Canart, and Maniaci 2013, 83) of a category as a stage towards the final description of the manuscript. The <i>models</i> to which a series of units can correspond are the actual real-world-things and are both the starting point of the observation and the result of it: the cataloguer sees that a manuscript is composed of one material throughout, e.g. parchment, and will know that it is a Modèle Mat 1, where there is one material element, which corresponds to one material unit (Andrist, Canart, and Maniaci 2013, 85);<sup><a class="footnote-reference" id="footnote-reference-20" href="#footnote-20">20</a></sup> a cataloguer could equally assign one UniMat to the entire manuscript or assign it to the Mat1 class directly to conclude that it is an instance of the Modèle Mat 1. For example, most Ethiopian manuscripts are made entirely of parchment and can be treated this way, unless some further research is made and for example, it is found that the parchment of a part is obtained from one animal species and the parchment of another part comes from a different one, which might lead to distinguish two UniMat, if relevant. </div>
+
+<p class="P9">Core concepts defined in <i>La Syntaxe</i> are the ‘Unité de Production’ (production unit, hence UniProd) and the ‘Unité de Circulation’ (circulation unit, hence UniCirc) (Andrist, Canart, and Maniaci 2013, 59–62). Every change occurring to the structure produces one or more circulation units and possibly one or more production units. These are the meaningful stratigraphic units.</p>
+
+<div class="P9">There are three main stages in the methodology (Andrist, Canart, and Maniaci 2013, 8):<sup><a class="footnote-reference" id="footnote-reference-21" href="#footnote-21">21</a></sup></div>
+
+<ol>
+  <li>List discontinuities
+    <ol type="a">
+      <li>Add to a flat list.<sup><a class="footnote-reference" id="footnote-reference-22" href="#footnote-22">22</a></sup></li>
+      <li>Draw a table where converging discontinuities (<i>discontinuités convergentes</i>) are visible.</li>
+    </ol>
+  </li>
+  <li>Enrich the table with chronological and geographical information to verify the relevance of the discontinuities and consequently recognize production units and circulation units (see below).</li>
+  <li>Go back to the manuscript to check theoretical results with archaeological analysis.</li>
+</ol>
+
+<p class="P9">In the process of formulating a hypothesis in step 2 the researcher will start from UniProd and UniCirc 'Hypothetique', UPH and UCH (Andrist, Canart, and Maniaci 2013, 111). These will become certain only once the process is completed, or until new evidence can challenge the statements made.</p>
+
+<div class="P9">The stages of the methodology are supported in a digitally based workflow like the one of <i>Beta maṣāḥǝft</i> not only by RDF, but also from the actual format of the underlying data, TEI, and by the visualization technologies used.<sup><a class="footnote-reference" id="footnote-reference-23" href="#footnote-23">23</a></sup></div>
+
+<p class="P9">The first step of the methodology (point 1a in the list above), which involves the observation and encoding of the information about the manuscript and its discontinuities, can be accomplished by encoding in TEI the information available and be made in such a way that it benefits of the structure of the TEI tree (i.e. it is not simply a flat list). The second step (point 2 in the list above) and the table visualization (point 1b in the list above) can be achieved directly from TEI (Stokes 2015a, 2015b) but also from an RDF representation with the advantage in this case of drawing from any relevant statement taken individually, and free of its hierarchical definition. This stage involves the assignment of UniProd and the definition of potential UniProd and UniCirc to be verified in the third stage (point 3 in the list above) and these two steps (2 and 3 in the list above) need to be repeated as many times as required for each working hypothesis. </p>
+
+<p class="P9">Together with the description, we want here to formally encode also the statements about the hypothetical reconstruction of the UniProd and UniCirc involved. There are thus two kinds of information: </p>
+
+<ol>
+  <li>the identification of discontinuities and the verification of their relevance and</li>
+  <li>the reconstruction hypothesis.</li>
+</ol>
+
+<p class="P25">The latter are relational statements in nature and are much better represented in an RDF graph (as in the book, see Fig. 1). However, to be able to iterate the process in one workflow also these hypotheses need to be encoded in the TEI as the description. The researcher will thus only produce TEI, for both purposes and this will be transformed into RDF. The RDF becomes invisible in the workflow.</p>
+
+<figure id="figure01">
+<img alt="" src="images/fig1.png" title="" />
+<figcaption>Fig 1. The graph-like representations of the transformation models in <i>La Syntaxe</i></figcaption>
+</figure>
+
+<p class="P9">The methodology translates then in the digitally based workflow into the following steps, where numbers identify researcher steps and letters steps performed by the software.</p>
+
+<ol><!--is there a simpler way to do this list with the indenting he wants?-->
+  <li>Encode in TEI
+    <ol type="a">
+      <li>the description<sup><a class="footnote-reference" id="footnote-reference-24" href="#footnote-24">24</a></sup></li>
+      <li>the hypotheses</li>
+    </ol>
+  </li>
+</ol>
+ <ol type="A">
+    <li>Produce RDF data</li>
+    <li>Produce visualizations from the RDF</li>
+ </ol>
+<ol start="2">
+  <li>Check the visualizations (tables, charts, graphs, etc.)</li>
+  <li>Verify (and here is good to have images available) and eventually go back to step 1b.</li>
+</ol>
+
+<p class="P9">The production of the visualizations is done from the RDF which is produced behind the scenes for both descriptions <i>and</i> hypothesis (as we shall see in the example of Bern, Burgerbibliothek, Cod. 459 below). Adding element nodes to the TEI description means at the same time adding graph nodes to the RDF and being able to use them in the statements which build the hypotheses, but as little inferences are made as possible and there is no intent to magically transform a flat description of a manuscript in a syntactic description: this can be done only by the researcher and the current workflow tries to support him/her in doing this. Only the cataloguer can decide if to make and add a statement which relates a particular element or unit to a UniProd and a particular UniCirc and will do that in the TEI either enriching the description with more nodes or by adding a relation.</p>
+
+<p class="P9">The enriched table (Fig. 2.1) representation needs also to follow some logic and apply some rules which will be part of a script. For <i>Beta maṣāḥǝft,</i> at the moment we use a simple JS script which takes the results of a SPARQL query (Harris and Seaborne 2013) and transforms them into a table as we will describe below as an example. On-demand the table is then enriched with more data which is taken this time directly from the TEI (Fig. 2.2).</p>
+
+<figure id="figure02.1">
+<img alt="" src="images/fig2.1.png" title="" />
+<figcaption>Fig. 2.1. Table of Units example</figcaption>
+</figure>
+
+<figure id="figure02.2">
+<img alt="" src="images/fig2.2.png" title="" />
+<figcaption>Fig. 2.2. Example of enriched table of units</figcaption>
+</figure>
+
+<div class="P9">The enrichment of the table can be drawn on the information available in the TEI encoded description, but also from the wider graph of relations available in the RDF, leading to revisions of the TEI encoding or additions to that description. Images can also be added to the table view if they are available. In <i>Beta maṣāḥǝft</i>, the TEI description of the manuscript is also used to generate a Manifest according to the IIIF Presentation API<sup><a class="footnote-reference" id="footnote-reference-25" href="#footnote-25">25</a></sup> and the &lt;locus&gt; element with its attributes can be used to retrieve the correct image. Date, references to persons or places and other information are added only if directly linked to the unit, for example, if they are inside the relevant element, and they are applied to the minimal possible scope. For example, the date in a colophon, unless explicitly related by a triple to the entire manuscript, is only associated with the unit to which the colophon belongs.<sup><a class="footnote-reference" id="footnote-reference-26" href="#footnote-26">26</a></sup></div>
+
+<p class="P9">In the following section, we will look at the first part of this implementation of the workflow, i.e. how the observation of the manuscript as described in <i>La Syntaxe</i> and the hypothesis are encoded in TEI. Section 3 will then describe the structure of the RDF data produced from the TEI which uses classes and properties of the ontology-based on <i>La Syntaxe</i> and the following examples will describe how the statements about the stratigraphic reconstruction are produced.</p>
+</section>
+
+</section>
+
+
+<section id="section2">
+
+<h2>2. Using TEI to encode</h2>
+
+<p class="P9">As we have seen in the previous section, we have two sets of information to encode, the description of the elements and units on one side and the hypotheses on the relation between the units (especially UniProd and UniCont) on the other. The first of these tasks is achieved well in TEI, the second calls for a graph data structure. We have also seen how we need to have for different workflow purposes both types of information encoded in TEI, but we also want to have both available in RDF, so that we can use the graph and we can point to entities in the description. The process of getting the entities in RDF which will allow anchoring the triples with the hypothesis is a prerequisite to be able to do that at all. We need then to transform some of the nodes in the TEI encoded description into triples which can be used to make statements according to <i>La Syntaxe</i> in the hypotheses formulation stages.</p>
+
+<div class="P9">Mapping TEI to the elements and units used in <i>La Syntaxe</i> for the description of the manuscript is an intellectual exercise which might seem as disappointing as it is tedious. <i>La Syntaxe</i> is a <i>modèle interpretatife</i> (Andrist, Canart, and Maniaci 2013, 44), not a descriptive markup like TEI or a Conceptual Reference Model like the CIDOC-CRM or a data model in a relational database.<sup><a class="footnote-reference" id="footnote-reference-27" href="#footnote-27">27</a></sup></div>
+
+<p class="P9">There are indeed nodes in TEI which contain quite exactly the information regarding a specific discontinuity, for example, a &lt;layout&gt; or a &lt;handNote&gt; which give the information about a specific layout in the manuscript, eventually also with the indication in a &lt;locus&gt; element of the physical location of the discontinuity. They can in most cases be equated respectively to <i>Unités de mise en page</i> (UniMep) and <i>Unités de mains</i> (UniMain) using the abbreviations in <i>La Syntaxe</i>. The &lt;locus&gt; element is pivotal to all the described process as it provides the coordinates of a phenomenon and its attributes @from, @to and @target are used to provide the actual ranges or exact locations of phenomena.</p>
+
+<p class="P9">For example, the following TEI tells us that there are three UniMep, one for each &lt;layout&gt;, in Saint Petersburg, Rossijskaja Nacionalnaja Biblioteka, RNB Ef. n.s. 1 (Nosnitsin 2016)</p>
+
+<figure id="code2">
+<pre><code>
+	&lt;layoutDesc&gt;
+		&lt;layout columns="1" writtenLines="22"&gt;
+		   &lt;locus from="1" to="136"/&gt;
+		&lt;/layout&gt;
+		&lt;layout columns="2" writtenLines="22"&gt;
+		   &lt;locus from="137" to="150"/&gt;
+		&lt;/layout&gt;
+		&lt;layout columns="2" writtenLines="36"&gt;
+		   &lt;locus target="#151"/&gt;
+		&lt;/layout&gt;
+	&lt;/layoutDesc&gt;
+</code></pre>
+</figure>
+
+<p class="P9">A <i>Unité de support material</i> (UniMat), would be typically described in the &lt;physDesc&gt; element with a descriptive structure. All features of the manuscript physical description can be easily and intuitively encoded here, and the cataloguer could say for example that the material of the codex is parchment with the following markup (taken from the same manuscript description above):</p>
+
+<figure id="code3">
+<pre><code>
+	&lt;supportDesc&gt;
+		&lt;support&gt;
+		   &lt;material key="parchment"/&gt;
+		&lt;/support&gt;
+	&lt;/supportDesc&gt;
+</code></pre>
+</figure>
+
+<div class="P9">As there is often no &lt;locus&gt; as the information is given generally, it is not so obvious to which part of the manuscripts this refers to when we translate it to a UniMat. However, in <i>Beta maṣāḥǝft</i>, this is by far the most common situation<sup><a class="footnote-reference" id="footnote-reference-28" href="#footnote-28">28</a></sup> and if no other statement is available, we can assign this Unit to the entire extent of the manuscript part in which this markup occurs declaring one UniMat (which would also correspond to an élMat). We use systematically &lt;msPart&gt; and &lt;msFrag&gt; in the description, which means that the scope of this information is already specified (see 4.4).</div>
+
+<p class="P9">Some entities simply cannot be equated to a node in the TEI description like a UniProd or a UniCirc, given that the TEI documents a manuscript with its transcription as in <i>Beta maṣāḥǝft</i>. Adding these as elements in a TEI schema would be of little help and only contribute to making the TEI less canonical. A UniProd or a UniCirc define an entirely different semantic concept. However, one could assume that the manuscript as we have it in our hands is always a UniCirc and at least one UniProd. But we cannot instantiate this as a specific UniCirc or UniProd in the description of the manuscript, we can only state, after analysis of a given set of information, that it is in one or the other or both of those classes, without any specific identification, which is a partial statement that we can reuse later in the process. </p>
+
+<p class="P9">There are also units in <i>La Syntaxe</i> which are described by more nodes in the TEI (including the example for UniMat above) or by nodes which are made unambiguous by their path in the XML representation but once extracted and transformed into a non-hierarchical structure might lose this characteristic and need their specification. For example, in our TEI descriptions we use the element &lt;item&gt; as a descendant of &lt;collation&gt; for the description of each quire, and as a descendant of &lt;additions&gt; for each addition or extra in the manuscript. These nodes need to be evaluated in the conversion from TEI to RDF so that they remain distinguished, and we will see below which technique we have used to achieve this.</p>
+
+<p class="P9">Let us take the example of the manuscript contents. There are three terms defined in <i>La Syntaxe</i>: <b>Contenu</b>, <b>texte</b>, <b>œuvre</b> (Andrist, Canart, and Maniaci 2013, 51). The first is defined as ‘le message qu’il transmet à travers un ensamble de signes’ [tr: the message that it [the manuscript] transmits through a series of signs] and is then distinguished in <i>contenus principaux (œuvres ou copies d’œuvres, images, décorations, partitions musicales, un mélange de celles-ci, des notes marginales sur un texte...)</i> [tr: main contents (works or copies of works, images, decorations, musical notations, mixtures of these, marginal notes on a text…)] and <i>contenus accessoires (notes de possession, cotes du manuscrit, graffiti, probationes calami, obit, marques de succession) </i>[tr: additional contents (ownership notes, <i>cotes du manuscript,</i> graffiti, probationes calami, obit, succession marques)]. These find in a TEI description (TEI Consortium, Sperberg-McQueen, and Burnard 2018) of a manuscript their distinct places quite easily: </p>
+
+<blockquote id="blockquote1"><p>Contenu principaux = &lt;msItem&gt;s in &lt;msContents&gt; “(manuscript item) describes an individual work or item within the intellectual content of a manuscript or manuscript part.” </p></blockquote>
+
+<blockquote id="blockquote2"><p>Contenu accessoires = &lt;item&gt;s in &lt;additions&gt; “contains a description of any significant additions found within a manuscript, such as marginalia or other annotations.” This might encompass a list of items, one for each such addition.</p></blockquote>
+
+<div class="P9">But since the <b>œuvre</b> is a ‘production organisée de l’esprit, considerérée dans un sens immatériel’ [tr: organized production of the spirit, considered in its immaterial sense] there needs to be a distinction between the <b>exemplaire</b> in the manuscript and the <b>œuvre</b>. This is achieved in <i>Beta maṣāḥǝft</i> by having the works in separate records referenced from the TEI description of the Manuscripts, a common solution for the data architecture used also by many other projects.<sup><a class="footnote-reference" id="footnote-reference-29" href="#footnote-29">29</a></sup></div>
+
+<p class="P9">There will be then two types of TEI files, one describing a manuscript and one describing a work. Each of these TEI encoded entities will contain a tagged description in XML of the manuscript or of the work with its editions. All elements at all levels could be an entity and have their own URI, but this is not always practical. In <i>Beta maṣāḥǝft</i> we give organized and structured xml:id attributes to the elements in the TEI files which have a specific status as a relevant and referenceable entity in the description. In manuscripts, for example, the elements &lt;handNote&gt; and &lt;decoNote&gt;, but also &lt;msItem&gt; and even the very generic &lt;item&gt; element, when this is used as in the example below to include information about the additions; or &lt;div&gt; if it encodes a meaningful part of a transcribed text. </p>
+
+<div class="P9">When creating RDF and entities with URIs,<sup><a class="footnote-reference" id="footnote-reference-30" href="#footnote-30">30</a></sup> this simple encoding practice allows assigning</div>
+
+<ul>
+  <li>a URI to a literary work (<b>œuvre</b>),</li>
+  
+  <li>a URI to a manuscript,</li>
+  
+  <li>a URI to the main contents (<b>exemplaire</b>) of the manuscript, i.e. that copy of the intellectual work, as a &lt;msItem&gt; to which we have assigned an ID,</li>
+  
+  <li>a URI to each additional content.<sup><a class="footnote-reference" id="footnote-reference-31" href="#footnote-31">31</a></sup></li>
+</ul>
+
+<p class="P9">For example in <i>Beta maṣāḥǝft</i> encoding of Vatican City, Biblioteca Apostolica Vaticana, Aeth. 1 (Villa and Reule 2016) and the Gospel of Luke (Villa 2017)</p>
+
+<ul>
+  <li>The Gospel of Luke as an abstract and organized intellectual product (<b>œuvre</b>) is the entity <a href="http://betamasaheft.eu/LIT2713Luke">https://betamasaheft.eu/LIT2713Luke</a>;</li>
+  
+  <li>The Biblioteca Apostolica Vaticana Ethiopic Manuscript 1 is a manuscript, the entity <a href="http://betamasaheft.eu/BAVet1">https://betamasaheft.eu/BAVet1</a>;</li>
+  
+  <li>The Gospel of Luke in the above manuscript is the entity<sup><a class="footnote-reference" id="footnote-reference-32" href="#footnote-32">32</a></sup> <a href="http://betamasaheft.eu/BAVet1/msitem/ms_i1.4.2">https://betamasaheft.eu/BAVet1/msitem/ms_i1.4.2</a>;</li>
+  
+  <li>The Calendaric note on folio 219r is the entity <a href="http://betamasaheft.eu/BAVet1/addition/a3">https://betamasaheft.eu/BAVet1/addition/a3</a></li>
+</ul>
+
+<p class="P9">Additionally, each of these is assigned to a class (and it can be added to as many as one wishes)</p>
+
+<ul>
+  <li><a href="http://betamasaheft.eu/LIT2713Luke">https://betamasaheft.eu/LIT2713Luke</a> is an instance in the class <a href="http://lawd.info/ontology/ConceptualWork">http://lawd.info/ontology/ConceptualWork</a> 'The idea of a work, which may have any number of written expressions (which may themselves have derivatives)';<sup><a class="footnote-reference" id="footnote-reference-33" href="#footnote-33">33</a></sup></li>
+  
+  <li><a href="http://betamasaheft.eu/BAVet1">https://betamasaheft.eu/BAVet1</a> is an instance in the class <a href="http://lawd.info/ontology/AssembledWork">http://lawd.info/ontology/AssembledWork</a> 'A Written Work that collects together more than one Written Work. Manuscripts are often AssembledWorks';<sup><a class="footnote-reference" id="footnote-reference-34" href="#footnote-34">34</a></sup></li>
+  
+  <li><a href="http://betamasaheft.eu/BAVet1/msitem/ms_i1.4.2">https://betamasaheft.eu/BAVet1/msitem/ms_i1.4.2</a> is an instance in the class <a href="http://betamasaheft.eu/msitem">https://betamasaheft.eu/msitem</a> which includes contents of a manuscript and might be an instance in the class UniCont;</li>
+	
+  <li><a href="http://betamasaheft.eu/BAVet1/addition/a3">https://betamasaheft.eu/BAVet1/addition/a3</a> is an instance in the class; <a href="http://betamasaheft.eu/addition">https://betamasaheft.eu/addition</a> which includes all the contents which have been encoded like additions because they have that status in the manuscript being described and might be an instance in the class UniCont.</li>
+</ul>
+
+<div class="P19">This loads on the @xml:id attributes present in a TEI file a further requirement (which we enforce also in our project schema) not just to be unique but also to contain some semantic information. In <i>Beta maṣāḥǝft</i> a &lt;handNote&gt; will always have an ID starting with ‘h’, an extra has to have an ID starting with ‘e’ and a title needs to start with ‘t’, for example, so that from the id and knowing the schema and guidelines, one can tell what he is looking at. In the example above we have seen the ID of a &lt;msItem&gt; and this contains also information about the actual position of the node<sup><a class="footnote-reference" id="footnote-reference-35" href="#footnote-35">35</a></sup> in the description, telling us that the node with ID “ms_i1.4.2” is the second &lt;msItem&gt; inside the fourth secondary level &lt;msItem&gt;, inside the first main level &lt;msItem&gt; of &lt;msDesc&gt;. One could eventually also build an XPath expression from this, like //msDesc/msContents/msItem[1]/msItem[4]/msItem[2]. The ID tells us also that this manuscript does not have &lt;msPart&gt;s as this content unit is inside &lt;msDesc&gt;. A content item of a &lt;msPart&gt; would have had according to the project guidelines an id of the kind “p1_i1.4.2”. </div>
+
+<div class="P19">These standardized IDs allow also to create further ones and rely on them for the transformation. For example, assigning an ID starting with “tr” will result in the process (the XSLT transformation producing the RDF XML)<sup><a class="footnote-reference" id="footnote-reference-36" href="#footnote-36">36</a></sup> in creating an entity for a transformation; assigning an ID starting with UniCirc will result in the process in creating a circulation unit with that ID, both of which correspond to no element or fragment of description in the TEI but exist as nodes in the graph representation.<sup><a class="footnote-reference" id="footnote-reference-37" href="#footnote-37">37</a></sup></div>
+
+<div class="P19">There are then a series of information which can be encoded in the &lt;relation&gt; element in a TEI description.<sup><a class="footnote-reference" id="footnote-reference-38" href="#footnote-38">38</a></sup> This is defined as follows, “(relationship) describes any kind of relationship or linkage amongst a specified group of places, events, persons, objects or other items”<sup><a class="footnote-reference" id="footnote-reference-39" href="#footnote-39">39</a></sup> and uses attributes which make of it an ideal candidate to store triples directly in TEI as documented also in the examples of the guidelines.<sup><a class="footnote-reference" id="footnote-reference-40" href="#footnote-40">40</a></sup> In <i>Beta maṣāḥǝft,</i> it is used for example to state the relationship between different versions of a given conceptual work and it is used to encode all the relations needed by the methodology of <i>La Syntaxe</i>. This will be shown in the examples below but we need first to see how the methodology is converted into an ontology that can be used to produce such annotations and statements.</div>
+
+</section>
+
+
+<section id="section3">
+
+<h2>3. From TEI to RDF: <i>La Syntaxe</i> as Ontology</h2>
+
+<p class="P9">As already stated, <i>La Syntaxe</i> is much more than a methodology, it is also an ontology in the semantic web meaning of this word, describing classes and properties as well as guidance in how to properly make use of them. </p>
+
+<p class="P9">The process of translating it into a formal ontology in OWL is thus simple in its first stages. Each unit and each transformation is a class, organized as described in the book and there need to be then basic object properties relating such classes. </p>
+
+<div class="P9">For example, in the ontology we find statements like the following:<sup><a class="footnote-reference" id="footnote-reference-41" href="#footnote-41">41</a></sup></div>
+
+<figure id="code4">
+<pre><code><b>
+	&lt;owl:ObjectProperty rdf:about="https://w3id.org/sdc/ontology#constituteUnit"&gt;
+		&lt;rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/&gt;
+		&lt;rdfs:domain rdf:resource="https://w3id.org/sdc/ontology#Unit"/&gt;
+		&lt;rdfs:range rdf:resource="https://w3id.org/sdc/ontology#UniProd"/&gt;
+		&lt;rdfs:comment xml:lang="en"&gt;states that one or more identified elements 
+		  constitute a unit, which can be certain or hypothetical&lt;/rdfs:comment&gt;
+	&lt;/owl:ObjectProperty&gt;
+</b></code></pre>
+</figure>
+
+<figure id="figure03.1">
+<img alt="" src="images/fig3.1.png" title="" />
+<figcaption>Fig 3.1. Ontology property in Protégé</figcaption>
+</figure>
+
+<p class="P9">And</p>
+
+<figure id="code5">
+<pre><code><b>
+  &lt;owl:Class rdf:about="https://w3id.org/sdc/ontology#A1"&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://w3id.org/sdc/ontology#Accroissement"/&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://w3id.org/sdc/ontology#MA3"/&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://w3id.org/sdc/ontology#MA4"/&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://w3id.org/sdc/ontology#R1"/&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://w3id.org/sdc/ontology#R3"/&gt;
+        &lt;rdfs:subClassOf rdf:resource="https://w3id.org/sdc/ontology#Restauration"/&gt;
+        &lt;rdfs:label xml:lang="fr"&gt;ajout de support matériel avec contenu&lt;/rdfs:label&gt;
+  &lt;/owl:Class&gt;
+</b></code></pre>
+</figure>
+
+<figure id="figure03.2">
+<img alt="" src="images/fig3.2.png" title="" />
+<figcaption>Fig 3.2. Ontology property in Protégé</figcaption>
+</figure>
+
+<p class="P9">It is much easier to handle this code with an interface and look at it with a software application like <i>Protégé</i> as shown by figs. 3.1 &amp; 2, though I show the raw RDF so that readers can confirm that the very same structure for triples is used. </p>
+
+<p class="P9">This ontology alone does not serve any purpose without reading and understanding the book, its only purpose is to allow the annotation of statements made following <i>La Syntaxe</i>.</p>
+
+<p class="P9">The classes are organized in the following way. UniCirc and UniProd are the most important top classes, and UniProd has subclasses UniProd-C, UniProd-C-MC, UniProd-M, UniProd-MC. These, as constituents of the main description, do not have subclasses and are related to Units and Models with specific properties. Other two special main classes are Certain and Hypothetique. The other top classes represent the core concepts of the methodology: </p>
+
+<ul>
+  <li><i>Transformation</i>, which has subclasses simple and multiple each of which lists the main typologies as in the book,</li>
+  
+  <li><i>Modele</i>, which contains as subclasses all the models for each unit,</li>
+  
+  <li><i>Unit</i> where only the main unit type is a class and the relative element is a subclass of it,</li>
+  
+  <li><i>Stratum</i>, which contains the 4 types of strata defined in Andrist 2015, 512.<sup><a class="footnote-reference" id="footnote-reference-42" href="#footnote-42">42</a></sup></li>
+</ul>
+
+<p class="P9">Whilst all classes are only taken from the book, the object properties have been defined by myself based on an economic principle and are the following:</p>
+
+<ul>
+  <li><i>constituteUnit</i> which relates a unit (or more) to a UniProd</li>
+  
+  <li><i>containsUnits</i> which relates UniProd and UniCirc to other units</li>
+  
+  <li><i>hasCertainty</i> used to assign the classes Certain or Hypothetique to a given UniProd or UniCirc (although Hypothetique should be assumed where no information is provided)</li>
+  
+  <li><i>undergoesTransformation</i> which connects a UniProd or UniCirc with the Transformation in the object</li>
+  
+  <li><i>produces </i>which connects a Transformation to its resulting UniProd</li>
+  
+  <li><i>resultsIn </i>which connects a Transformation to its resulting UniCirc (or UniProd)</li>
+  
+  <li><i>hasTransformationModel </i>which defines for a Transformation a given model</li>
+  
+  <li><i>hasTransformationPart </i>and <i>isPartOfTransformation </i>which relate two or more Transformations to a complex Transformation</li>
+  
+  <li><i>hasUnitModel </i>which relates a Unit to a Model</li>
+  
+  <li><i>isStratumOf </i>used to connect a defined stratum to a UniCirc</li>
+  
+  <li><i>hasStratum </i>used to define a stratum of a UniCirc</li>
+</ul>
+
+<p class="P9">None of these statements is in any way mandatory. One could have any discrete piece of information to provide and it would be fine. Units constitute UniProd and UniCirc which undergo transformations to produce other UniProd and UniCirc. Any of these should be analyzable as an entity in its own right, without duplicating the descriptions for this purpose.</p>
+
+<div class="P9">It has to be said that for the methodology to be used a series of other statements need to be available, which are taken from the TEI description and mapped to RDF statements, but are out of the scope of the current contribution. For example, the equation between two concepts which is established using the SKOS<sup><a class="footnote-reference" id="footnote-reference-43" href="#footnote-43">43</a></sup> property skos:exactMatch and the physical location need also to be known and at the moment for <i>Beta maṣāḥǝft</i>, we produce statements using a local vocabulary,<sup><a class="footnote-reference" id="footnote-reference-44" href="#footnote-44">44</a></sup> although alignment with existing efforts is what we are aiming at. </div>
+
+<p class="P9">In our current RDF, we choose to use dcterms:hasPart as a property that relates the manuscript to its parts but also any units. dcterms:hasPart also relates a part to its assigned contents and each entity can be assigned, based on the locus element values, the local properties bm:locusTarget, bm:locusFrom and bm:locusTo, so that we can do a SPARQL query to retrieve any entity which is an instance of any of the <b>SdC</b> classes with its locus if known and plot them in a table which lists them all, regardless of where they come from in the TEI encoding.</p>
+
+<p class="P9">The query could look like this:</p>
+
+<figure id="code6">
+<pre><code><b>
+	SELECT DISTINCT ?locusFrom ?locusTo ?locusTarget ?type ?name		(1)             
+		WHERE 
+	{
+		?resource dcterms:hasPart ?part .				(2)
+		?part a ?class;
+		OPTIONAL {							(3)
+		  ?part bm:hasLocus ?locus 
+		 OPTIONAL{?locus bm:locusTarget ?locusTarget} 
+		 OPTIONAL{?locus bm:locusFrom ?locusFrom} 
+		 OPTIONAL{?locus bm:locusTo ?locusTo}
+		  }
+		BIND('BNFet45' as ?id)						(4)
+		BIND(STR(?resource) AS ?r)    
+		FILTER(contains(?r, ?id))					(5)
+		BIND(STR(?class) AS ?c)
+		FILTER ( 							(6)
+			strStarts(?c, 'https://w3id.org/sdc/ontology#') ||  
+			contains(?c, 'quire') || 
+			contains(?c, 'decoration') || 
+			contains(?c, 'addition') )
+	}
+</b></code></pre>
+</figure>
+
+
+<p class="P9">In the SELECT DISTINCT statement (1) I am declaring the names of the variables I want to use, prefixed with '?', this will be the headings of my table. (2) says that the resource I want to look for has a part, i.e. there is a triple which has exactly that structure. There will be many indeed, this is a very vague statement, so I am going to filter. The OPTIONAL statement (3) tells the query to take the triples if they are there. In this case, I am saying: if there is any placement information, then take whatever is there. There might be nothing, a target or more, from and to: if there is any of those, take it, if there isn't, do not worry. At (4) I am giving as a string the ID of the manuscript I want to look for, so that I can (5) filter all the resources to just the one I want. If '?resource' was not declared as a variable, but directly as &lt;https://betamasaheft.eu/BNFet45/&gt; I would have of course not needed to do any of this. I then (6) filter all the results to get only the classes I want. </p>
+
+<p class="P9">The table produced will have all the <b>SdC</b> triples available for the manuscript BNFet45 (see examples below) which is not at all like the table in <i>La Syntaxe</i>. The example below gives only some results to make the table more explicit</p>
+
+<table id="table1" border="2">
+  <colgroup>
+  <col width="148"/>
+  <col width="148"/>
+  <col width="148"/>
+  <col width="148"/>
+  <col width="149"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th style="text-align:left">locusFrom</th>
+    <th style="text-align:left">locusTo</th>
+    <th style="text-align:left">locusTarget</th>
+    <th style="text-align:left">type</th>
+    <th style="text-align:left">name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>1r</td>
+    <td></td>
+    <td></td>
+    <td>UniCont</td>
+    <td>p1_i1.1</td>
+  </tr>
+  <tr>
+    <td>18v</td>
+    <td></td>
+    <td></td>
+    <td>UniCont</td>
+    <td>p1_i1.2</td>
+  </tr>
+  <tr>
+    <td>162r</td>
+    <td>162v</td>
+    <td></td>
+    <td>addition</td>
+    <td>a1</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>162r</td>
+    <td>colophon</td>
+    <td>coloph1</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="P9">To produce the table (see Fig 2.1. and 2.2) as described in <i>La Syntaxe</i> (Andrist, Canart, and Maniaci 2013, 113) the javascript will get the results of this query<sup><a class="footnote-reference" id="footnote-reference-45" href="#footnote-45">45</a></sup> then, for each page, getting the total from the &lt;extent&gt; element of the TEI (1r, 1v, 2r, 2v, etc.) builds a table row with a column for each of the Units (we use also additions and decorations units) and if in the query results there are some with a unit which has a range matching that page, then the unit name is added to that column. Once the looping through all the rows is done, equal rows are collapsed updating the folios range to the correct one. </div>
+
+<p class="P9">Given that the RDF data has triples for each UniCirc which have been defined, a similar or even simpler query could be run to construct a graph only for a specific UniCirc.</p>
+
+<p class="P9">For example, if I want to have a graph which has all triples directly involving the main entity for manuscript BNFet45 (see 4.4) I would do something like this</p>
+
+<figure id="code7">
+<pre><code><b>
+	CONSTRUCT {&lt;https://betamasaheft.eu/BNFet45&gt; ?predicate ?object . 		(1)
+		  ?subject2 ?predicate2 &lt;https://betamasaheft.eu/BNFet45&gt;}
+	WHERE {										(2)
+	      {&lt;https://betamasaheft.eu/BNFet45&gt; ?predicate ?object}
+	     UNION
+	      {?subject2 ?predicate2 &lt;https://betamasaheft.eu/BNFet45&gt;}
+	}
+</b></code></pre>
+</figure>
+
+<p class="P9">The CONSTRUCT instruction (1) declares the shape I want the data retrieved to have, so I can go from one graph to another graph declaring a template for the data retrieved with WHERE (2). Here it will be just the same, I am using this to get as a response a graph instead of a result which uses the SPARQL Query Results XML format. What I want to highlight is that I can do the same about the UniCirc1 declared for it (see below Example 4). Note that I have just changed the subject of the statements.</p>
+
+<figure id="code8">
+<pre><code><b>
+	CONSTRUCT {&lt;https://betamasaheft.eu/BNFet45/UniCirc/UniCirc1&gt; ?p ?o . 
+		  ?s2 ?p2 &lt;https://betamasaheft.eu/BNFet45/UniCirc/UniCirc1&gt;}
+	WHERE {
+	      {&lt;https://betamasaheft.eu/BNFet45/UniCirc/UniCirc1&gt; ?p ?o}
+	     UNION
+	      {?s2 ?p2 &lt;https://betamasaheft.eu/BNFet45/UniCirc/UniCirc1&gt;}
+	}
+</b></code></pre>
+</figure>
+
+<figure id="figure04">
+<img alt="" src="images/fig4.png" title="" />
+<figcaption>Fig 4. The same query with a UniCirc as a subject instead of a manuscript</figcaption>
+</figure>
+
+<p class="P9">I can get a description of each UniCirc starting from the observed data (see Fig. 3). With the second query in the example above, for a situation like the one in Example 4 (4.4), where some quires have been taken from BNFet45 to increase BNFet165, I will also have the &lt;msPart&gt; entity which is now part of BNFet165 because it was actually in BNFet45/UniCirc/UniCirc1, whereas a query for the UniCirc2 in that example would return only one UniProd. We can access in the same way both stages of the history of the manuscript. To encode the different, documented, certain or hypothetical circulation units in the history of a manuscript, I need not prepare a description of the reconstructed manuscript and place it together with other real-world entities. I could also search for UniProd within a certain date range, which would not return manuscripts, but only the relevant production units.</p>
+
+<p class="P9">Now that the encoding has been described and some aspects of the ontology have been presented we can start to see how the methodology is supported in some of its stages by the TEI and by the triples extracted from it.</p>
+
+</section>
+
+
+<section id="section4">
+
+<h2>4. Examples</h2>
+	
+<div class="P9">With the following examples, we are actually in a special position of encoding the results of an existing observation. The cataloguer has performed with their tools and methodology an analysis and has produced a description which has been encoded in TEI. We will see how this encoded observation is transformed into RDF and visualized.<sup><a class="footnote-reference" id="footnote-reference-46" href="#footnote-46">46</a></sup></div>
+
+
+<section id="section4.1">
+
+<h3>4.1. Example 1 - Oxford, Bodleian Library, Bodleian Aeth. e. 8</h3>
+
+<p class="P9">Our first example is Oxford, Bodleian Library, Bodleian Aeth. e. 8 (Reule 2017d), were none of the three &lt;msPart&gt; has an internal date and the dating is in general uncertain, but we know that &lt;msPart&gt; 1 and 2 were added later to the manuscript.</p>
+
+<p class="P9">The TEI, in this case, has an ID for each &lt;msPart&gt;, which is thus already recognized as a UniProd at this stage, and we have thus URIs for the three entities at play in this description.</p>
+
+<p class="P9">The RDF will contain only a relation between the manuscript (BDLaethe8) and its parts. Each statement should be something like 'BDLaethe8 has a part p1', where 'BDLaeth8' is the subject, 'has a part' is the predicate and 'part p1' is the object. Each of this is translated to a URI, which is local to the project for the instances and uses Dublin Core terms for the predicate. We will then have </p>
+
+<ul>
+<li>Subject: <a href="http://betamasaheft.eu/BDLaethe8">https://betamasaheft.eu/BDLaethe8</a></li>
+
+<li>Predicate: <a href="http://purl.org/dc/terms/hasPart">http://purl.org/dc/terms/hasPart</a></li>
+
+<li>Object: <a href="http://betamasaheft.eu/BDLaethe8/mspart/p1">https://betamasaheft.eu/BDLaethe8/mspart/p1</a></li>
+</ul>
+
+<p class="P9">In RDF-XML, our three statements can be written as follows (which is the format we will be using, omitting the prefixes for the sake of brevity)</p>
+
+<figure id="code9">
+<pre><code>
+	&lt;rdf:RDF 
+	      xmlns:dcterms="http://purl.org/dc/terms/"
+	      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"&gt;
+	     &lt;rdf:Description rdf:about="https://betamasaheft.eu/BDLaethe8"&gt;
+	   &lt;dcterms:hasPart rdf:resource="https://betamasaheft.eu/BDLaethe8/mspart/p1"/&gt;
+	   &lt;dcterms:hasPart rdf:resource="https://betamasaheft.eu/BDLaethe8/mspart/p2"/&gt;
+	   &lt;dcterms:hasPart rdf:resource="https://betamasaheft.eu/BDLaethe8/mspart/p3"/&gt;
+	&lt;/rdf:Description&gt;
+	&lt;/rdf:RDF&gt;
+</code></pre>
+</figure>
+
+<div class="P19">Which would be the same as in Turtle<sup><a class="footnote-reference" id="footnote-reference-47" href="#footnote-47">47</a></sup> for example</div>
+
+<figure id="turtle">
+<img alt="" src="images/turtle.png" title="" />
+</figure>
+
+<p class="P9">It does not say explicitly that these are UniProd, because the cataloguer did not want to make that statement. Nevertheless, the information provided by the cataloguer is enough for us to hypothesize he is describing a transformation of the type A1: <i>ajout de support matériel et de contenu </i>[tr: addition of material support and content] (Andrist, Canart, and Maniaci 2013, 63) where both material support and contents are added to an existing UniCirc producing a new UniCirc.</p>
+
+<div class="P9">Given the encoding method described above, we could represent this in the TEI like in the following example.<sup><a class="footnote-reference" id="footnote-reference-48" href="#footnote-48">48</a></sup></div>
+
+<figure id="code10">
+<pre><code>
+	&lt;listRelation&gt;
+		&lt;relation active="BDLaethe8#p3" name="sdc:constituteUnit" passive="BDLaethe8#UniCirc1"/&gt;
+		&lt;relation active="BDLaethe8#UniCirc1" name="sdc:undergoesTransformation" passive="BDLaethe8#tr1"/&gt;
+		&lt;relation active="BDLaethe8#tr1" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;
+		&lt;relation active="BDLaethe8#tr1" name="sdc:produces" passive="BDLaethe8#p1"/&gt;
+		&lt;relation active="BDLaethe8#tr1" name="sdc:produces" passive="BDLaethe8#p2"/&gt;
+		&lt;relation active="BDLaethe8#tr1" name="sdc:resultsIn" passive="BDLaethe8#UniCirc2"/&gt;
+		&lt;relation active="BDLaethe8#p1" name="sdc:constituteUnit" passive="BDLaethe8#UniCirc2"/&gt;
+		&lt;relation active="BDLaethe8#p2" name="sdc:constituteUnit" passive="BDLaethe8#UniCirc2"/&gt;
+		&lt;relation active="BDLaethe8#UniCirc2" name="dcterms:hasPart" passive="BDLaethe8#p1"/&gt;
+		&lt;relation active="BDLaethe8#UniCirc2" name="dcterms:hasPart" passive="BDLaethe8#p2"/&gt;
+		&lt;relation active="BDLaethe8#UniCirc2" name="dcterms:hasPart" passive="BDLaethe8#p3"/&gt;
+		&lt;relation active="BDLaethe8#UniCirc1" name="dcterms:hasPart" passive="BDLaethe8#p3"/&gt;
+		&lt;relation active="BDLaethe8#UniCirc2" name="skos:exactMatch" passive="BDLaethe8"/&gt;
+	&lt;/listRelation&gt;
+</code></pre>
+</figure>
+
+<p class="P9">Here we start defining only the part 3 as UniCirc, by giving it the ID ‘UniCirc1’ using the property sdc:constituteUnit from the ontology. The XSLT script producing the RDF will parse the ID to create an entity with that ID and assign it to the class sdc:UniCirc. Then we say that part 3 (UniCirc1) has undergone a transformation (property sdc:undergoesTransformation). During this process of transformation part 1 and part 2 were produced (sdc:produces) by this transformation, which resulted (sdc:resultsIn) the UniCirc2. Now that the two parts have come into the game, we can also explicitly assign them to the UniCirc2 with the property sdc:constituteUnit. To be consistent with the rest of the ontology describing the manuscript, of which you have a snippet above, we can also repeat the dcterms:hasPart nodes for each UniCirc. We are defining a transformation with ID ‘tr1’, which will become an entity and will be assigned to the sdc:Transformation class by the XSLT. Then we want to say that we know that this transformation is an addition of material and content, thus a transformation of type A1, and we do so using the property sdc:hasTransformationModel. The same transformation is the one producing the new UniCirc. Now that we have also this entity (but the order of the encoded elements is irrelevant, we are just following the logic in the argument) we can say that it is this one UniCirc with ID ‘UniCirc2’ which corresponds to the manuscript we have in our hands. We cannot make any further statement about UniProd or about the pertinence of the parts 1 and 2 to another UniCirc and we do not do so.</p>
+
+<p class="P9">The XML notation above produces the following triples in Fig. 5.1 (which are stored as RDF XML in our project).</p>
+
+<figure id="figure05.1">
+<img alt="" src="images/fig5.1.png" title="" />
+<figcaption>Fig 5.1. Oxford, Bodleian Library, Bodleian Aeth. e. 8 triples as viewed in the RDF validator (<a href="https://www.w3.org/RDF/Validator">https://www.w3.org/RDF/Validator</a>)</figcaption>
+</figure>
+
+<div class="P9">Each part is by default assigned also to the UniProd class, but without any entity to define this unit. A visualization of these nodes is given below (Fig. 5.2).<sup><a class="footnote-reference" id="footnote-reference-49" href="#footnote-49">49</a></sup> Although the Certainty nodes are not in the example above for brevity, there is always the possibility to add these statements.</div>
+
+<figure id="figure05.2">
+<img alt="" src="images/fig5.2.png" title="" />
+<figcaption>Fig 5.2. Graph visualization of Oxford, Bodleian Library, Bodleian Aeth. e. 8</figcaption>
+</figure>
+
+<div class="P9">For comparison purposes, I provide here also other two visualizations (Fig. 5.3), using a graphical visualization like the one in <i>La Syntaxe </i>(which I have made with PowerPoint), and in a Sankey chart, a common visualization of graph data. These charts are produced using Google Charts<sup><a class="footnote-reference" id="footnote-reference-50" href="#footnote-50">50</a></sup> based on data queried from the RDF and seems to me to render well the reconstruction of the hypotheses about the history of the manuscript. The following is the query which is used for all the following charts of this type in the article. The results are transformed to the array or arrays required by Google Charts, i.e. again a simple table which describes the connection between entities only and in our case assigns a value to this relation. The relation name (the predicate) is not relevant for the production of this chart.</div>
+
+<figure id="code11">
+<pre><code><b>
+	SELECT DISTINCT ?from ?to ?weight							(1)
+	  WHERE {
+		BIND('BDLaethe8' as ?id)
+		{
+		  ?from sdc:constituteUnit ?to . 						(2)
+		  BIND(1 as ?weight)
+		}
+		UNION
+		{
+		  ?from sdc:undergoesTransformation ?transformation .				(3)
+		  ?transformation sdc:resultsIn ?to .
+		  BIND(2 as ?weight)
+		}
+		UNION
+		{
+		  ?from sdc:undergoesTransformation ?transformation .				(4)
+		  ?transformation sdc:produces ?to .
+		  BIND(2 as ?weight)
+		}
+		UNION
+		{
+		  ?from skos:exactMatch ?to .							(5)
+		  ?to a sdc:UniCirc .
+		  BIND(4 as ?weight)
+		}
+	  BIND(STR(?from) as ?strform)
+	  BIND(STR(?to) as ?strto)
+	  FILTER(contains(?strform, ?id))							(6)
+	  FILTER(contains(?strto, ?id))
+	  }
+</b></code></pre>
+</figure>
+
+<p class="P9">First of all (1) I am declaring the variables, i.e. the columns headers for my table, and I only need to know from where and to where the connection goes. To each connection, I then want to additionally assign a weight, so that I can vary the size of the connections and provide graphically the diverse importance or type of connections. The WHERE statement uses UNION to collect together different types of triples. I want to take (2) anything which is related by a sdc:constituteUnit property, (3) anything which is related by a transformation (sdc:undergoesTransformation) but I am not interested in the transformation itself for this chart, so the variable ?transformation is used but ignored in the response, whereas I want to have all what results (3) or is produced (4) by any transformation. Finally (5) I want to have the relation with the actual codex, which is given with skos:exactMatch. Since I used always the ?from and ?to variables I can now filter those values (6) to get only the results which contain the identifier I want to query about in either of the two positions, as subject or object.</p>
+
+<p class="P9">These diagrams show UniProd and UniCirc belonging to the subject manuscript, which is explicitly related via one of four properties. Those linked by a transformation (in two steps) either as products or results are given weight 1. UniProd and UniCirc identity declarations (sdc:constituteUnit) are given weight 2. Exact matches are given weight 3. The latter could be omitted, but I am preserving them here for completeness. This might result in some superfluous nodes which have been kept here to allow reading the chart knowing the encoded nodes. There is no chronological implication, the chart represents the units in a flow. For a stratigraphic analysis, they should be read right to left, for a history of the manuscript left to right.</p>
+
+<figure id="figure05.3">
+<img alt="" src="images/fig5.3.png" title="" />
+<figcaption>Fig 5.3. Syntaxe transformation drawing and Sankey chart of Oxford, Bodleian Library, Bodleian Aeth. e. 8</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section4.2">
+
+<h3>4.2. Example 2 - Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37</h3>
+
+<p class="P9">This example uses the same type of encoding to represent an hypothetical assertion. This is simply done by assigning the entity which is not certain, in this case, a production unit to the class sdc:Hypothetique. In the encoded description of Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37 (Valieva 2017), the editor says that a manuscript part has probably been added to the manuscript.</p>
+
+<figure id="code12">
+<pre><code>
+	&lt;listRelation&gt;
+	  &lt;relation active="BAVcerulli37#p1" name="sdc:constituteUnit" passive="BAVcerulli37#UniProd1"/&gt;
+	  &lt;relation active="BAVcerulli37#p2" name="sdc:constituteUnit" passive="BAVcerulli37#UniProd2"/&gt;
+	  &lt;relation active="BAVcerulli37#UniProd1" name="sdc:constituteUnit" passive="BAVcerulli37#UniCirc1"/&gt;
+	  &lt;relation active="BAVcerulli37#UniCirc1" name="sdc:undergoesTransformation" passive="BAVcerulli37#tr1"/&gt;
+	  &lt;relation active="BAVcerulli37#tr1" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;
+	  &lt;relation active="BAVcerulli37#tr1" name="sdc:produces" passive="BAVcerulli37#UniProd2"/&gt;
+	  &lt;relation active="BAVcerulli37#UniProd2" name="sdc:hasCertainty" passive="sdc:Hypothetique"/&gt;
+	  &lt;relation active="BAVcerulli37#UniProd2" name="sdc:constituteUnit" passive="BAVcerulli37#UniCirc2"/&gt;
+	  &lt;relation active="BAVcerulli37#tr1" name="sdc:resultsIn" passive="BAVcerulli37#UniCirc2"/&gt;
+	  &lt;relation active="BAVcerulli37#UniCirc2" name="skos:exactMatch" passive="BAVcerulli37"/&gt;
+	  &lt;relation active="BAVcerulli37#UniCirc1" name="dcterms:hasPart" passive="BAVcerulli37#p1"/&gt;
+	  &lt;relation active="BAVcerulli37#UniCirc2" name="dcterms:hasPart" passive="BAVcerulli37#p1"/&gt;
+	  &lt;relation active="BAVcerulli37#UniCirc2" name="dcterms:hasPart" passive="BAVcerulli37#p2"/&gt;
+	&lt;/listRelation&gt;
+</code></pre>
+</figure> 
+
+<p class="P9">The RDF will look after transformation like the tabular view in Fig. 6.1.</p>
+
+<figure id="figure06.1">
+<img alt="" src="images/fig6.1.png" title="" />
+<figcaption>Fig 6.1. Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37 triples as viewed in the RDF validator (<a href="https://www.w3.org/RDF/Validator">https://www.w3.org/RDF/Validator)</a>.</figcaption>
+</figure>
+
+<p class="P9">A class sdc:Hypothetique could have been associated with any statement, but here we will try to stick to the methodology described in the book and assign it to the UniProd. In this way, we are not putting in doubt the existence of the &lt;msPart&gt; as described in the TEI but only the fact it is a UniProd which was added to the other &lt;msPart&gt; with a transformation corresponding to model A1. As it is visible in the following graph visualization, it is not necessary to visualize the information if not required by the project needs (Fig. 6.2).</p>
+
+<figure id="figure06.2">
+<img alt="" src="images/fig6.2.png" title="" />
+<figcaption>Fig 6.2. Graph visualization of Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section4.3">
+
+<h3>4.3. Example 3 - Oxford, Bodleian Library, Bodleian Aeth. f. 11 (R) and Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R)</h3>
+
+<p class="P9">The case of Oxford, Bodleian Library, Bodleian Aeth. f. 11 (R) (Reule 2017a) and Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R) (Reule 2017c) shows well the value of the triples for descriptions involving several entities, where traditionally we would have found a description with possibly a link to the other entity. It also demonstrates how the methodology in <i>La Syntaxe</i> could be used for manuscripts which are not a codex, for example, fragments of papyri or pieces of a stone inscription. </p>
+
+<p class="P9">The catalogue which is the source of the encoded catalogue entries for the manuscripts in <i>Beta maṣāḥǝft</i> says that both are scrolls containing magic prayers which belonged to the same owner and writes at the end of his description of Oxford, Bodleian Library, Bodleian Aeth. f. 11, “Continuation in no. 91” where no. 91 is Oxford, Bodleian Library, Bodleian Aeth. f. 12. The research team has discussed this and convened that the two scrolls where once one. We know then of three UniCirc, the two we have in Bodleian Library and the one they once constituted.  In our TEI descriptions we do not encode reconstructed manuscripts, so, we do not want a TEI record for the previously existing scroll composed of the current two. The annotations using SdC allow us to describe for each manuscript the transformation, which is of the type D3: <i>division simple</i> (Andrist, Canart, and Maniaci 2013, 69).</p>
+
+<p class="P9">All of the following statements could be given in the same TEI record, but in this case, some repetition is, although not necessary, useful considering that the user could start from either of the two entities in the TEI. The RDF produced by transforming the two XML encoded description is then indexed all together and the provenance of the triples is irrelevant.</p>
+
+<p class="P9">In Oxford, Bodleian Library, Bodleian Aeth. f. 11 (BDLaethf11) one could add</p>
+
+<figure id="code13">
+<pre><code>
+	&lt;listRelation&gt;
+	  &lt;relation active="BDLaethf11#UniCirc1" name="sdc:undergoesTransformation" passive="BDLaethf11#tr1"/&gt;
+	  &lt;relation active="BDLaethf11#UniCirc1" name="dcterms:hasPart" passive="BDLaethf11 BDLaethf12"/&gt;
+	  &lt;relation active="BDLaethf11#tr1" name="sdc:hasTransformationModel" passive="sdc:D3"/&gt;
+	  &lt;relation active="BDLaethf11#tr1" name="sdc:resultsIn" passive="BDLaethf11#UniCirc2"/&gt;
+	  &lt;relation active="BDLaethf11#tr1" name="sdc:resultsIn" passive="BDLaethf11#UniCirc3"/&gt;
+	  &lt;relation active="BDLaethf11#UniCirc2" name="skos:exactMatch" passive="BDLaethf11"/&gt;
+	  &lt;relation active="BDLaethf11#UniCirc3" name="skos:exactMatch" passive="BDLaethf12"/&gt;
+	&lt;/listRelation&gt;
+</code></pre>
+</figure>
+
+<p class="P9">In Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R) (BDLaethf12) we have instead</p>
+
+<figure id="code14">
+<pre><code>
+	&lt;listRelation&gt;
+	  &lt;relation active="BDLaethf12#UniCirc1" name="sdc:undergoesTransformation" passive="BDLaethf12#tr1"/&gt;
+	  &lt;relation active="BDLaethf11#UniCirc1" name="skos:exactMatch" passive="BDLaethf12#UniCirc1"/&gt;
+	  &lt;relation active="BDLaethf12#tr1" name="skos:exactMatch" passive="BDLaethf11#tr1"/&gt;
+	  &lt;relation active="BDLaethf12#tr1" name="sdc:hasTransformationModel" passive="sdc:D3"/&gt;
+	  &lt;relation active="BDLaethf12#UniCirc1" name="dcterms:hasPart" passive="BDLaethf11 BDLaethf12"/&gt;
+	  &lt;relation active="BDLaethf12#tr1" name="sdc:resultsIn" passive="BDLaethf12#UniCirc2"/&gt;
+	  &lt;relation active="BDLaethf12#tr1" name="sdc:resultsIn" passive="BDLaethf12#UniCirc3"/&gt;
+	  &lt;relation active="BDLaethf12#UniCirc2" name="skos:exactMatch" passive="BDLaethf11"/&gt;
+	  &lt;relation active="BDLaethf12#UniCirc3" name="skos:exactMatch" passive="BDLaethf12"/&gt;
+	&lt;/listRelation&gt;
+</code></pre>
+</figure>
+
+
+<p class="P9">These will become triples as in the previous examples. Here we start by defining a UniCirc which is the outcome of the analytical process, the one we learn last about and only in our hypothesis. We assign to this reconstructed previous unique scroll the ID ‘UniCirc1’ (it could have been also UniCirc3, as long as unique in the file) and say that it underwent a transformation with ID ‘tr1’ which produced two UniCirc, ‘UniCirc2’ and ‘UniCirc3’. Only then we say that UniCirc2 and UniCirc3 correspond to the current scrolls. This is repeated in the second scroll and generates a parallel set of ids and UniCirc, i.e. our BDLaethf11 is both BDLaethf11/UniCirc/UniCirc3 and  BDLaethf12/UniCirc/UniCirc3. This looks and is redundant in this case. However, let us think of cases when the two sets of statements are produced independently. At some point, a researcher finds out that two units are part of the same story and the annotations will become much clearer with this further step in the research process only needing to equate the existing instances of transformation like in the example where BDLaethf12/transformation/tr1 is equated to BDLaethf11/transformation/tr1 with the property skos:exactMatch. This example shows also how phenomena involving more than one entity can be represented in RDF (Fig. 7.1), whereas they would need if only encoded in TEI a statement on each side with a pointer to the other. </p>
+
+<figure id="figure07.1">
+<img alt="" src="images/fig7.1.png" title="" />
+<figcaption>Fig 7.1. Graph visualization of Oxford, Bodleian Library, Bodleian Aeth. f. 11 (R) and Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R)</figcaption>
+</figure>
+
+<p class="P9">The Sankey charts here (Fig. 7.2 and 7.3) provide a very clear visualization of the division happening, different in <i>Beta maṣāḥǝft </i>according to the subject of the query.</p>
+
+<figure id="figure07.2">
+<img alt="" src="images/fig7.2.png" title="" />
+<figcaption>Fig 7.2. Sankey chart of Oxford, Bodleian Library, Bodleian Aeth. f. 11 (R)</figcaption>
+</figure>
+
+<figure id="figure07.3">
+<img alt="" src="images/fig7.3.png" title="" />
+<figcaption>Fig 7.3. Sankey chart of Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R)</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section4.4">
+
+<h3>4.4. Example 4 - Paris, Bibliothèque nationale de France, BnF Éthiopien 45 and Paris, Bibliothèque nationale de France, BnF Éthiopien 165</h3>
+
+<div class="P9">In this case we have in the catalogue entries about Paris, Bibliothèque nationale de France, BnF Éthiopien 45 (Reule 2017b) and Paris, Bibliothèque nationale de France, BnF Éthiopien 165 (Reule 2016a) a note which says that the latter (BNFet165) contains leaves detached from the former. This is not an uncommon event and in <i>La Syntaxe</i> is a multiple transformation MA1: “mutilation d’un codex pour en accroître un autre” [tr: mutilation of one codex to augment another] (Andrist, Canart, and Maniaci 2013, 72).<sup><a class="footnote-reference" id="footnote-reference-51" href="#footnote-51">51</a></sup> Note that in the TEI description of BNFet45 there are a &lt;msPart&gt; with @xml:id='p1' and a &lt;msFrag&gt; with @xml:id='f2' which means that in this case we have this unit twice in the descriptions.</div>
+
+<p class="P9">In BNFet45 we will have the following &lt;relation&gt; elements</p>
+
+<figure id="code15">
+<pre><code>
+	 &lt;listRelation&gt;
+		&lt;relation active="BNFet45#UniCirc1" name="dcterms:hasPart" passive="BNFet45#p1 BNFet45#f2"/&gt;
+		&lt;relation active="BNFet45#UniCirc1" name="sdc:undergoesTransformation" passive="BNFet45#tr1"/&gt;
+		&lt;relation active="BNFet45#UniCirc1" name="sdc:hasCertainty" passive="sdc:certain"/&gt;
+		&lt;relation active="BNFet45#tr1" name="sdc:hasTransformationModel" passive="sdc:D2"/&gt;
+		&lt;relation active="BNFet45#tr1" name="sdc:produces" passive="BNFet45#UniProd1i"/&gt;
+		&lt;relation active="BNFet45#tr1" name="sdc:produces" passive="BNFet45#UniProd1ii"/&gt;
+		&lt;relation active="BNFet45#UniProd1ii" name="sdc:constituteUnit" passive="BNFet45#UniCirc2"/&gt;
+		&lt;relation active="BNFet45#tr1" name="sdc:isPartOfTransformation" passive="BNFet45#tr3"/&gt;
+		&lt;relation active="BNFet45#UniCirc2" name="dcterms:hasPart" passive="BNFet45#UniProd1ii"/&gt;
+		&lt;relation active="BNFet45#UniCirc2" name="skos:exactMatch" passive="BNFet45"/&gt;
+		&lt;relation active="BNFet45#UniProd1i" name="skos:exactMatch" passive="BNFet45#f2"/&gt;
+		&lt;relation active="BNFet45#UniProd1ii" name="skos:exactMatch" passive="BNFet45#p1"/&gt;
+		&lt;relation active="BNFet45#UniProd1i" name="sdc:undergoesTransformation" passive="BNFet45#tr2"/&gt;
+		&lt;relation active="BNFet45#tr2" name="sdc:hasTransformationModel" passive="sdc:A4"/&gt;
+		&lt;relation active="BNFet45#tr2" name="skos:exactMatch" passive="BNFet165#tr1"/&gt;
+		&lt;relation active="BNFet45#tr2" name="sdc:isPartOfTransformation" passive="BNFet45#tr3"/&gt;
+		&lt;relation active="BNFet45#tr3" name="sdc:hasTransformationModel" passive="sdc:MA1"/&gt;
+	 &lt;/listRelation&gt;
+</code></pre>
+</figure>
+
+<p class="P9">complemented in BNFet165 by the following &lt;relation&gt; elements</p>
+
+<figure id="code16">
+<pre><code>
+	 &lt;listRelation&gt;
+		&lt;relation active="BNFet165#UniCirc1" name="dcterms:hasPart" passive="BNFet165#p1 BNFet165#p2 BNFet165#p3 BNFet165#p5 BNFet165#p6"/&gt;
+		&lt;relation active="BNFet165#UniCirc1" name="sdc:undergoesTransformation" passive="BNFet165#tr1"/&gt;
+		&lt;relation active="BNFet165#p4" name="sdc:undergoesTransformation" passive="BNFet165#tr1"/&gt;
+		&lt;relation active="BNFet165#tr1" name="sdc:hasTransformationModel" passive="sdc:A4"/&gt;
+		&lt;relation active="BNFet165#tr1" name="skos:exactMatch" passive="BNFet45#tr2"/&gt;
+		&lt;relation active="BNFet165#tr1" name="sdc:resultsIn" passive="BNFet165#UniCirc2"/&gt;
+		&lt;relation active="BNFet165#UniCirc2" name="dcterms:hasPart" passive="BNFet165#p1 BNFet165#p2 BNFet165#p3 BNFet165#p4 BNFet165#p5 BNFet165#p6"/&gt;
+		&lt;relation active="BNFet165#UniCirc2" name="skos:exactMatch" passive="BNFet165"/&gt;           
+		&lt;relation active="BNFet165#p4" name="skos:exactMatch" passive="BNFet45#f2"/&gt;
+	 &lt;/listRelation&gt;
+</code></pre>
+</figure>
+
+<p class="P9">The difference from the previous example is in here that the transformation underwent by BNFet45 and that which affects BNFet165 are parts of a composite transformation. Using the property in the ontology dedicated to describing the relation between transformation sdc:isPartOfTransformation we can link the individually declared transformation and preserve knowledge about the complex event and its parts, to which a type can also be associated if needed (Fig. 8). This allows modelling multiple transformations as such and as parts.</p>
+
+<figure id="figure08">
+<img alt="" src="images/fig8.png" title="" />
+<figcaption>Fig 8. Sankey chart and La Syntaxe drawing of Paris, Bibliothèque nationale de France, BnF Éthiopien 45 and Paris, Bibliothèque nationale de France, BnF Éthiopien 165</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section4.5">
+
+<h3>4.5. Example Application 1 - Grottaferrata, Exarchic Greek Abbey of St. Mary of Grottaferrata, Crypt. Aet. 7</h3>
+
+<p class="P9">One of the aims of all this is to allow collaboration on the encoding and this example should show how the methodology can allow a codicological perspective to coexist with the encoding done from the angle of the book study and restoration. In Grottaferrata, Exarchic Greek Abbey of St Mary of Grottaferrata, Crypt. Aet. 7 (Dal Sasso 2018) the author of the description wanted to encode that there are traces of leather in the current binding, which tell us that the book was rebound. This is said in the description, but the information can be used to make a statement about the two UniCirc involved.</p>
+
+<p class="P9">This case can, however, be extended to say that not only the TEI encoding but also the RDF annotations offer levels of possible collaborations. Let us imagine for example the case of an annotation made on a manuscript image published by an institutional repository A, referring to another image published by an institutional repository B. The annotation could become relevant for the latter once a second scholar studies this from yet another perspective. The annotation could indeed be part of an entirely different project and be stored in a different location and still be accessible for reuse.</p>
+
+</section>
+
+
+<section id="section4.6">
+
+<h3>4.6. Example Application 2 - Bern, Burgerbibliothek, Cod. 459</h3>
+
+<div class="P9">In this last application example, we will take one of the cases discussed in <i>La Syntaxe</i> and try to encode it with the methodology described. The example is Bern, Burgerbibliothek, Cod. 459: Miscellanea,  which is also available in TEI,<sup><a class="footnote-reference" id="footnote-reference-52" href="#footnote-52">52</a></sup> and especially the description of its reconstruction as formulated in the example in the book (Andrist, Canart, and Maniaci 2013, 128–29). Because the manuscript description is in TEI, and because our schema was defined looking also at this project as an example, I could take the XML file and use the transformation and visualization developed for <i>Beta maṣāḥǝft </i>without making any change to the file. It already had xml:ids where needed (see above). I then directly added to that file the nodes which would represent the hypotheses made in the example and produced visualizations progressively as envisaged by the workflow. I will present the steps in the hypothesis formulation (Step 2 of the description above) and verification (Step 3) starting from the text of the example which presents progressively adding information five hypotheses (A to E).</div>
+
+<p class="P19_borderStart">The authors start by presenting the tabular view of the manuscript (which is the descriptive part and is not reproduced here) and begin the analysis by saying</p>
+
+<blockquote id="blockquote3"><p><i>...on ne peut que conclure à l'existence de trois UPH [tr: … we cannot but conclude that three Hypothetic UniProd existed]</i></p></blockquote>
+
+<p class="P19">which translates in the TEI encoding to the following triples</p>
+
+<figure id="code17">
+<pre><code>
+	&lt;relation active="eCod_bbb-0459#A" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniProd1"/&gt;
+	&lt;relation active="eCod_bbb-0459#UniProd1" name="sdc:hasCertainty" passive="sdc:Hypothetique"/&gt;
+	&lt;relation active="eCod_bbb-0459#B" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniProd2"/&gt;
+	&lt;relation active="eCod_bbb-0459#UniProd2" name="sdc:hasCertainty" passive="sdc:Hypothetique"/&gt;
+	&lt;relation active="eCod_bbb-0459#C" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniProd3"/&gt;
+	&lt;relation active="eCod_bbb-0459#UniProd3" name="sdc:hasCertainty" passive="sdc:Hypothetique"/&gt;
+</code></pre>
+</figure>
+
+<figure id="figure09">
+<img alt="" src="images/fig9.png" title="" />
+<figcaption>Fig 9. Sankey Diagram of Bern, Burgerbibliothek, Cod. 459 <i>UniProd</i></figcaption>
+</figure>
+
+<p class="P9">They then start with a first distinction of two possibilities</p>
+
+<blockquote id="blockquote4"><p><i>le nombre d’UniCirc, par contre, est plus difficile à déterminer, puisque, sur cette base, il n’est pas possible de décider entre les types de transformation - A1 ou A4 - subies par le codex [tr: the number of UniCirc, to the contrary, is more difficult to establish, because on the basis of these observations it is not possible to decide between the type of transformation A1 and A4 which they codex might have undergone]</i></p></blockquote>
+
+<p class="P9">Hypothesis A is then formulated. I have split the text from the book in the XML code snippet to show exactly what in the authors' sentence is translated to a set of triples</p>
+
+<figure id="code18">
+<pre><code>
+	&lt;!--Dans le premier cas (ajout de support matériel et de contenu), il y aurait au moins 4 UniCirc
+	    [tr : In the first case (addition of material support and contents), there will be at least 4 UniCirc]--&gt;
+
+	&lt;!--(l'UniProd la plus ancienne ; [tr : the most ancient UniProd]--&gt;
+
+		&lt;relation active="eCod_bbb-0459#UniProd1" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc1a"/&gt;
+					
+	&lt;!--celle-ci jointe à la deuxième plus récente ; [tr : this joined to the second most recent]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc1a" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1a"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd2" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1a"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1a" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1a" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc2a"/&gt;
+					
+	&lt;!--les deux premières  jointes à la dernière ; [tr : the previous two together, joined to the last]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc2a" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr2a"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd3" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr2a"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr2a" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr2a" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc3a"/&gt;
+
+	&lt;!--le codex actuel [tr : the current codex])--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc3a" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr3a"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr3a" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;                   
+		&lt;relation active="eCod_bbb-0459#tr3a" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc4a"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc4a" name="skos:exactMatch" passive="eCod_bbb-0459"/&gt;
+</code></pre>
+</figure>
+
+<p class="P9">Given this hypothesis, we could already get a visualization (Fig. 10).</p>
+
+<figure id="figure10">
+<img alt="" src="images/fig10.png" title="" />
+<figcaption>Fig 10. Sankey Diagram of Hypothesis A for Bern, Burgerbibliothek, Cod. 459</figcaption>
+</figure>
+
+<p class="P9">But let us follow the authors in formulating also Hypothesis B (Fig. 11).</p>
+
+<figure id="code19">
+<pre><code>
+	&lt;!--Dans le cas d'une transformation A4 (union de codex indépendants), il faut aussi compter au moins 4 UniCirc 
+	    [tr : in case of a transformation A4 (union of independent codexes) one should also count at least 4 UniCirc]-&gt;
+		   
+	&lt;!--(le trois codex indépendants ; [tr : the three independent codices]--&gt;					
+		&lt;relation active="eCod_bbb-0459#UniProd1" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc1b"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd2" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc2b"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd3" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc3b"/&gt;
+					
+	&lt;!--le trois codex réunis) ;  [tr : the three codex once united]--&gt; 
+		&lt;relation active="eCod_bbb-0459#UniCirc1b" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1b"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc2b" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1b"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc3b" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1b"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1b" name="sdc:hasTransformationModel" passive="sdc:A4"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1b" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc4b"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc4b" name="skos:exactMatch" passive="eCod_bbb-0459"/&gt;
+						
+	&lt;!--On ne peut pas exclure a priori que cette réunion ait eu lieu au moment où fut exécutée la reliure actuelle. 
+	    [tr : One cannot exclude a priori that this reunion happened at the moment of the execution of the current binding]--&gt;
+</code></pre>
+</figure>
+
+<figure id="figure11">
+<img alt="" src="images/fig11.png" title="" />
+<figcaption>Fig 11. Sankey Diagram of Hypothesis B for Bern, Burgerbibliothek, Cod. 459</figcaption>
+</figure>
+
+<p class="P9">The authors then state (Hypothesis C), i.e. that there might be mixes of the two transformation models A1 and A4, but do not formulate any of these and instead bring arguments for a Hypothesis D (Fig. 12). This is the same process as in the previous hypothesis but the UniProds were in different UniCirc, but we do not know the relation between them and those UniCirc, as Patrick Andrist clarified in a private conversation.</p>
+
+<figure id="code20">
+<pre><code>
+	&lt;!--Bref, nous avons effectivement affaire à des UniProd différentes, unies selon des transformations de type A4. 
+	    [tr: Briefly, we actually have really different UniProd, united with a transformation of type A4]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd1" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1c"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd2" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1c"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd3" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1c"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1c" name="sdc:hasTransformationModel" passive="sdc:A4"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1c" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc4c"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc4c" name="skos:exactMatch" passive="eCod_bbb-0459"/&gt;
+</code></pre>
+</figure>
+
+<figure id="figure12">
+<img alt="" src="images/fig12.png" title="" />
+<figcaption>Fig 12. Sankey Diagram of Hypothesis D for Bern, Burgerbibliothek, Cod. 459</figcaption>
+</figure>
+
+<p class="P19_borderStart">Note that in this example, the subjects of the transformation are directly the UniProd. However, there are more arguments from the observation that the author take into consideration to build on the previous hypothesis and formulate their final hypothesis, Hypothesis E (Fig. 13).</p>
+
+<figure id="code21">
+<pre><code>
+	&lt;!--Les UPH B et C constituent chacune une UniProd. L'UPH A, même si elle résulte, de la part de Diassorinos, d'un seul et même project de copie d'œuvres 
+	    de Rufus d'Ephèse, peut être divisée en deux unités: l'unité primitive, de quatre cahiers, dont il reste les deux derniers (f. 23-38) et l'unité complémentaire, 
+	    constituée par les actuels f. 1-22 et 39-46. Mais on pourrait aussi considérer l'ensemble des f. 1-46 comme une seule UniProd, réalisée en deux phases, suite 
+	    peut-être à une erreur (ce que semble suggérer l'emploi du même papier pour tout l'UPH A).
+		
+	    [tr : The UPH (hypothethic UniProd) B and C constitue each a UniProd. The UniProd A, even if it results from a unique project of copy of the works of Rufus 
+	    of Ephesos by Diassorinos, might be divided into two units: the primitive unit, made of 4 quires, of which only the last two survive (f.23-38) and the 
+	    complementary unit constituted from the current f.1-22 and 39-46. However one could consider the entirety of f. 1-46 as a single UniProd, made in two stages, 
+	    perhaps because of an error (at the use of the same paper for the entirety of UPH A) seems to suggest]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc1" name="sdc:containsUnits" passive="eCod_bbb-0459#UniProd4"/&gt; 
+		&lt;relation active="eCod_bbb-0459#UniProd4" name="sdc:containsUnits" passive="eCod_bbb-0459#q4" /&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd4" name="sdc:containsUnits" passive="eCod_bbb-0459#q5" /&gt; 
+
+	&lt;!--Quant aux UniCirc, il y en a au moins sept (2-8) ou huit (si on compte le 1)   
+	    [tr : about the UniCirc, there are at least seven of them (2-8) or height (if we count number 1)]--&gt;
+		
+	&lt;!--1) le codex originel auquel appartenaient les actuels cahiers 4 et 5 (cette UniCirc reste seulement possible) ; 
+	    [tr: the original codex to which quire 4 and 5 belonged (this UniCirc is merely possible)]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd4" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc1d" /&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc1d" name="sdc:hasCertainty" passive="sdc:Hypothetique"/&gt;
+					
+	&lt;!--2) le codex auquel a  peut-être appartenu l'unité A actuelle avant d'être attachée aux unités B et C ; 
+	    [tr : the codex to which the unit A might have belonged before being joined to units B and C]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc1d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1dbis" /&gt;
+		&lt;relation active=" eCod_bbb-0459#tr1dbis" name="sdc:produces" passive=" eCod_bbb-0459#UniProd5" /&gt;
+		&lt;relation active="eCod_bbb-0459#tr1dbis" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr1dbis" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc2d"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd5" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc2d"/&gt;
+				  
+	&lt;!--3) le codex auquel appartenait l'unité B quand elle portait les numéros de f. 118-130 ; 
+	    [tr : the codex to which the unit B belonged when it had folio numbers 118-130]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd2" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc3d" /&gt;
+
+	&lt;!--4) le codex auquel appartenait l'unité B quand elle portait les numéros de f. 1-14 ;  
+	    [tr : the codex to which unit B belonged when it had folio numbers 1-14]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc3d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr1d" /&gt;
+		&lt;relation active="eCod_bbb-0459#tr1d" name="sdc:hasTransformationModel" passive="sdc:R1"/&gt; 
+		&lt;relation active="eCod_bbb-0459#tr1d" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc4d"/&gt;
+					
+	&lt;!--5) le codex auquel appartenait l'unité C avant d'être mutilé, ce qui est attesté par le marques de succession conservées pour les quatre derniers cahiers ; 
+	    [tr : le codex to which C belonged before beeing mutilated, as it is attested by the succession marques preserved in the last four quires]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniProd3" name="sdc:constituteUnit" passive="eCod_bbb-0459#UniCirc5d" /&gt;
+					
+	&lt;!--6) le codex auquel appartenait l'unité C après la perte du premier folio, quand elle portait les numéros de f. 1-39 ; 
+	    [tr : the codex to which unit C belonged after the loss of the first folio, when it had the numbers from f. 1 to 39]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc5d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr2d" /&gt;
+		&lt;relation active="eCod_bbb-0459#tr2d" name="sdc:hasTransformationModel" passive="sdc:D2"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr2d" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc6d"/&gt;
+					
+	&lt;!--7) le codex actuel avec la reliure qu'il portait du temps de Jacques Bongars (elle n'est déductible que par une analyse  de l'ancien catalogue manuscrit 
+	    du fonds Bongars) [tr : the current codex with the binding it had at the time of Jacques Bongars (has we can deduce from the analysis of the ancient manuscript 
+	    catalogue of the Bongars fond)] ; --&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc2d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr3d"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc4d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr3d"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc6d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr3d"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr3d" name="sdc:hasTransformationModel" passive="sdc:A4"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr3d" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc7d"/&gt;
+					
+	&lt;!--8) le codex actuel avec la reliure actuelle. 
+	    [tr : the codex with the current binding]--&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc7d" name="sdc:undergoesTransformation" passive="eCod_bbb-0459#tr4d"/&gt;
+		&lt;relation active="eCod_bbb-0459#tr4d" name="sdc:hasTransformationModel" passive="sdc:A1"/&gt;               
+		&lt;relation active="eCod_bbb-0459#tr4d" name="sdc:resultsIn" passive="eCod_bbb-0459#UniCirc8d"/&gt;
+		&lt;relation active="eCod_bbb-0459#UniCirc8d" name="skos:exactMatch" passive="eCod_bbb-0459"/&gt;
+</code></pre>
+</figure>
+
+<figure id="figure13">
+<img alt="" src="images/fig13.png" title="" />
+<figcaption>Fig 13. Sankey Diagram of Hypothesis E for Bern, Burgerbibliothek, Cod. 459</figcaption>
+</figure>
+
+<p class="P9">There is no reason other than the consistency of the visualization and the accuracy of the data encoded, not to provide all the above annotations together in the description. </p>
+
+</section>
+
+
+<section id="section4.7">
+
+<h3>4.7. Workflow</h3>
+
+<p class="P9">Note that only basic inferences are made in the transformation and encoding, all the heuristic process and decision making on relevance, certainty and precision remain to the researcher. In the <i>Beta maṣāḥǝft</i> current workflow the encoder will make use of the web visualization or of other tables generated via the RDF data to make up their mind about each assertion and then encode it in the appropriate element, for example in a &lt;relation&gt; element with a statement-making use of the SdC ontology. The web visualization will support with the production of the table where he will be doing further analysis. </p>
+
+<p class="P9">The triple store will also offer the possibility to make further comparisons, searching via the SPARQL endpoint and visualizing results as graphs, charts or tables. For example, the researcher will be able to see all patterns available for a certain group of UniCirc (e.g. all UniCirc of a manuscript entity, or from an institution, etc.) and will be able to compare UniCirc which have similar patterns of discontinuities. </p>
+
+<p class="P9">If it is possible then, at any point in time for any researcher to add a statement to the encoding he will do so in the TEI file. The decision to make a certain statement certain will depend solely on the researcher assigning it to this class. Encoding in XML, transformation to RDF and visualization techniques play together in the research process closely following the methodology of <i>La Syntaxe</i>.</p>
+
+</section>
+
+
+</section>
+
+
+<section id="section5">
+
+<h2>5. Potential of Linked Open Data for Manuscripts</h2>
+
+<p class="P2">We have seen how defining an ontology based on a specific methodology and producing triples based on XML encoding allows a project to achieve some research and encoding needs like the one of representing the complexity of the manuscript and give equivalent relevance to manuscripts we know have existed through traces of them in the presently survived ones. Let us conclude this contribution by stressing some further potential of Linked Open Data for manuscript research.</p>
+
+<p class="P2">The graph model provides the immediate benefit of being flexible and at the same time tying recorded aspects of a manuscript together using triples so that everything is linked and referenced. I want additionally to stress two aspects: the possibility to run federated queries and the connection possibilities provided by the use of common vocabularies. </p>
+
+
+<section id="section5.1">
+
+<h3>5.1. Federated queries</h3>
+
+<div class="P9">Federated Queries are a feature of SPARQL which allows ‘executing queries distributed over different SPARQL endpoints. The SERVICE keyword (1) extends SPARQL 1.1 to support queries that merge data distributed across the Web’ (Prud’hommeaux and Buil-Aranda 2013).<sup><a class="footnote-reference" id="footnote-reference-53" href="#footnote-53">53</a></sup> In the example below, you can see an example of a federated query to the Syriaca RDF which can be run from the <i>Beta maṣāḥǝft</i> endpoint (the same could be done the other way around or from another endpoint, changing URI). It will return all works (lawd:ConceptualWork) in syriaca.org and in <i>Beta maṣāḥǝft</i> which have a relation to the Pleiades place 687928 (Jerusalem) which is the same as syriaca 104.</div>
+
+<figure id="code22">
+<pre><code><b>
+	SELECT ?relatedID ?relation 
+	WHERE
+	{
+	{
+	SERVICE &lt;syriaca/api/sparql&gt;             		   (1)       
+	{ 
+	     ?relatedID ?relation &lt;http://syriaca.org/place/104&gt;;
+	     a &lt;http://lawd.info/ontology/conceptualWork&gt; .
+	}
+	}
+	UNION
+	{
+	?annotation oa:hasTarget ?relatedID ;
+	?relation &lt;https://pleiades.stoa.org/places/687928&gt;.
+	?relatedID a &lt;http://lawd.info/ontology/ConceptualWork&gt; .
+	}
+
+	}
+</b></code></pre>
+</figure>
+
+<p class="P9">The query in the example is different from a query to an aggregated triples store, like, e.g. Pelagios (Simon et al. 2014) where both projects share their data. Firstly, it queries the current status of the data, not the latest dump. Secondly, it requests data only from the specified dataset, not from all. In this example, the query unites the results because it assumes that both projects have triples of that kind. The usefulness of this would be for example in querying information about manuscripts held at the same institution, which are digitally scattered around several web resources, for example, a monastery had manuscripts in Ethiopic and Syriac which are now digitally available through the two projects. Besides the possibility of a relational database which would also easily allow retrieving a network of scribes owners and institutions, for example, there are more queries that we can ask. With a federated query, and the use of the above-described ontology one could for example query:</p>
+
+<ul>
+  <li>by institution and type of transformation to plot how frequent a model of transformation is in different institutions (and of course one could do this on all data or only on a specific dataset).</li>
+  
+  <li>given a considerable and definite set of annotations to see patterns of transformation, e.g. if in a given time and/or place there are more cases of a specific type of transformation.</li>
+  
+  <li>scribal habits analysis could be investigated by querying for transformations occurred in manuscripts of the same owner or by the same scribe.</li>
+</ul>
+
+<p class="P9">In general, a linked open data representation allows for queries across diverse resources, e.g. one could interrogate all versions of a given work in several traditions and the relative dating or ownership to support the study of text tradition and translation.</p>
+
+</section>
+
+
+<section id="section5.2">
+
+<h3>5.2. Vocabularies and mappings</h3>
+
+<p class="P9">We have described the use of an ontology to represent a specific type of information, but a further potential of the web of data lays in the relations which we cannot foresee. If I use a relation to a resource which other datasets point to, like the Pleiades place ID in the previous example, this is a first way to allow for these relations to surface, and the other way is to use the same vocabulary for the properties. When I define an ontology either other projects use my ontology or the ontology will not be useful to fetch any triples which make use of it without letting me know. It is thus always wise, if one wants to allow this kind of connections, to use existing vocabularies or, if none exists or satisfies the user needs, it is important to map it to other ontologies. For example, we could map the SdC ontology to entities and properties in CIDOC-CRM to allow CIDOC-CRM users to query our data in the way they expect it. </p>
+
+<p class="P9">A user with enough knowledge of the data and CIDOC-CRM could use the CONSTRUCT query form (see above) to produce the RDF in CIDOC-CRM he wants to be returned if he wants to consume that.</p>
+
+<figure id="code23">
+<pre><code><b>
+	CONSTRUCT 
+	  {
+	?transformation a &lt;http://www.cidoc-crm.org/cidoc-crm/E11_Modification&gt; ;
+		  &lt;http://www.cidoc-crm.org/cidoc-crm/P31_has_modified&gt; ?AnyUniCirc;
+		  &lt;http://www.cidoc-crm.org/cidoc-crm/P108_has_produced&gt; ?AnyUni .
+	?AnyUniCirc a &lt;http://www.cidoc-crm.org/cidoc-crm/E24_Physical_Man-Made_Thing&gt;  
+	  }
+	WHERE 
+	  {
+		?AnyUniCirc a &lt;https://w3id.org/sdc/ontology#UniCirc&gt;;
+		  &lt;https://w3id.org/sdc/ontology#undergoesTransformation&gt; ?transformation .
+		  ?transformation &lt;https://w3id.org/sdc/ontology#produces&gt; ?AnyUni          
+	  }
+	LIMIT 20 
+</b></code></pre>
+</figure>
+
+<p class="P9">One could also use the federation query to achieve this, implicitly mapping in the query</p>
+
+<figure id="code24">
+<pre><code><b>
+	SELECT * 
+	WHERE
+	{
+	 {
+	    SERVICE &lt;http://example.endpoint/sparql&gt; 
+	    { 
+	    ?AnyUniCirc a &lt;http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing&gt;.
+	    }
+	 }
+	 UNION
+	 {
+	 ?AnyUniCirc a &lt; https://w3id.org/sdc/ontology#UniCirc &gt;.
+	 }
+	}
+</b></code></pre>
+</figure>
+
+<p class="P9">But the external data might have a wider scope for <i>crm:E18_Physical_Thing</i>, which might have to be made more precise to have relevant results. </p>
+
+<p class="P9">Another option would be for the data provider to publish a mapping file or directly the CIDOC-CRM triples in the data.</p>
+
+<figure id="code25">
+<pre><code><b>
+	SELECT *
+	WHERE 
+	  {
+	    ?AnyUniCirc a &lt;https://w3id.org/sdc/ontology#Transformation&gt;
+	  }
+	LIMIT 20 
+</b></code></pre>
+</figure>
+
+<p class="P9">Or </p>
+
+<figure id="code26">
+<pre><code><b>
+	SELECT *
+	WHERE 
+	  {
+	    ?AnyUniCirc a &lt;http://www.cidoc-crm.org/cidoc-crm/E11_Modification&gt;
+	  }
+	LIMIT 20 
+</b></code></pre>
+</figure>
+
+<p class="P9">The above query example would return the same results because both triples exist. Here the assumptions are that a <i>sdc:Transformation</i> is always a <i>crm:E11_Modification</i>, but a user might want to make different mappings and would have to use the first method here presented. This is the method which <i>Beta maṣāḥǝft</i> is currently developing, to maintain in parallel also triples which construct valid CIDOC-CRM entities and properties.</p>
+
+<p class="P9">The implications of each of the above methods (by no means a complete list!) are not to be evaluated here, and I stress that they are implementation-dependent and not equivalent to one another. Each would also need a careful decision on how to align and interoperate with other resources, including with ones we might not know about but might be relevant to other researchers. </p>
+
+<div class="P9">All of the examples and methods appearing in this chapter are intended to illustrate at the very least that there are multiple options available and to present that fact as a strength of the LOD approach.<sup><a class="footnote-reference" id="footnote-reference-54" href="#footnote-54">54</a></sup></div>
+
+</section>
+
+
+</section>
+
+
+<section id="references">
+
+<h2>References</h2>
+
+<p id="reference-1" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Andrist, Patrick. 2014. ‘Going Online Is Not Enough! Electronic Descriptions of Ancient Manuscripts, and the Needs of Manuscript Studies’. In <i>Analysis of Ancient and Medieval Texts and Manuscripts: Digital Approaches</i>, edited by Tara Andrews and Caroline Macé, 309–34. Lectio, Studies in the Transmission of Texts &amp; Ideas 1. Turnhout: Brepols.</span></p>
+
+<p id="reference-2" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2015. ‘Syntactical Description of Manuscripts’. In <i>Comparative Oriental Manuscript Studies: An Introduction</i>, edited by Alessandro Bausi, Pier Giorgio Borbone, Françoise Briquel Chatonnet, Paola Buzi, Jost Gippert, Caroline Macé, Marilena Maniaci, et al., 511–20. Hamburg: Tredition.</span></p>
+
+<p id="reference-3" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Andrist, Patrick, Paul Canart, and Marilena Maniaci. 2013. <i>La syntaxe du codex</i>. Bibliologia ; 34 ; Bibliologia 34. Turnhout: Brepols.</span></p>
+
+<p id="reference-4" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Baierer, Konstantin, Evelyn Dröge, Kai Eckert, Doron Goldfarb, Julia Iwanowa, Christian Morbidoni, and Dominique Ritze. 2017. ‘DM2E: A Linked Data Source of Digitised Manuscripts for the Digital Humanities’. <i>Semantic Web</i> 8 (5): 733–745.</span></p>
+
+<p id="reference-5" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Bausi, Alessandro. 2007. ‘La catalogazione come base della ricerca. Il caso dell’Etiopia’. In <i>Zenit e Nadir II. I manoscritti dell’area del Mediterraneo: la catalogazione come base della ricerca. Atti del Seminario internazionale. Montepulciano, 6–8 luglio 2007</i>, edited by Benedetta Cenni and Chiara Maria Francesca Lalli, 87–108. Medieval Writing, Settimane poliziane di studi superiori sulla cultura scritta in età medievale e moderna. Montepulciano: Thesan&amp;Turan.</span></p>
+
+<p id="reference-6" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2016. ‘I colofoni e le sottoscrizioni dei manoscritti etiopici’. In <i>Colofoni armeni a confronto. Le sottoscrizioni dei manoscritti in ambito armeno e nelle altre tradizioni scrittorie del mondo mediterraneo. Atti del colloquio internazionale. Bologna, 12-13 ottobre 2012</i>, edited by Anna Sirinian, Paola Buzi, and Gaga Shurgaia, 233–260. Orientalia Christiana Analecta 299. Roma: Pontificio Istituto Orientale.</span></p>
+
+<p id="reference-7" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Bausi, Alessandro, Pier Giorgio Borbone, Françoise Briquel-Chatonnet, Paola Buzi, Jost Gippert, Caroline Macé, Marilena Maniaci, et al. 2015. <i>Comparative Oriental Manuscript Studies. An Introduction</i>. Zenodo. <a href="https://doi.org/10.5281/zenodo.46784">https://doi.org/10.5281/zenodo.46784</a>.</span></p>
+
+<p id="reference-8" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Beckett, Dave, and Jeen Broekstra. 2013. ‘SPARQL Query Results XML Format (Second Edition)’. 2013. <a href="https://www.w3.org/TR/rdf-sparql-XMLres/">https://www.w3.org/TR/rdf-sparql-XMLres/</a>.</span></p>
+
+<p id="reference-9" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Blackwell, Christopher W., and Neil Smith. 2014. ‘The Homer Multitext and RDF-Based Integration’. <i>ISAW Papers</i> 7. <a href="http://dlib.nyu.edu/awdl/isaw/isaw-papers/7/blackwell-smith/">http://dlib.nyu.edu/awdl/isaw/isaw-papers/7/blackwell-smith/</a>.</span></p>
+
+<p id="reference-10" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Calvanese, Diego, Pietro Liuzzo, Alessandro Mosca, José Remesal, Martin Rezk, and Guillem Rull. 2016. ‘Ontology-Based Data Integration in EPNet: Production and Distribution of Food during the Roman Empire’. <i>Engineering Applications of Artificial Intelligence</i>, <i>Mining the Humanities: Technologies and Applications</i>, 51 (May): 212–29. <a href="https://doi.org/10.1016/j.engappai.2016.01.005">https://doi.org/10.1016/j.engappai.2016.01.005</a>.</span></p>
+
+<p id="reference-11" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Ciula, Arianna, Paul Spence, and José Miguel Vieira. 2008. ‘Expressing Complex Associations in Medieval Historical Documents: The Henry III Fine Rolls Project’. <i>Literary and Linguistic Computing</i> 23 (3): 311–325. <a href="https://doi.org/10.1093/llc/fqn018">https://doi.org/10.1093/llc/fqn018</a>.</span></p>
+
+<p id="reference-12" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Dal Sasso, Eliana. 2018. ‘Grottaferrata, Exarchic Greek Abbey of St. Mary of Grottaferrata, Crypt. Aet. 7’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 1 October 2018. <a href="https://betamasaheft.eu/permanent/1b5d1fa46d442853562de2504b8dea3671ffb9a1/manuscripts/GAet7/main">https://betamasaheft.eu/permanent/1b5d1fa46d442853562de2504b8dea3671ffb9a1/manuscripts/GAet7/main</a>.</span></p>
+
+<p id="reference-13" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Eide, Øyvind. 2014. ‘Ontologies, Data Modeling, and TEI’. <i>Journal of the Text Encoding Initiative</i> 8. <a href="https://doi.org/10.4000/jtei.1191">https://doi.org/10.4000/jtei.1191</a>.</span></p>
+
+<p id="reference-14" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Eide, Øyvind, and Christen-Emil Ore. 2006. ‘TEI, CIDOC-CRM and a Possible Interface between the Two’. <i>Digital Humanities</i>, 5–9.</span></p>
+
+<p id="reference-15" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Friedrich, Michael, and Cosima Schwarke. 2016. <i>One-Volume Libraries: Composite and Multiple-Text Manuscripts</i>. Berlin, Boston: De Gruyter. <a href="https://doi.org/10.1515/9783110496956">https://doi.org/10.1515/9783110496956</a>.</span></p>
+
+<p id="reference-16" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Gippert, Jost. 2015. ‘Catalogues and Cataloguing of Oriental Manuscripts in the Digital Age’. In <i>Comparative Oriental Manuscript Studies: An Introduction</i>, edited by Alessandro Bausi, Pier Giorgio Borbone, Françoise Briquel Chatonnet, Paola Buzi, Jost Gippert, Caroline Macé, Marilena Maniaci, et al., 531–38. Hamburg: Tredition.</span></p>
+
+<p id="reference-17" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Harris, Steve, and Andy Seaborne. 2013. ‘SPARQL 1.1 Query Language’. <a href="https://www.w3.org/TR/sparql11-query/">https://www.w3.org/TR/sparql11-query/</a>.</span></p>
+
+<p id="reference-18" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Liuzzo, Pietro Maria. 2019. <i>Digital Approaches to Ethiopian and Eritrean Studies</i>. Supplement to Aethiopica 8. Wiesbaden: Harrassowitz Verlag.</span></p>
+
+<p id="reference-19" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2017. ‘Encoding the Ethiopic Manuscript Tradition’. In <i>Proceedings of Balisage: The Markup Conference 2017</i>. Vol. 19. Balisage Series on Markup Technologies. Rockville. <a href="https://doi.org/10.4242/balisagevol19.liuzzo01">https://doi.org/10.4242/balisagevol19.liuzzo01</a>.</span></p>
+
+<p id="reference-20" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Michelson, David Allen. 2016a. ‘Syriaca.Org Developing Linked Open Dataset: Project News from Syriaca.Org’. 19 April 2016. <a href="http://syriaca.org/blog/2016/04/4192016-syriaca-org-developing-linked-open-dataset/">http://syriaca.org/blog/2016/04/4192016-syriaca-org-developing-linked-open-dataset/</a>.</span></p>
+
+<p id="reference-21" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2016b. ‘Mixed Up by Time and Chance? Using Digital Methods to “Re-Orient” the Syriac Religious Literature of Late Antiquity’. <i>The Journal of Religion, Media and Digital Culture</i> 5 (1): 136–82.</span></p>
+
+<p id="reference-22" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Miles, Alistair, and Sean Bechhofer. 2009. <i>SKOS Simple Knowledge Organization System Reference. W3C Recommendation (August 18, 2009)</i>.</span></p>
+
+<p id="reference-23" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Nosnitsin, Denis. 2016. ‘Saint Petersburg, Rossijskaja Nacionalnaja Biblioteka, RNB Ef. n.s. 1’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 21 November 2016. <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/RNBefns1/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/RNBefns1/main</a>.</span></p>
+
+<p id="reference-24" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Ore, Christian-Emil, and Øyvind Eide. 2009. ‘TEI and Cultural Heritage Ontologies: Exchange of Information?’ <i>Literary and Linguistic Computing</i> 24 (2): 161–172.</span></p>
+
+<p id="reference-25" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Orlandi, Tito. 2013. ‘A Terminology for the Identification of Coptic Literary Documents’. <i>Journal of Coptic Studies</i>, no. 15: 87–94.</span></p>
+
+<p id="reference-26" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Prud’hommeaux, Eric, and Carlos Buil-Aranda. 2013. ‘SPARQL 1.1 Federated Query’. <a href="https://www.w3.org/TR/sparql11-federated-query/">https://www.w3.org/TR/sparql11-federated-query/</a>.</span></p>
+
+<p id="reference-27" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Reule, Dorothea. 2016a. ‘Paris, Bibliothèque Nationale de France, BnF Éthiopien 165’. Catalogue of ethiopian manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 21 November 2016. <a href="https://betamasaheft.eu/permanent/47a60cf9655a2339d7576c28a03405cf9ace7ba2/manuscripts/BNFet165/main">https://betamasaheft.eu/permanent/47a60cf9655a2339d7576c28a03405cf9ace7ba2/manuscripts/BNFet165/main</a>.</span></p>
+
+<p id="reference-28" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2016b. ‘Paris, Bibliothèque Nationale de France, BnF Éthiopien 80’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 13 December 2016. <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BNFet80/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BNFet80/main</a>.</span></p>
+
+<p id="reference-29" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2017a. ‘Oxford, Bodleian Library, Bodleian Aeth. f. 11/f. 12 (R)’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 4 January 2017.  <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BDLaethf11/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BDLaethf11/main</a>.</span></p>
+
+<p id="reference-30" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2017b. ‘Paris, Bibliothèque Nationale de France, BnF Éthiopien 45’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 4 January 2017. <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BNFet45/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BNFet45/main</a>.</span></p>
+
+<p id="reference-31" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2017c. ‘Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R)’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 20 March 2017. <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BDLaethf12/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BDLaethf12/main</a>.</span></p>
+
+<p id="reference-32" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2017d. ‘Oxford, Bodleian Library, Bodleian Aeth. e. 8’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 13 June 2017. <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BDLaethe8/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BDLaethe8/main</a>.</span></p>
+
+<p id="reference-33" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Roueché, Charlotte, and Feith K. Lawrence. 2014. ‘Linked Data and Ancient Wisdom’. <i>ISAW Papers</i> 7. <a href="http://dlib.nyu.edu/awdl/isaw/isaw-papers/7/roueche-lawrence-lawrence/">http://dlib.nyu.edu/awdl/isaw/isaw-papers/7/roueche-lawrence-lawrence/</a>.</span></p>
+
+<p id="reference-34" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Seaborne, Andy. 2013. ‘SPARQL 1.1 Query Results JSON Format’. W3C Recommendation. 2013. <a href="https://www.w3.org/TR/sparql11-results-json/">https://www.w3.org/TR/sparql11-results-json/</a>.</span></p>
+
+<p id="reference-35" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Simon, Rainer, Elton Barker, Pau de Soto, and Leif Isaksen. 2014. ‘Pelagios’. <i>ISAW Papers</i> 7. <a href="http://dlib.nyu.edu/awdl/isaw/isaw-papers/7/simon-barker-desoto-isaksen/">http://dlib.nyu.edu/awdl/isaw/isaw-papers/7/simon-barker-desoto-isaksen/</a>.</span></p>
+
+<p id="reference-36" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Solomon Gebreyes, and Pietro Maria Liuzzo. 2018. ‘Encoding and Annotation of Ancient Places in Ethiopia’. In <i>COMSt Bulletin</i>, edited by Alessandro Bausi, Paola Buzi, Pietro Maria Liuzzo, and Eugenia Sokolinski, 4/1:121–41.</span></p>
+
+<p id="reference-37" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Stokes, Peter A. 2015a. ‘Modelling Codicology I: Sequence in Gatherings, Folios and Pages | DigiPal’. 2015. <a href="https://www.digipal.eu/blog/modelling-codicology-i-sequence-in-gatherings-folios-and-pages/">https://www.digipal.eu/blog/modelling-codicology-i-sequence-in-gatherings-folios-and-pages/</a>.</span></p>
+
+<p id="reference-38" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2015b. ‘Modelling Codicology II: A Partial Draft Implementation | DigiPal’. 2015. <a href="https://www.digipal.eu/blog/modelling-codicology-ii-a-partial-draft-implementation/">https://www.digipal.eu/blog/modelling-codicology-ii-a-partial-draft-implementation/</a>.</span></p>
+
+<p id="reference-39" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">TEI Consortium, C. Michael Sperberg-McQueen, and Lou Burnard. 2018. <i>TEI P5: Guidelines for Electronic Text Encoding and Interchange, Version 3.3.0. Last Updated on 31st January 2018, Revision F4d8439</i>. TEI Consortium.</span></p>
+
+<p id="reference-40" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Tupman, Charlotte, and Anna Jordanous. 2014. ‘Sharing Ancient Wisdoms across the Semantic Web Using TEI and Ontologies’. In <i>Analysis of Ancient and Medieval Texts and Manuscripts: Digital Approaches.</i>, edited by T. Andrews and Caroline Macé, 213–28. Lectio: Studies in the Transmission of Texts &amp; Ideas 1. Turnhout: Brepols.</span></p>
+
+<p id="reference-41" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Uhlig, Siegbert, and Alessandro Bausi, eds. 2003–2014. <i>Encyclopaedia Aethiopica</i>. 5 vols. Wiesbaden: Harrassowitz.</span></p>
+
+<p id="reference-42" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Valieva, Nafisa. 2017. ‘Vatican City, Biblioteca Apostolica Vaticana, Biblioteca Apostolica Vaticana Cerulli 37’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 18 May 2017. <a href="https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BAVcerulli37/main">https://betamasaheft.eu/permanent/fe9144a37168c850ac17c71a7ffcbbe726f3ff95/manuscripts/BAVcerulli37/main</a>.</span></p>
+
+<p id="reference-43" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Villa, Massimo. 2017. ‘Bǝsrāta Luqās’. Clavis of Ethiopian Literature. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 2 October 2017. <a href="https://betamasaheft.eu/permanent/f4d66b70739cecb63fc4a1bdf08f161f94828054/works/LIT2713Luke/main">https://betamasaheft.eu/permanent/f4d66b70739cecb63fc4a1bdf08f161f94828054/works/LIT2713Luke/main</a>.</span></p>
+
+<p id="reference-44" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Villa, Massimo, and Dorothea Reule. 2016. ‘Vatican City, Biblioteca Apostolica Vaticana, Aeth. 1’. Catalogue of Ethiopian Manuscripts. Beta Maṣāḥǝft: Manuscripts of Ethiopia and Eritrea. 13 September 2016. <a href="https://betamasaheft.eu/permanent/8353851e00ddc821cede7b9e68db815f2ec67736/manuscripts/BAVet1/main">https://betamasaheft.eu/permanent/8353851e00ddc821cede7b9e68db815f2ec67736/manuscripts/BAVet1/main</a>.</span></p>
+
+</section>
+
+
+<section id="footnotes">
+
+<h2>Notes</h2>
+
+<p class="footnote" id="footnote-1"><sup><a href="#footnote-reference-1">1</a></sup> The current paper and its contents were produced thanks to the project Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea (Schriftkultur des christlichen Äthiopiens und Eritreas: eine multimediale Forschungsumgebung) funded within the framework of the Academies' Programme (coordinated by the Union of the German Academies of Sciences and Humanities) under survey of the Akademie der Wissenschaften in Hamburg. I would like to thank the editors of the volume and all those who have discussed with me the issues, the solutions and the workflow presented in this contribution, providing me at every stage with very valuable suggestions, especially Patrick Andrist, Alessandro Bausi, Antonella Brita, Solomon Gebreyes Beyene, Hugh Cayless, Marilena Maniaci, David A. Michelson, Dorothea Reule, Winona Salesky, Eugenia Sokolinski, Peter Stokes, Nafisa Valieva and Massimo Villa. </p>
+
+<p class="footnote" id="footnote-2"><sup><a href="#footnote-reference-2">2</a></sup>  See for example the Europeana Data Model (EDM) <a href="https://pro.europeana.eu/resources/standardization-tools/edm-documentation">https://pro.europeana.eu/resources/standardization-tools/edm-documentation</a> and the CIDOC-CRM website <a href="http://www.cidoc-crm.org/">http://www.cidoc-crm.org/</a> which is a good starting point and contains the latest documentation with examples of the CIDOC Conceptual Reference Model. From there it is easy to get to some other important models like FRBRoo (<a href="http://www.cidoc-crm.org/frbroo/home-0">http://www.cidoc-crm.org/frbroo/home-0</a>). Especially developed ontologies for the description of manuscripts are also available, e.g. the DM2E specialization of the EDM (Baierer et al. 2017) and the one developed by Biblissima (<a href="http://doc.biblissima-condorcet.fr/ontologie/bibma/">http://doc.biblissima-condorcet.fr/ontologie/bibma/</a>).</p>
+
+<p class="footnote" id="footnote-3"><sup><a href="#footnote-reference-3">3</a></sup> The RDF data of Beta maṣāḥǝft is available directly as RDF graphs, via a SPARQL end point, and the RDFa representation is at the time of writing in the process of being integrated to the standard HTML views. See also (Liuzzo 2019, 181–217).</p>
+
+<p class="footnote" id="footnote-4"><sup><a href="#footnote-reference-4">4</a></sup> Especially if one wants to include results from provenance studies or material analysis and virtual reproductions.</p>
+
+<p class="footnote" id="footnote-5"><sup><a href="#footnote-reference-5">5</a></sup> The ontology has not been officially published. The work-in-progress OWL ontology currently in use is based on the syriaca.org RDF (Michelson 2016a) and on the Pelagios cookbook <a href="https://github.com/pelagios/pelagios-cookbook/wiki">https://github.com/pelagios/pelagios-cookbook/wiki</a>  (Simon et al. 2014). It uses, beside the classes and properties described in this contribution, properties and classes from CIDOC-CRM, the LAWD ontology (<a href="https://github.com/lawdi/LAWD">https://github.com/lawdi/LAWD</a> ), SNAP (see Bodard<!--insert link--> in this volume) and SAWS (Roueché and Lawrence 2014; Tupman and Jordanous 2014) among others. It can be viewed with webOWL at <a href="http://visualdataweb.de/webvowl/#url=https://raw.githubusercontent.com/BetaMasaheft/SyntaxeDuCodex/master/SyntaxeDuCodex.json">http://visualdataweb.de/webvowl/#url=https://raw.githubusercontent.com/BetaMasaheft/SyntaxeDuCodex/master/SyntaxeDuCodex.json</a>  and accessed from the GitHub repository <a href="https://raw.githubusercontent.com/BetaMasaheft/SyntaxeDuCodex/master/SyntaxeDuCodex.owl">https://raw.githubusercontent.com/BetaMasaheft/SyntaxeDuCodex/master/SyntaxeDuCodex.owl</a> .</p>
+
+<p class="footnote" id="footnote-6"><sup><a href="#footnote-reference-6">6</a></sup> A scenario of a collaborating network of scientists envisaged already by Andrist (Andrist 2015, 514). This is not a fictitious scenario, the example actually reflects interactions which occurred at the Hiob Ludolf Centre for Ethiopian Studies during the years 2016 and 2017, especially the collaborations within the group and with the guest scholars and external collaborators of the project Beta maṣāḥǝft: Eliana Dal Sasso, Steve Delamarter, Jacopo Gnisci and Ran Ha-Cohen.</p>
+
+<p class="footnote" id="footnote-7"><sup><a href="#footnote-reference-7">7</a></sup> The workshop was convened by the Hiob Ludolf Centre for Ethiopian Studies, projects Beta maṣāḥǝft, TraCES and Landesforschungsförderung Hamburg, Transmission of Knowledge in the Red Sea Area, at Universität Hamburg, in co-sponsorship with the PAThs project of Sapienza Università di Roma, and in cooperation with the projects Corpus dei Manoscritti Copti Letterari (CMCL), Syriaca.org, IslHornAfr (Islam in the Horn of Africa) and Ethiopian Manuscripts Archives (EMA).</p>
+
+<p class="footnote" id="footnote-8"><sup><a href="#footnote-reference-8">8</a></sup> TEI encoding of old descriptions allows to some respects the overcoming of issue like the ones listed in a recent contribution by Gippert (Gippert 2015, 531–32).</p>
+
+<p class="footnote" id="footnote-9"><sup><a href="#footnote-reference-9">9</a></sup> <a href="https://www.betamasaheft.uni-hamburg.de">https://www.betamasaheft.uni-hamburg.de</a> </p>
+
+<p class="footnote" id="footnote-10"><sup><a href="#footnote-reference-10">10</a></sup> These catalogues have a very strong relevance for the whole discipline (Bausi 2007).</p>
+
+<p class="footnote" id="footnote-11"><sup><a href="#footnote-reference-11">11</a></sup> About the gazetteer development see the reports of the Pelagios Commons Resource Development Grant (Solomon Gebreyes and Liuzzo 2018).</p>
+
+<p class="footnote" id="footnote-12"><sup><a href="#footnote-reference-12">12</a></sup> A brief description of some of the encoding choices made is available in the proceedings of the Balisage Markup Conference 2017 (Liuzzo 2017).</p>
+
+<p class="footnote" id="footnote-13"><sup><a href="#footnote-reference-13">13</a></sup> The project uses a GitHub based workflow and all the data is available there (<a href="https://github.com/BetaMasaheft">https://github.com/BetaMasaheft</a>) and additionally via data APIs as XML, JSON and RDF. The project website has not yet been launched at the time of writing. </p>
+
+<p class="footnote" id="footnote-14"><sup><a href="#footnote-reference-14">14</a></sup> Especially the Ethio-SPaRe project and the IslHornAfr project, whose data has been migrated or is systematically synced to Beta maṣāḥǝft. Ethiopic Manuscripts Microfilm Library (EMML) at the Hill Museum and Manuscript Library, Ethiopic Manuscripts Imaging Project (EMIP), Ethiopic Manuscript Archives (EMA), but also the PAThs Tracking Papyrus and Parchment Paths: An Archaeological Atlas of Coptic Literature project (<a href="http://paths.uniroma1.it/">http://paths.uniroma1.it/</a>) and the Corpus dei Manoscritti Copti Letterari (<a href="http://www.cmcl.it/">http://www.cmcl.it/</a>).</p>
+
+<p class="footnote" id="footnote-15"><sup><a href="#footnote-reference-15">15</a></sup> <a href="https://www.manuscript-cultures.uni-hamburg.de">https://www.manuscript-cultures.uni-hamburg.de</a> </p>
+
+<p class="footnote" id="footnote-16"><sup><a href="#footnote-reference-16">16</a></sup> Just to mention a few of the project that have made images available: Virtual Reading Room, British Library Endangered Archives Programme, Biblioteca Apostolica Vaticana, Bibliothèque national de France.</p>
+
+<p class="footnote" id="footnote-17"><sup><a href="#footnote-reference-17">17</a></sup> The benefits of using XML and TEI in combination with RDF had been already highlighted by Arianna Ciula, Paul Spence and José Miguel Vieira as an ‘extra interpretative layer that is both connected to, and independent of, the mark-up itself.’ (Ciula, Spence, and Vieira 2008, 313–15) and many projects use both data formats, for example the Homer Multitext project (Blackwell and Smith 2014). Many other projects, e.g. e-Codices (<a href="http://www.e-codices.unifr.ch/en">http://www.e-codices.unifr.ch/en</a>) use TEI for manuscript description and as part of a database design which includes syntactical features.</p>
+
+<p class="footnote" id="footnote-18"><sup><a href="#footnote-reference-18">18</a></sup> It would be also well suited for the study of epigraphy (See Bodard<!--insert link--> in this volume).</p>
+
+<p class="footnote" id="footnote-19"><sup><a href="#footnote-reference-19">19</a></sup> There is here a conflict in terminology which I do not think can be avoided, in as far as 'element' is a technical term both in XML (<a href="https://www.w3.org/TR/xml/#sec-logical-struct">https://www.w3.org/TR/xml/#sec-logical-struct</a>) and in the methodology of <i>La Syntaxe</i>.</p>
+
+<p class="footnote" id="footnote-20"><sup><a href="#footnote-reference-20">20</a></sup> More examples can be found in <i>La Syntaxe</i>.</p>
+
+<p class="footnote" id="footnote-21"><sup><a href="#footnote-reference-21">21</a></sup> Throughout the article I translate some of the French terms from the book into English. A new edition, in English has been announced by the authors but was not yet available at the time in which this contribution has been written, that is spring 2018.</p>
+
+<p class="footnote" id="footnote-22"><sup><a href="#footnote-reference-22">22</a></sup> As it will be evident in the next sections, this list is already a list of recognized units, not of all categorial elements, so the list contains the units identified during the observation, not all elements observed.</p>
+
+<p class="footnote" id="footnote-23"><sup><a href="#footnote-reference-23">23</a></sup> See (Andrist 2014) for a useful review of the ways in which manuscripts are catalogued online from the user perspective.</p>
+
+<p class="footnote" id="footnote-24"><sup><a href="#footnote-reference-24">24</a></sup> This description which is encoded in TEI is already the categorial description, so it already contains an elaboration of the individual elements observed.</p>
+
+<p class="footnote" id="footnote-25"><sup><a href="#footnote-reference-25">25</a></sup> <a href="http://iiif.io/api/presentation/2.1/">http://iiif.io/api/presentation/2.1/</a>. The images are exposed using the IIPImage server (<a href="http://iipimage.sourceforge.net/">http://iipimage.sourceforge.net/</a>) by Ruven Pillay.</p>
+
+<p class="footnote" id="footnote-26"><sup><a href="#footnote-reference-26">26</a></sup> &lt;date&gt; is an element which is allowed almost everywhere in TEI and thus allows to refer quite exactly the given date to the correct portion of the description. In <i>Beta maṣāḥǝft</i> we print these where they belong but we also provide a timeline with the dates given in the manuscript's description (Andrist 2015, 513).</p>
+
+<p class="footnote" id="footnote-27"><sup><a href="#footnote-reference-27">27</a></sup> Which does not mean that there is no point in doing mappings and integrations. A long list of publications could be offered for example for the different methods used to map TEI and CIDOC-CRM for different purposes (Baierer et al. 2017; Eide 2014; Eide and Ore 2006; Ciula, Spence, and Vieira 2008).</p>
+
+<p class="footnote" id="footnote-28"><sup><a href="#footnote-reference-28">28</a></sup> See above, the section on the project. The problem would not exist working directly with the codex.</p>
+
+<p class="footnote" id="footnote-29"><sup><a href="#footnote-reference-29">29</a></sup> For example Pinakes, <a href="http://pinakes.irht.cnrs.fr/">http://pinakes.irht.cnrs.fr/</a>.</p>
+
+<p class="footnote" id="footnote-30"><sup><a href="#footnote-reference-30">30</a></sup> For implementation reasons the project does not have yet content negotiation and cool URIs (<a href="https://www.w3.org/TR/cooluris/">https://www.w3.org/TR/cooluris/</a>), but we are working towards that.</p>
+
+<p class="footnote" id="footnote-31"><sup><a href="#footnote-reference-31">31</a></sup> We will omit here discussion of additional contents becoming in the transmission of a text and in the copying process also part of the main content (Bausi 2016, 241–44).</p>
+
+<p class="footnote" id="footnote-32"><sup><a href="#footnote-reference-32">32</a></sup> See (Orlandi 2013) on the issue of identifying a text in the oriental tradition. This model allows to give an id to each occurrence of a text in a given manuscript and keeps the identification of an abstract work as an entirely distinct entity.</p>
+
+<p class="footnote" id="footnote-33"><sup><a href="#footnote-reference-33">33</a></sup> As defined here <a href="https://github.com/lawdi/LAWD">https://github.com/lawdi/LAWD</a> by Hugh Cayless.</p>
+
+<p class="footnote" id="footnote-34"><sup><a href="#footnote-reference-34">34</a></sup> As defined in the LAWD ontology <a href="http://lawd.info/ontology/">http://lawd.info/ontology/</a>. </p>
+
+<p class="footnote" id="footnote-35"><sup><a href="#footnote-reference-35">35</a></sup> Which has nothing to do with the actual position of the node in the XML tree.</p>
+
+<p class="footnote" id="footnote-36"><sup><a href="#footnote-reference-36">36</a></sup> <a href="https://raw.githubusercontent.com/BetaMasaheft/RDF/master/transformations/data2rdf.xsl">https://raw.githubusercontent.com/BetaMasaheft/RDF/master/transformations/data2rdf.xsl</a> </p>
+
+<p class="footnote" id="footnote-37"><sup><a href="#footnote-reference-37">37</a></sup> We actually include in the RDF representation of the data also URNs for the text which follow the Distributed Text Services Draft. </p>
+
+<p class="footnote" id="footnote-38"><sup><a href="#footnote-reference-38">38</a></sup> See (Ore and Eide 2009).</p>
+
+<p class="footnote" id="footnote-39"><sup><a href="#footnote-reference-39">39</a></sup> <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-relation.html">http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ref-relation.html</a> </p>
+
+<p class="footnote" id="footnote-40"><sup><a href="#footnote-reference-40">40</a></sup> This use is still the project practice, but it is planned already to move to the more recent standOff and annotation guidelines. <a href="https://www.tei-c.org/release/doc/tei-p5-doc/en/html/SA.html#SASOstdf">https://www.tei-c.org/release/doc/tei-p5-doc/en/html/SA.html#SASOstdf</a>.</p>
+
+<p class="footnote" id="footnote-41"><sup><a href="#footnote-reference-41">41</a></sup> The ontology used for the Beta maṣāḥǝft project and for the examples in this article can be viewed here <a href="http://visualdataweb.de/webvowl/#url=https://raw.githubusercontent.com/BetaMasaheft/SyntaxeDuCodex/master/SyntaxeDuCodex.json">http://visualdataweb.de/webvowl/#url=https://raw.githubusercontent.com/BetaMasaheft/SyntaxeDuCodex/master/SyntaxeDuCodex.json</a> and is to date an initial draft still very much under discussion and testing. <a href="https://w3id.org/sdc/ontology">https://w3id.org/sdc/ontology</a> is the namespace registered using <a href="https://w3id.org/">https://w3id.org/</a>. The ontology has been written using Protégé (<a href="https://protege.stanford.edu/">https://protege.stanford.edu/</a>) and Atom (<a href="https://atom.io/">https://atom.io/</a>). In the following pages it will be prefixed always with sdc and referred to in the abbreviated form SdC.</p>
+
+<p class="footnote" id="footnote-42"><sup><a href="#footnote-reference-42">42</a></sup> In this contribution Andrist proposes a distinction of four types of stratum, to which UniProd might belong. In this article this information, which is heuristically useful and is part of the ontology, is not used for the examples. Here however I offer a summary table of the strata.</p>
+
+<table id="table-fnt-42" border="2" align="center">
+  <colgroup>
+  <col width="145"/>
+  <col width="278"/>
+  <col width="89"/>
+  <col width="85"/>
+  <col width="85"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th rowspan="2">Stratum</th>
+    <th rowspan="2">Example</th>
+    <th rowspan="2">Writing Project</th>
+    <th colspan="2">Self standing</th>
+  </tr>
+  <tr>
+    <th>Content</th>
+    <th>Material</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Primary</th>
+    <td>Two different writing projects bound together</td>
+    <td>yes</td>
+    <td>yes</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <th>Secondary</th>
+    <td>Extra texts copied on new quires and bound together</td>
+    <td>no</td>
+    <td>yes</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <th>Tertiary</th>
+    <td>Added table of contents</td>
+    <td>no</td>
+    <td>no</td>
+    <td>yes</td>
+  </tr>
+  <tr>
+    <th>Quaternary</th>
+    <td>Added written elements, small margin drawings</td>
+    <td>yes</td>
+    <td>(not relevant)</td>
+    <td>no</td>
+  </tr>
+  </tbody>
+</table>
+
+<p>The assumption in the ontology about these strata is that they relate a UniProd to a UniCirc, and thus there can be strata of each of the UniCirc in the history of the book. Strata are not subordinate to UniCirc, they can be defined in parallel to them and might be bound to a UniCirc. This might be useful for example where a UniCirc with some additional texts (i.e. with a quaternary stratum) is partially destroyed and new material is added to it later to complete the text and then later notes are added to this, resulting in a quaternary stratum of the new UniCirc. Also the case of the palimpsest would not be special but fit quite neatly as a primary stratum of a previous UniCirc. Andrist 2018 analyzes the concepts of &quot;content&quot; to show that &quot;<i>contenus accessoires</i>&quot; are not necessary things added later (as also implied in the description).</p>
+
+<p class="footnote" id="footnote-43"><sup><a href="#footnote-reference-43">43</a></sup> Simple Knowledge Organization System (Miles and Bechhofer 2009).</p>
+
+<p class="footnote" id="footnote-44"><sup><a href="#footnote-reference-44">44</a></sup> We will use the prefix bm: for properties and classes which are locally defined.</p>
+
+<p class="footnote" id="footnote-45"><sup><a href="#footnote-reference-45">45</a></sup> It could off course also get it directly from a XQuery to the XML document returning the same or a similar JSON object. The SPARQL query is as much dependent on the ontology in use and the RDF produced as the XQuery is dependent on the actual XML encoded in a project although validating to a schema. In this case the advantage is demonstrated in the following paragraphs in the possibility to actually provide some depth to the description which does not need to be as much as a reconstruction of a preceding status of the manuscript but only needs to give the minimal coordinates to connect the relevant information. </p>
+
+<p class="footnote" id="footnote-46"><sup><a href="#footnote-reference-46">46</a></sup> Given the ID of each of the manuscripts in the examples you can get to the XML source with https://betamasaheft.eu/{ID}.xml; to a postprocessed TEI file a bit more explicit with https://betamasaheft.eu/tei/{ID}.xml; to the RDF with https://betamasaheft.eu/rdf/manuscripts/{ID}.rdf  and to the main web view with the base URI, which will redirect to https://betamasaheft.eu/manuscripts/{ID}/main. A PDF version can also be obtained with https://betamasaheft.eu/{ID}.pdf  for comparison, although this output contains yet some inconsistencies.</p>
+
+<p class="footnote" id="footnote-47"><sup><a href="#footnote-reference-47">47</a></sup> Converted with <a href="http://www.easyrdf.org/converter">http://www.easyrdf.org/converter</a>. </p>
+
+<p class="footnote" id="footnote-48"><sup><a href="#footnote-reference-48">48</a></sup> The XML examples reproduce the data entry XML, which is more concise than the one with expanded URIs also available from the <i>Beta maṣāḥǝft</i> project.</p>
+
+<p class="footnote" id="footnote-49"><sup><a href="#footnote-reference-49">49</a></sup> The visualization is produced with <a href="http://visjs.org/">vis.js</a> on the basis of a SPARQL query (Harris and Seaborne 2013) sent to the Beta maṣāḥǝft endpoint. This endpoint used the indexing and querying capabilities offered by exist-db SPARQL package (<a href="https://github.com/ljo/exist-sparql">https://github.com/ljo/exist-sparql</a>) by Leif-Jöran Olsson when this article was written. After the release of eXist-db 5, this was replaced by an Apache Jena Fuseki instance queried over HTTP. The XML results (Beckett and Broekstra 2013) are transformed to JSON (Seaborne 2013) with a local XQuery 3.1 function. A script in Javascript transforms the results of the query in nodes and edges as required by vis.js. </p>
+
+<p class="footnote" id="footnote-50"><sup><a href="#footnote-reference-50">50</a></sup> <a href="https://developers.google.com/chart/interactive/docs/gallery/sankey">https://developers.google.com/chart/interactive/docs/gallery/sankey</a> Overlap of lines is not avoidable and also not really relevant. </p>
+
+<p class="footnote" id="footnote-51"><sup><a href="#footnote-reference-51">51</a></sup> About the encoding of these example in TEI, using msFrag and msPart, see the discussion in the TEI List <a href="https://listserv.brown.edu/archives/cgi-bin/wa?A1=ind1803&amp;L=TEI-L#21">https://listserv.brown.edu/archives/cgi-bin/wa?A1=ind1803&amp;L=TEI-L#21</a>. This is of course the working hypothesis for this example, i.e. we assume that there was an intention and they did this at once. Different options would imply different representations of the transformations. See below the example of  <i>Bern, Burgerbibliothek, Cod. 459</i>.</p>
+
+<p class="footnote" id="footnote-52"><sup><a href="#footnote-reference-52">52</a></sup> <a href="http://www.e-codices.unifr.ch/en/list/one/bbb/0459">http://www.e-codices.unifr.ch/en/list/one/bbb/0459</a></p>
+
+<p class="footnote" id="footnote-53"><sup><a href="#footnote-reference-53">53</a></sup> The service URL is here only a placeholder for the example.</p>
+
+<p class="footnote" id="footnote-54"><sup><a href="#footnote-reference-54">54</a></sup> The same can be extended to query relational databases, for example with Ontop (<a href="https://ontop-vkg.org/">https://ontop-vkg.org/</a>). See (Calvanese et al. 2016).</p>
+
+</section>
+
+<footer>
+
+<p class="editorial-note"><a rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers"><i>ISAW Papers</i></a> (ISSN 2164-1471) is a publication of the <a rel="dcterms:publisher" property="dcterms:publisher" href="http://isaw.nyu.edu">Institute for the Study of the Ancient World</a>, <a href="http://nyu.edu/">New York University</a>. This article was anonymously reviewed prior to publication.</p>
+
+<p class="copyright" style="margin-top:1em;text-align:center;color:gray">©2020 <span rel="cc:attributionName">Pietro Maria Liuzzo</span>. Distributed under the terms of the <a rel="cc:license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Additional rights holders and licenses for figures noted in captions as necessary.</p>
+
+</footer>
+
+</article>
+
+</body>
+</html>

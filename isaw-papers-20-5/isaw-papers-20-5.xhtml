@@ -26,14 +26,14 @@
  <meta name="DC.creator" content="Ethan Gruber" /> 
  <meta name="DC.creator" content="Andrew Meadows" /> 
  <meta name="DC.language" content="en" /> 
- <meta name="DC.abstract" content="???" />
+ <meta name="DC.abstract" content="TK" />
  <meta name="DC.publisher" content="Institute for the Study of the Ancient World, New York University" />
  <meta name="DC.subject" content="Linked data" />
  <meta name="DC.subject" content="Numismatics, Ancient" />
  <meta name="DCTERMS.license" content="Creative Commons Attribution 4.0 Unported (CC-BY)" />
  <meta name="DCTERMS.bibliographicCitation" content="Ethan Gruber and Andrew Meadows. 2020. Numismatics and Linked Open Data. ISAW Papers 20.5." />
  <meta name="DCTERMS.isPartOf" content="ISAW Papers" />
- <meta name="DCTERMS.identifier.URI" content="???"/>
+ <meta name="DCTERMS.identifier.URI" content="TK"/>
 
  <link rel="dcterms:isPartOf" href="http://www.worldcat.org/oclc/756047783" />
  <link rel="dcterms:isPartOf" href="urn:issn:2164-1471" />
@@ -55,14 +55,12 @@
 <h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0002-4691-9747" property="foaf:name">Ethan Gruber</a></span>, American Numismatic Society</h2>
 <h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0002-7334-9057" property="foaf:name">Andrew Meadows</a></span>, New College, Oxford</h2>
  
-<p class="doi">URI: <a rel="dcterms:identifier" href="???">???</a></p>
+<p class="doi">URI: <a rel="dcterms:identifier" href="TK">TK</a></p>
 
-<p class="abstract"><em>Abstract:</em> <span id="abstract" property="dcterms:abstract">???</span></p>
+<p class="abstract"><em>Abstract:</em> <span id="abstract" property="dcterms:abstract">TK</span></p>
  
 <p class="subjects"><em>Library of Congress Subjects:</em> <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh2013002090">Linked data</a>; <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh85093260">Numismatics, Ancient</a>.</p>
 
-
-</header>
  
 <nav id="toc">
 
@@ -115,6 +113,9 @@
 </ul>
 
 </nav>
+
+</header>
+
 
 <section id="section1">
 
@@ -277,10 +278,10 @@
         dcterms:title "Röm. Republik: C. Iulius Caesar (Octavianus), vor 27 v. Chr."@de ;
 		void:inDataset &lt;http://ikmk.smb.museum/&gt;.
 </code></pre>
-<figcaption>Fig. 9. A RDF Turtle syntax representation of Berlin Münzkabinett <a href="https://ikmk.smb.museum/object?id=3D18207296">https://ikmk.smb.museum/object?id=18207296</a>.</figcaption>
+<figcaption>Fig. 9. A RDF Turtle syntax representation of Berlin Münzkabinett <a href="https://ikmk.smb.museum/object?id=18207296">https://ikmk.smb.museum/object?id=18207296</a>.</figcaption>
 </figure>
 
-<p id="p28" rel="dcterms:hasPart" resource="#p28">In summary, the coin defined by the URI <a href="https://ikmk.smb.museum/object?id=3D18207296">https://ikmk.smb.museum/object?id=18207296</a> has measurements, a reference to the coin type URI of RIC Augustus 543A, URIs defining the collection and source dataset (for deleting/refreshing the export in Nomisma), and thumbnail and reference image URLs defined in both the level of the obverse and reverse of the coin. Additional hoard or findspot information may be added, as well as International Image Interoperability Framework (IIIF) service metadata (to be described in the section below). This simple model for translating numismatic metadata into Linked Open Data utilizes several Nomisma-defined ontology properties, but also implements Friend of a Friend (FOAF), Dublin Core Terms, and Vocabulary of Interlinked Datasets (VoID).<sup><a class="footnote-reference" id="footnote-reference-14" href="#footnote-14">14</a></sup></p>
+<p id="p28" rel="dcterms:hasPart" resource="#p28">In summary, the coin defined by the URI <a href="https://ikmk.smb.museum/object?id=18207296">https://ikmk.smb.museum/object?id=18207296</a> has measurements, a reference to the coin type URI of RIC Augustus 543A, URIs defining the collection and source dataset (for deleting/refreshing the export in Nomisma), and thumbnail and reference image URLs defined in both the level of the obverse and reverse of the coin. Additional hoard or findspot information may be added, as well as International Image Interoperability Framework (IIIF) service metadata (to be described in the section below). This simple model for translating numismatic metadata into Linked Open Data utilizes several Nomisma-defined ontology properties, but also implements Friend of a Friend (FOAF), Dublin Core Terms, and Vocabulary of Interlinked Datasets (VoID).<sup><a class="footnote-reference" id="footnote-reference-14" href="#footnote-14">14</a></sup></p>
 
 <p id="p29" rel="dcterms:hasPart" resource="#p29">Note that the RDF description of this object in the Berlin collection does not explicitly denote its material (silver), denomination (<i>denarius</i>), or other typological attributes. Like a relational database, the Nomisma LOD graph enables queries by these attributes by the association between the coin and the coin type by means of the <code>nmo:hasTypeSeriesItem</code> property. Practically speaking, how does this affect OCRE? Rather than updating records in OCRE when the collections of new partners become available, the RDF database stands apart, making it easier to update Apache Fuseki with new collections and manage changes or deletions in collections already contained in the system. Therefore, when Nomisma gains a new partner, these coin data and associated findspots, images, and measurements become available immediately upon ingestion into the endpoint. Using SPARQL, OCRE (through the Numishare application code) can query Fuseki to display images of coins associated with particular types in record or search results pages. SPARQL query results can be serialized into KML and GeoJSON directly and displayed in maps, making it possible to make use of findspots from online coin hoard catalogs. Using mathematical functions inherent to SPARQL, average weights of coin types or specific typologies (e.g., <i>denarii</i> of Augustus) can be delivered to OCRE directly and rendered in the form of charts and graphs (Fig. 8a) by the Javascript library, Highcharts, which is capable of interpreting this data into HTML5 graphics.<sup><a class="footnote-reference" id="footnote-reference-15" href="#footnote-15">15</a></sup></p>
 
@@ -296,7 +297,7 @@
 
 <ol>
  <li>According to the basic principles of the Semantic Web and recommendations for museum objects from ICOM, each coin must be available at a distinct URI. Ideally, the URI should follow the Clean URL pattern: there should be no portions of the URL that are distinct to particular software platforms (like a &#8216;.php&#8217; or other programming-specific file extensions) or request parameters (variables passed in the URL following the &#8216;?&#8217; character).<sup><a class="footnote-reference" id="footnote-reference-17" href="#footnote-17">17</a></sup> An example of a Clean URI is a coin in the ANS collection: <a href="http://numismatics.org/collection/1944.100.51606">http://numismatics.org/collection/1944.100.51606</a>. The accession number forms part of the URI, and the collection/ namespace is stable regardless of software platform (there have been three frameworks used for the online collection since 2010).</li>
- <li>At present, we are only ingesting physical specimens related to published type corpora, and we only have the capacity to ingest specimens whose type attribution is clear and completely certain. Therefore, each coin contributed to Nomisma.org should have one nmo:hasTypeSeriesItem linking to a coin type URI in OCRE, PELLA, etc. There are some exceptions to this rule, as there is overlap between Hellenistic type catalogs. Early Seleucid coins struck in the name of Alexander the Great may appear in both <i>PELLA</i> and <i>Seleucid Coinage Online</i>, so it is possible to have more than one URI, but in different corpora.</li>
+ <li>At present, we are only ingesting physical specimens related to published type corpora, and we only have the capacity to ingest specimens whose type attribution is clear and completely certain. Therefore, each coin contributed to Nomisma.org should have one <code>nmo:hasTypeSeriesItem</code> linking to a coin type URI in OCRE, PELLA, etc. There are some exceptions to this rule, as there is overlap between Hellenistic type catalogs. Early Seleucid coins struck in the name of Alexander the Great may appear in both <i>PELLA</i> and <i>Seleucid Coinage Online</i>, so it is possible to have more than one URI, but in different corpora.</li>
  <li>Every coin must have a human-readable title (although it can be automatically generated), but images, measurements, and findspots are optional.</li>
 </ol>
 
@@ -543,7 +544,7 @@
 
 <p class="footnote" id="footnote-17"><sup><a href="#footnote-reference-17">17</a></sup> See Berners-Lee&#8217;s seminal work on &#8220;Linked Data&#8221; for more information: <a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a>. The Clean URL pattern is best explained at <a href="https://en.wikipedia.org/wiki/Clean_URL">https://en.wikipedia.org/wiki/Clean_URL</a>.</p>
 
-<p class="footnote" id="footnote-18"><sup><a href="#footnote-reference-18">18</a></sup> The Presentation API is documented at <a href="hhttp://iiif.io/api/presentation/2.0">http://iiif.io/api/presentation/2.0</a>.</p>
+<p class="footnote" id="footnote-18"><sup><a href="#footnote-reference-18">18</a></sup> The Presentation API is documented at <a href="http://iiif.io/api/presentation/2.0">http://iiif.io/api/presentation/2.0</a>.</p>
 
 <p class="footnote" id="footnote-19"><sup><a href="#footnote-reference-19">19</a></sup> <a href="http://openrefine.org">http://openrefine.org</a>.</p>
 
