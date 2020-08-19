@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" prefix="bibo: http://purl.org/ontology/bibo/
+ cc: http://creativecommons.org/ns#
+ dcmitype: http://purl.org/dc/dcmitype/
+ dcterms: http://purl.org/dc/terms/
+ foaf: http://xmlns.com/foaf/0.1/
+ nm: http://nomisma.org/id/
+ owl:  http://www.w3.org/2002/07/owl#
+ rdfs: http://www.w3.org/2000/01/rdf-schema# 
+ rdfa: http://www.w3.org/ns/rdfa#
+ rdf:  http://www.w3.org/1999/02/22-rdf-syntax-ns#
+ skos: http://www.w3.org/2004/02/skos/core#
+ ">
+ <head>
+ 
+ <title>Linked Open Data for Papyrology</title>
+  
+ <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+ <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+ 
+ <meta name="DC.title" content="Linked Open Data for Papyrology" /> 
+ <meta name="DC.date" content="2020-??-00" />
+ <meta name="DC.format" content="application/xhtml+xml" />
+ <meta name="DC.creator" content="Ryan Baumann" /> 
+ <meta name="DC.language" content="en" /> 
+ <meta name="DC.abstract" content="This chapter will describe both the current uses of Linked Open Data (LOD) for papyrology, particularly for papyri.info, as well as potential avenues for future developments in this area." />
+ <meta name="DC.subject" content="Manuscripts (papyri)--Electronic publishing" />
+ <meta name="DC.subject" content="Linked data" />
+ <meta name="DCTERMS.license" content="Creative Commons Attribution 4.0 Unported (CC-BY)" />
+ <meta name="DCTERMS.bibliographicCitation" content="Ryan Baumann. 2020. Linked Open Data for Papyrology. ISAW Papers 20.10." />
+ <meta name="DCTERMS.isPartOf" content="ISAW Papers" />
+ <meta name="DCTERMS.identifier.URI" content="TK"/>
+
+ <link rel="dcterms:isPartOf" href="http://www.worldcat.org/oclc/756047783" />
+ <link rel="dcterms:isPartOf" href="urn:issn:2164-1471" />
+ <link rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers" />
+
+<link rel="stylesheet" href="isaw-publications.css"/>
+
+</head>
+
+<body>
+
+<article>
+
+
+<header>
+
+<h2>ISAW Papers 20.10 (2020)</h2>
+
+<h1><span rel="dcterms:title">Linked Open Data for Papyrology</span></h1>
+
+<h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0001-9249-1617" property="foaf:name">Ryan Baumann</a></span>, Duke University, Duke Collaboratory for Classics Computing</h2>
+
+<p class="doi">URI: <a rel="dcterms:identifier" href="TK">TK</a></p>
+ 
+
+<p class="abstract"><em>Abstract: </em><span id="abstract" property="dcterms:abstract">This chapter will describe both the current uses of Linked Open Data (LOD) for papyrology, particularly for papyri.info, as well as potential avenues for future developments in this area.</span></p>
+ 
+
+<p class="subjects"><em>Library of Congress Subjects:</em> <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh85080781">Manuscripts (papyri)--Electronic publishing</a>; <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh2013002090">Linked data</a>.</p>
+
+
+<nav id="toc">
+  <h2>Table of Contents</h2>
+
+<ul>
+
+<li><a href="#section1">Introduction</a></li>  
+
+<li><a href="#section2">Linked Open Data from Papyri.info</a></li> 
+
+<li><a href="#section3">Future Directions</a></li> 
+
+<li><a href="#references">References</a></li>
+
+<li><a href="#footnotes">Notes</a></li>
+
+</ul>
+
+</nav>
+
+
+</header>
+
+
+<section id="section1">
+
+<h2>Introduction</h2>
+
+<p id="p1" class="textindent0" rel="dcterms:hasPart" resource="#p1">To outsiders of either field, Linked Open Data and papyrology may not be an obvious pairing. However, the field of papyrology (that is, the study of ancient docouments written on papyrus) has been relatively lucky over the course of the last several decades such that it is not only already relatively well-represented digitally, but also has an established foundation for Linked Open Data which can be built upon. This foundation ultimately rests on social and institutional commitments to establishing and providing stable identifiers for the data which concerns the papyrological community at various levels.</p>
+
+<p id="p2" rel="dcterms:hasPart" resource="#p2">The main focus of this piece will be in describing the Linked Open Data for <a href="http://papyri.info">papyri.info</a>, both the historical and institutional reasons for its current structure, as well as avenues forward for its use and development.<sup><a class="footnote-reference" id="footnote-reference-1" href="#footnote-1">1</a></sup> Papyri.info is a searchable and user-editable online collection of papyrological resources (primarily transcriptions, metadata, images, and translations for papyri), born out of the collaborative aggregation of various pre-existing digital papyrological databases. Initially, these were the <i>Duke Databank of Documentary Papyri</i> (DDbDP), the <i>Heidelberger Gesamtverzeichnis der griechischen Papyrusurkunden Ägyptens</i> (HGV), and the <i>Advanced Papyrological Information System</i> (APIS). These databases were integrated in multiple rounds of development under the <i>Integrating Digital Papyrology</i> (IDP) projects (for more background on IDP and individual project history, see Bagnall 2010; Baumann 2013; Sosin 2010).</p>
+
+<p id="p3" rel="dcterms:hasPart" resource="#p3">As part of this integration process, the relationships between items in these and other databases needed to be mapped, in order that (for example) a transcription of text in the
+DDbDP could be associated with object and publication metadata in the HGV database, or image and curatorial metadata in APIS. As part of the IDP development project, an automated mapping process was developed which ingests the various XML files from each database and outputs associations as Research Description Framework (RDF) “triples,” where each “triple” is a statement of the form “subject-predicate-object” (Cayless 2011; Cayless et al. 2012; Lanthaler, Wood, and Cyganiak 2014). So, to translate the earlier example into an RDF triple, a “DDbDP transcription” <i>subject</i> would have a “relation” <i>predicate</i> to an “HGV publication metadata” <i>object</i>. Papyri.info in turn both uses these triples internally for its own mapping operations, as well as exposing them on the public web as RDF in a variety of available formats (see Figure 1).</p>
+
+<figure id="figure01">
+<img alt="" src="images/fig1.png" title="" />
+<figcaption>Figure 1: Top-level data flow for papyri.info, including the RDF mapping process. In the diagram, <code>idp.mapping</code> is the mapping process, while the “Numbers Server” is an Apache Jena Fuseki SPARQL server which stores and serves the resulting RDF triples (Cayless et al. 2012; image from Baumann 2013).</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section2">
+
+<h2>Linked Open Data from Papyri.info</h2>
+
+<p id="p4" class="textindent0" rel="dcterms:hasPart" resource="#p4">Before describing the existing Linked Open Data from papyri.info, it may be useful to first discuss the types of problems it was designed to address. The DDbDP, since its creation in 1982, has been focused on digital transcription and encoding of papyrological texts, starting from print editions (mostly confined to “documentary” texts, i.e. letters, tax records, and the things of everyday life, in contrast to “literary” texts which would encompass poetry and prose). HGV and APIS, meanwhile, collect metadata (place of origin, date, keywords, bibliography, etc.) and images of much of the same material.<sup><a class="footnote-reference" id="footnote-reference-2" href="#footnote-2">2</a></sup></p>
+
+<p id="p5" rel="dcterms:hasPart" resource="#p5">Since the DDbDP’s items and identifiers are distinguished at the level of “text” or“print edition,” while HGV and APIS constitute themselves around the physical “object,” there can be complex, many-to-many relationships between these records. As a straightforward example, the recto/verso of a single piece of papyrus may bear two completely different texts by different people, and be represented as two texts in the DDbDP, associated with a single HGV record. It’s also possible that a single “text” could be split across multiple papyrus fragments now held by multiple institutions. As we can see, these definitions
+of what constitutes a single papyrological “object” can vary depending on what your goal is. Papyri.info also links out to identifiers minted and held by <a href="https://www.trismegistos.org">Trismegistos</a> (Depauw and Gheldof 2014), a database which focuses on collecting metadata about texts from antiquity and which has a similar “object”-based principle for papyri. These relationships are often one-to-one with HGV, but even here, reasonable disagreements about what constitutes a single “object” can arise, resulting in one-to-many relationships. Another common scenario is that due to the DDbDP’s original orientation around the “print edition,” multiple editions of a text (or at least, the identifiers for them) need to be related to one another, so that from a citation to an old edition of a text, the new edition can be discovered.</p>
+
+<p id="p6" rel="dcterms:hasPart" resource="#p6">Another artifact of the print world is the organization of multiple papyri into collections of papyri based on the print volume or series. Thus, for example, a DDbDB “P.Oxy.” collection may collect all DDbDB records corresponding to texts originally printed in the book series <i>The Oxyrhynchus Papyri</i> (“P.Oxy.” being the standard papyrological abbreviation for this series).<sup><a class="footnote-reference" id="footnote-reference-3" href="#footnote-3">3</a></sup> At the top level, we can see all collections in the DDbDP by looking at <code><a href="http://papyri.info/ddbdp/rdf">http://papyri.info/ddbdp/rdf</a></code>,<sup><a class="footnote-reference" id="footnote-reference-4" href="#footnote-4">4</a></sup> where each collection is represented in a Dublin Core<sup><a class="footnote-reference" id="footnote-reference-5" href="#footnote-5">5</a></sup> <code>hasPart</code>/<code>isPartOf</code> relation to the DDbDP:</p>
+
+<figure id="code1">
+<pre><code>
+	&lt;?xml version=”1.0”?&gt;
+	&lt;rdf:RDF
+	    xmlns:rdf=”http://www.w3.org/1999/02/22-rdf-syntax-ns#”
+	    xmlns:dc=”http://purl.org/dc/terms/” &gt;
+	 &lt;rdf:Description rdf:about=”http://papyri.info/ddbdp”&gt;
+	    &lt;dc:hasPart rdf:resource=”http://papyri.info/ddbdp/p.masada”/&gt;
+	    &lt;dc:hasPart rdf:resource=”http://papyri.info/ddbdp/p.mil.congr.xiv”/&gt;
+	    &lt;dc:hasPart rdf:resource=”http://papyri.info/ddbdp/p.wisc”/&gt;
+	    &lt;dc:hasPart rdf:resource=”http://papyri.info/ddbdp/p.turku”/&gt;
+	    [...]
+</code></pre>
+</figure>
+
+<p id="p7" rel="dcterms:hasPart" resource="#p7">If we then look at e.g. <code><a href="http://papyri.info/ddbdp/p.masada/rdf">http://papyri.info/ddbdp/p.masada/rdf</a></code>, we’ll see individual records in a similar <code>hasPart</code>/<code>isPartOf</code> relation to their collection (other collections may have more hierarchy within them). Selecting the first of these, we can look at <code><a href="http://papyri.info/ddbdp/p.masada;;722/source/rdf">http://papyri.info/ddbdp/p.masada;;722/source/rdf</a></code> to see the RDF data for an individual “text”:</p>
+
+<figure id="code2">
+<pre><code>
+	&lt;?xml version=”1.0”?&gt;
+	&lt;rdf:RDF
+	    xmlns:rdf=”http://www.w3.org/1999/02/22-rdf-syntax-ns#”
+	    xmlns:foaf=”http://xmlns.com/foaf/0.1/”
+	    xmlns:dc=”http://purl.org/dc/terms/” &gt;
+	 &lt;rdf:Description rdf:about=”http://papyri.info/ddbdp/p.masada;;722/source”&gt;
+	    &lt;dc:source rdf:resource=”http://papyri.info/ddbdp/p.masada;;722/work”/&gt;
+	    &lt;dc:relation rdf:resource=”http://papyri.info/hgv/78491/source”/&gt;
+	    &lt;dc:identifier&gt;p.masada.722&lt;/dc:identifier&gt;
+	    &lt;dc:replaces rdf:resource=”http://papyri.info/ddbdp/chla;46;1365/source”/&gt;
+	    &lt;dc:relation rdf:resource=”http://papyri.info/ddbdp/chla;46;1365/source”/&gt;
+	    &lt;foaf:page rdf:resource=”http://papyri.info/ddbdp/p.masada;;722”/&gt;
+	    &lt;dc:relation rdf:resource=”http://papyri.info/trismegistos/78491”/&gt;
+	    &lt;dc:isPartOf rdf:resource=”http://papyri.info/ddbdp/p.masada”/&gt;
+	    &lt;dc:identifier&gt;papyri.info/ddbdp/p.masada;;722&lt;/dc:identifier&gt;
+	    &lt;dc:relation rdf:resource=”http://www.trismegistos.org/text/78491”/&gt;
+	 &lt;/rdf:Description&gt;
+	 [...]
+</code></pre>
+</figure>
+
+<p id="p8" rel="dcterms:hasPart" resource="#p8">This expresses the relationships between this DDbDP record and corresponding HGV and Trismegistos records, as well as the relationship that <i>P.Masada 722</i> “replaces”
+<i>Ch.L.A. 46 1365</i> because it is a new edition of the same text (see footnote 3 above for an explanation of these publication abbreviations). This specific relationship reflects an editorial decision rooted in the DDbDP’s project history: that a newer edition of the same text added to the DDbDP should supersede an older edition, and the only text presented should be that of the newer edition. An alternative editorial practice may not express this as a relationship of “replacement” but simply of multiple editions living alongside one another, linked to the object metadata. But in any case, the data accurately represents DDbDP’s current model of the relationships between multiple editions.</p>
+
+</section>
+
+
+<section id="section3">
+
+<h2>Future Directions</h2>
+
+<p id="p9" class="textindent0" rel="dcterms:hasPart" resource="#p9">While these relationships between papyrological texts, objects, and their representations in various databases are relatively straightforward, it is hoped that by making them available as Linked Open Data we can act as good citizens of the web and of the papyrological community, enabling linking and discovery by other users. Of course, it’s easy to imagine more complex relationships which we could express between records in papyri.info and other Linked Ancient World Data; findspots in <a href="https://pleiades.stoa.org">Pleiades</a>, periods in <a href="http://perio.do">PeriodO</a>, people in various prosopographical resources, provenance history in museums and collections, or even more generic data in Wikidata. Eventually, greater RDF support by Trismegistos may facilitate greater use of its own rich papyrological data of this sort in a linked data web as well. Images are another obvious avenue for development, where papyri.info currently exposes images from APIS in its linked data graph, but a much more ambitious integration with IIIF and a greater number of images across the internet can be envisioned. Despite a variety of projects, concerns, and focuses, papyrology as a discipline is well represented on the web — something we all hope may continue and grow in the spirit of the <i>amicitia papyrologorum</i>.<sup><a class="footnote-reference" id="footnote-reference-6" href="#footnote-6">6</a></sup></p>
+
+</section>
+
+
+<section id="references">
+
+<h2>References</h2>
+
+<p id="reference-1" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Bagnall, Roger. 2010. “Integrating Digital Papyrology.” In <i>Online Humanities Scholarship: The Shape of Things to Come</i>. Mellon Foundation. <a href="http://hdl.handle.net/2451/29592">http://hdl.handle.net/2451/29592</a>.</span></p>
+
+<p id="reference-2" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Baumann, Ryan. 2013. “The <i>Son of Suda On-Line</i>.” In <i>The Digital Classicist 2013</i>, edited by Stuart Dunn and Simon Mahony, 91–106. Bulletin of the Institute of Classical Studies Supplements. Institute of Classical Studies, University of London.</span></p> 
+     
+<p id="reference-3" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Cayless, Hugh. 2011. “The Papyrological Navigator: Project Integration with RDF.” In <i>Digital Humanities 2011</i>. Alliance of Digital Humanities Organisations. <a href="http://xtf-prod.stanford.edu/xtf/view?docId=tei/ab-193.xml">http://xtf-prod.stanford.edu/xtf/view?docId=tei/ab-193.xml</a>.</span></p> 
+     
+<p id="reference-4" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Cayless, Hugh, Timothy Hill, Tom Elliott, James Cowey, and Gabriel Bodard. 2012.“Code for the Papyrological Navigator.” <i>GitHub Repository</i>. GitHub. <a href="https://github.com/papyri/navigator">https://github.com/papyri/navigator</a>.</span></p> 
+     
+<p id="reference-5" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Depauw, Mark, and Tom Gheldof. 2014. “Trismegistos: An Interdisciplinary Platform for Ancient World Texts and Related Information.” In <i>Theory and Practice of Digital Libraries – TPDL 2013 Selected Workshops</i>, edited by Łukasz Bolikowski, Vittore Casarosa, Paula Goodale, Nikos Houssos, Paolo Manghi, and Jochen Schirrwagen, 416:40–52. Communications in Computer and Information Science. Cham: Springer. <a href="https://www.trismegistos.org">https://www.trismegistos.org</a>.</span></p> 
+     
+<p id="reference-6" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Lanthaler, Markus, David Wood, and Richard Cyganiak. 2014. “RDF 1.1 Concepts and Abstract Syntax.” W3C Recommendation. W3C. <a href="http://www.w3.org/TR/2014/REC-rdf11-concepts-20140225">http://www.w3.org/TR/2014/REC-rdf11-concepts-20140225</a>.</span></p>
+      
+<p id="reference-7" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Sosin, Joshua D. 2010. “Digital Papyrology.” In <i>26th Congress of the International Association of Papyrologists</i>. International Association of Papyrologists. <a href="http://www.stoa.org/archives/1263">http://www.stoa.org/archives/1263</a>.</span></p>      
+
+</section>
+
+
+<section id="footnotes">
+
+<h2>Notes</h2>
+
+<p class="footnote" id="footnote-1"><sup><a href="#footnote-reference-1">1</a></sup> The author would like to thank their colleagues Hugh Cayless and Joshua Sosin for their valuablefeedback on this piece during the draft stage.</p>
+
+<p class="footnote" id="footnote-2"><sup><a href="#footnote-reference-2">2</a></sup> Some of the project descriptions in this paragraph are adapted from Baumann 2013.</p>
+
+<p class="footnote" id="footnote-3"><sup><a href="#footnote-reference-3">3</a></sup> Explanations of abbreviations for editions of papyri can be found in the <i>Checklist of Editions of Greek, Latin, Demotic, and Coptic Papyri, Ostraca, and Tablets</i>: <a href="http://papyri.info/docs/checklist">http://papyri.info/docs/checklist</a>.</p>
+
+<p class="footnote" id="footnote-4"><sup><a href="#footnote-reference-4">4</a></sup> Papyri.info linked data URLs support passing in the requested RDF format as a URL parameter (“<code>rdf</code>”
+for RDF/XML serialization in these examples), or by using content negotiation. The currently supported formats/parameters are <code>rdf</code>, <code>turtle</code>, <code>n3</code>, and <code>json</code>. Each of these are merely different <i>serializations</i> of the same underlying RDF data. This multiplicity of formats is provided for the convenience of the variety of types of clients which may want to consume this data, such as humans who have a preferred format for reading, or computer programs written in a programming language which can conveniently parse one format or another.</p>
+
+<p class="footnote" id="footnote-5"><sup><a href="#footnote-reference-5">5</a></sup> The Dublin Core Schema is a standard which defines a small set of metadata terms usable as RDF predicates across a wide variety of applications.</p>
+
+<p class="footnote" id="footnote-6"><sup><a href="#footnote-reference-6">6</a></sup> <a href="http://www.ulb.ac.be/assoc/aip/amicitia.htm">http://www.ulb.ac.be/assoc/aip/amicitia.htm</a></p>
+
+</section>
+
+
+<footer>
+
+<p class="editorial-note"><a rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers"><i>ISAW Papers</i></a> (ISSN 2164-1471) is a publication of the <a rel="dcterms:publisher" property="dcterms:publisher" href="http://isaw.nyu.edu">Institute for the Study of the Ancient World</a>, <a href="http://nyu.edu/">New York University</a>. This article was anonymously reviewed prior to publication.</p>
+
+<p class="copyright" style="margin-top:1em;text-align:center;color:gray">©2020 <span rel="cc:attributionName">Ryan Baumann</span>. Distributed under the terms of the <a rel="cc:license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Additional rights holders and licenses for figures noted in captions as necessary.</p>
+
+</footer>
+
+
+</article>
+
+</body>
+</html>
