@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" prefix="bibo: http://purl.org/ontology/bibo/
+ cc: http://creativecommons.org/ns#
+ dcmitype: http://purl.org/dc/dcmitype/
+ dcterms: http://purl.org/dc/terms/
+ foaf: http://xmlns.com/foaf/0.1/
+ nm: http://nomisma.org/id/
+ owl:  http://www.w3.org/2002/07/owl#
+ rdfs: http://www.w3.org/2000/01/rdf-schema# 
+ rdfa: http://www.w3.org/ns/rdfa#
+ rdf:  http://www.w3.org/1999/02/22-rdf-syntax-ns#
+ skos: http://www.w3.org/2004/02/skos/core#
+ ">
+ 
+ <head>
+ 
+ <title>Time for Linked Open Data</title>
+  
+ <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+ <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+ 
+ <meta name="DC.title" content="Time for Linked Open Data" /> 
+ <meta name="DC.date" content="2020-??-00" />
+ <meta name="DC.format" content="application/xhtml+xml" />
+ <meta name="DC.creator" content="Adam Rabinowitz" /> 
+ <meta name="DC.language" content="en" /> 
+ <meta name="DC.abstract" content="TK" />
+ <meta name="DC.subject" content="Linked data" />
+ <meta name="DC.subject" content="History--Periodization" />
+ <meta name="DCTERMS.license" content="Creative Commons Attribution 4.0 Unported (CC-BY)" />
+ <meta name="DCTERMS.bibliographicCitation" content="Adam Rabinowitz. 2020. Time for Linked Open Data. ISAW Papers 20.3." />
+ <meta name="DCTERMS.isPartOf" content="ISAW Papers" />
+ <meta name="DCTERMS.identifier.URI" content="TK"/>
+
+ <link rel="dcterms:isPartOf" href="http://www.worldcat.org/oclc/756047783" />
+ <link rel="dcterms:isPartOf" href="urn:issn:2164-1471" />
+ <link rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers" />
+
+<link rel="stylesheet" href="isaw-publications.css"/>
+
+</head>
+
+<body>
+
+<article>
+
+<header>
+
+<h2>ISAW Papers 20.3 (2020)</h2>
+
+<h1><span rel="dcterms:title">Time for Linked Open Data</span></h1>
+
+<h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0003-2557-5145" property="foaf:name">Adam Rabinowitz</a></span>, University of Texas at Austin</h2>
+
+<p class="doi">URI: <a rel="dcterms:identifier" href="TK">TK</a></p>
+ 
+<p class="abstract"><em>Abstract: </em><span id="abstract" property="dcterms:abstract">TK</span></p>
+ 
+<p class="subjects"><em>Library of Congress Subjects:</em> <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh2013002090">Linked data</a>; <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh85061222">History--Periodization</a>.</p>
+
+
+<nav id="toc">
+ <h2>Table of Contents</h2>
+ <ul>
+  <li><a href="#section1">Introduction</a></li>
+  
+  <li><a href="#section2">Absolute Time: Calendar Dates</a></li>
+  
+  <li><a href="#section3">Absolute Time: Formatting</a></li>
+  
+  <li><a href="#section4">Absolute Time: Semantic Representation</a></li>
+  
+  <li><a href="#section5">Relative Time: Periods</a></li>
+  
+  <li><a href="#section6">Relative Time: Alignment</a></li>
+  
+  <li><a href="#section7">Relative Time: Semantic Representation</a></li>
+  
+  <li><a href="#section8">Relative Time: Making New Periods</a></li>
+  
+  <li><a href="#section9">Conclusion: Why Take the Time?</a></li>
+  
+  <li><a href="#references">Bibliography</a></li>
+  
+  <li><a href="#footnotes">Notes</a></li>
+  
+ </ul>
+ </nav>
+
+</header>
+
+
+<section id="section1">
+
+<h2>Introduction</h2>
+
+<p id="p1" class="textindent0" rel="dcterms:hasPart" resource="#p1">The human measurement of time lends itself to computation, but it also presents particular problems for computers. Anyone who remembers the short-lived panic over “Y2K”, the idea that the turn of the millennium would break computer systems that had been built to understand the date “00” only as “1900”, can confirm this. On the one hand, humans have for a very long time measured time by observable, predictable, and quantifiable natural cycles, especially the movement of the celestial bodies. The most obvious of these cycles are the alternation of light and dark as the Earth spins on its axis, the waxing and waning of the moon, and the shifting position of the sun in the sky as the Earth progresses through the full circuit of its orbit. These are the same for everyone on the surface of the planet. </p>
+
+<p id="p2" rel="dcterms:hasPart" resource="#p2">On the other hand, some of these phenomena are not in sync with others (for example, the lunar versus the solar cycle) – and more importantly, the conceptual division and verbal expression of time has varied widely across cultures from the beginning of written history to the present. Human beings have kept time in terms of more or less accurate solar years; lunar months, which do not coincide with solar years; the movement of the stars across the sky over a solar year; the count of days or years or cycles from a culturally-significant starting-point; repeated or extraordinary events; and so on. And they have created larger subdivisions of time on the basis of perceptions of associated attributes, with more or less specific boundaries: these have had many names (<i>genos</i>, <i>saeculum</i>, “epoch”, “age”, “era”), but outside of the specific system of geological description, they are now most commonly referred to in English by the term “period”.</p>
+
+<p id="p3" rel="dcterms:hasPart" resource="#p3">This tension between the quantifiable and the conceptual offers both opportunities and challenges to producers and users of temporal digital data. The opportunities are clear in the “Big Data” revolution in information science, which makes extensive use of time-stamped information: in fact, the vast quantities of spatial data being harvested from cell-phones and social-media use would be much less valuable without associated times and dates (it is not as useful to know where something is happening if you don’t know when it is happening). These time-stamps are invariably expressed in terms of divisions used in the time-keeping system of the modern “West” – that is, years of 365 days with an extra day every four years, counted up from the birth of Christ and modified by Pope Gregory XIII in 1582 to bring the length of the year into harmony with the solar equinoxes (the Gregorian calendar); twelve months, each composed of a number of days between 28 and 31; and a night-and-day cycle composed of 24 hours, each of which is divided into 60 minutes, each of which can be divided in turn into 60 seconds. The consistency and interoperability of this convention means that millions of records can be visualized in time as well as space, revealing patterns in human activity that would be impossible to reconstruct at this scale without digital means (Deville et al. 2014).</p>
+
+<p id="p4" rel="dcterms:hasPart" resource="#p4">But as fears of a Y2K bug showed, interoperability is vulnerable to simple differences in notation, which emerge as soon as cultural differences and changing conventions are taken into account. In US notation, 6/10 is June 10<sup>th</sup>; in most European countries, it is October 6<sup>th</sup>. Over the last several decades, the notations “B.C.” and “A.D.” (“Before Christ” and “Anno Domini”) have been replaced in some contexts with the notations “BCE” and “CE” (“Before the Common Era” and “Common Era”) for socio-cultural reasons. As one moves back in time or further afield in space, things become even more complicated. The traditional Islamic calendar, used for the calculation of festivals, is lunar, and is reckoned from the flight of Muhammed to Medina; the Hebrew and Chinese calendars are both lunisolar but begin their counts at different moments, and all three calendars change from the old to the new year in different months, none of which coincide with the Gregorian new year. The Gregorian calendar replaced the Julian calendar, which, because it was slightly longer, drifted over time with respect to the solar year, and in order to make the correction advanced the date by several days – but it was only gradually adopted outside the Catholic world, and in some places the Julian calendar was still used for civic date-keeping into the 20<sup>th</sup> century (this is why the “October Revolution” in Russia is dated in current terms to the beginning of November). By the time we get back to antiquity, the variety of dating systems is dizzying, as Thucydides’ famous expression of the date of the Theban raid on Plataea shows: </p>
+
+<blockquote id="blockquote1">In the fifteenth year [of the truce], in the forty-eighth year that Chrysis was priestess at Argos, with Ainesios as ephor at Sparta and with Pythodorus still being archon at Athens for another two months, six months after the battle at Potidaia and at the beginning of spring… (Thuc. 2.2)</blockquote>
+
+<p id="p5" rel="dcterms:hasPart" resource="#p5">At least the dates in all of these systems are quantifiable, and calculations can be performed to reconcile them, as I will discuss below. The situation becomes even more complicated when one is dealing with historical periods, which have more and more imprecise dates the further one moves back in time – and the boundaries and names of which can differ not only from culture to culture, but also from scholar to scholar. Both boundaries and terminology can also change over time as new evidence is collected or new historical paradigms are adopted. Periods are not real, quantifiable historical phenomena; they are conceptual divisions created, usually after the fact, to organize information for particular discursive communities, and they generally have spatial boundaries as well as temporal ones. As a result, the reconciliation of different period expressions in different datasets requires an act not only of calculation, but of translation. To make matters even more complex, periods are often bounded by events, which themselves have both names and duration in time and thus echo the structure of the period for which they provide start and end dates. </p>
+
+<p id="p6" rel="dcterms:hasPart" resource="#p6">This complexity must be taken into account when one attempts to convey temporal information as structured data, and the representation of time in datasets modeled as Linked Data presents additional challenges and considerations. This chapter addresses time as structured data and as Linked Data, beginning with the simplest modeling and expression of Gregorian calendar dates before moving on to the modeling and expression of periods and other temporal expressions. It assumes a basic familiarity with the idea of Linked Data and text markup as conveyed in other chapters in this work (those on Nomisma and SNAP, for example), but it will attempt to frame the material as “recipes” accessible to those with little experience in this area. Before we turn to technical details, however, I would like to note that the first question to ask is not “how do I make my data into Linked Data?” but “what kinds of data am I modeling, for whom and for what purpose?”. Time-stamped data – social media posts, phone-calls, digital images or computer files – contain information about absolute, continuous time represented with a high degree of precision, sometimes down to the second. Relative expressions of time of the sort used in natural language (“after last week”, “during the Hellenistic period”), on the other hand, cannot easily be converted into years, days, hours and minutes. Absolute and relative temporal data therefore require different modeling and offer different possibilities for aggregation and analysis. While absolute numeric values only need to be expressed in a consistent format to be legible for a computer, relative designations of time in a dataset require both normalization of human-readable terms (choosing to use either “Late Roman” or “Late Antique”, but not both) and additional parsing to enable absolute dating (stating the start and end dates of “Late Roman” in the context of a given dataset). Linked Data approaches make it possible to connect one’s own terms with standard “defined vocabularies” – “dictionaries” of appropriate terms – like the Getty Art &amp; Architecture Thesaurus (AAT), and they also permit connections with resources that specify absolute temporal boundaries for periods, like PeriodO or chronOntology. Projects seeking simply to normalize their temporal vocabularies might only need an external thesaurus, but projects interested in facilitating chronological search or visualization may also have to address the parsing of relative temporal terms in absolute time.  </p>
+
+<p id="p7" rel="dcterms:hasPart" resource="#p7">It is therefore important to consider, at the beginning of a project, what kinds of temporal information will be included, how that data will be used by the project itself, and how it might be reused by others in the future. This chapter will begin by discussing standards, formats, and issues in the representation of absolute time, and then addresses the ways in which Linked Data approaches can enrich and connect relative temporal expressions on a semantic level as well. The first sections will deal with calendrical systems and machine-readable date formats, while the following sections introduce the semantic representation of both absolute dates and the relative chronological concept of the “period”. The final section provides a brief guide to the creation of new referenceable period definitions in the PeriodO Linked Data gazetteer.  </p>
+
+</section>
+
+
+<section id="section2">
+
+<h2>Absolute Time: Calendar Dates</h2>
+
+<p id="p8" class="textindent0" rel="dcterms:hasPart" resource="#p8">Of course all expressions of time are relative to some extent, in that dates are expressed in relation to a particular point of reference. Different points of reference account for different calendar systems. For the purposes of this chapter, however, “absolute” time refers to numeric dates expressed in any given calendar system, while “relative” temporal expressions are those that lack any inherent numeric dates. It is easier to standardize datasets in which chronological information is expressed in terms of absolute calendar dates, to ensure that this information can be consistently read and understood by both humans and computers. Let us take as an example a spreadsheet listing Greco-Roman papyri that includes a column labeled “date”, containing heterogeneous absolute date values such as “April 21, AD 565”, “155 BC”, “1<sup>st</sup> c. BCE”, “beginning of the 7<sup>th</sup> c.”, or “3<sup>rd</sup>-5<sup>th</sup> century AC”. These values represent the way most historians express absolute chronological dates of varying resolution, but they present several problems for the representation of dates as structured data. First, some of them are not fully quantified (what does “beginning of the 7<sup>th</sup> c.” mean in terms of calendar dates?). Second, the calendar being used is not specified. And third, the value in each cell is not represented in a standardized fashion – some values include days and months, others only years, others only centuries. </p>
+
+<p id="p9" rel="dcterms:hasPart" resource="#p9">To illustrate this lack of standardization and the steps that can be taken to make dates machine-readable and thus suitable for visualization or reuse, we will use the hypothetical dataset of papyri below, which is structured to reflect the way many of us keep track of research data.</p>
+
+
+<table id="table1" style="caption-side:bottom" border="2">
+  <colgroup>
+  <col width="166"/>
+  <col width="142"/>
+  <col width="155"/>
+  <col width="134"/>
+  <col width="124"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>papyrus_number</th>
+    <th>subject</th>
+    <th>location</th>
+    <th>date</th>
+    <th>notes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>p. Example 25</td>
+    <td>tax list</td>
+    <td>Karanis</td>
+    <td>the first of the month of Tubi in the fifth year of the reign of Trajan</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>p. Example 32</td>
+    <td>literary fragment</td>
+    <td>Tebtunis</td>
+    <td>4<sup>th</sup>-3<sup>rd</sup> century BCE</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td>p. Example 45</td>
+    <td>letter</td>
+    <td>Oxyrhynchus</td>
+    <td>uncertain</td>
+    <td>Late Antique?</td>
+  </tr>
+  </tbody>
+<caption>Table 1. Sample rows in a database of papyri with a “date” field containing inconsistent natural-language temporal expressions.</caption>
+</table>
+
+
+<p id="p10" rel="dcterms:hasPart" resource="#p10">The first step necessary for standardization is the specification of a calendar. If the dates recorded in the dataset are in a non-Gregorian calendrical system, that system should be specified in the metadata that describes the spreadsheet columns, or in the date notation itself (e.g. AH for <i>Anno Hegirae</i>, the Hijri year in the Islamic calendar), or both. For an unambiguous reference, it is even better to include in the metadata a reference to an external defined vocabulary – for example, the Getty AAT, which includes persistent unique identifiers for the major calendrical systems.<sup><a class="footnote-reference" id="footnote-reference-1" href="#footnote-1">1</a></sup> Using one of these identifiers – also known as Uniform Resource Identifiers, or URIs – ensures that a future user of the data will know exactly what version of what calendrical system the database designer had in mind. This is especially important when a dataset’s chronological attributes refer not to a calendrical system in common use, but to another system of reckoning – for instance, the Julian Day system favored by astronomers, which involves a continuous count of days starting at noon from January 1, 4173 BCE, set by Joseph Scaliger as the starting-point of the Julian calendar (Grafton 1975), or more distant dates expressed in kilo-years (ky, ka) or mega-years (my, myr, mya) (that is, in thousands or millions of years before the present). And it is even more important when conventional meanings have been adjusted in idiosyncratic ways in a particular dataset: for example, BP (“before the present”) always uses a “present” of 1950 when it is used in the context of radiocarbon dating, but in some other contexts the same notation has begun to assume a present of 2000.<sup><a class="footnote-reference" id="footnote-reference-2" href="#footnote-2">2</a></sup> </p>
+
+<p id="p11" rel="dcterms:hasPart" resource="#p11">The use of URIs does not only facilitate transparency; it can also enrich one’s dataset by directing the user to additional information. For calendrical systems, this might come in the form of explanatory resources. At the level of individual dates, however, such additional information might also include other documents or objects that share that date. The “Graph of Dated Objects and Texts” (GODOT) project, for example, currently provides persistent identifiers for specific Roman consular and tribunician years, and will eventually provide URIs for a wide range of ancient date attestations.<sup><a class="footnote-reference" id="footnote-reference-3" href="#footnote-3">3</a></sup> It is possible to look up year 5 of the reign of Trajan, in our hypothetical spreadsheet, in GODOT, and find three other documents related to this year. If we include the URI for that year (<a href="https://godot.date/id/7aLvi4Xn9QbhdTJFYu5Sdm">https://godot.date/id/7aLvi4Xn9QbhdTJFYu5Sdm</a>) in our spreadsheet and later share the data with an aggregation platform like Trismegistos (<a href="https://www.trismegistos.org/">https://www.trismegistos.org</a>), our document will be added to these four, providing a new attested date (the first of the month of Tubi). GODOT also provides a useful tool for conversion of ancient dates to the proleptic Julian and Gregorian calendars, allowing us to parse the date in our spreadsheet as December 27 (Julian) or December 26 (Gregorian), 101 CE.</p>
+
+
+<table id="table2" style="caption-side:bottom" border="2">
+  <colgroup>
+  <col style="width:16%"/>
+  <col style="width:15%"/>
+  <col style="width:18%"/>
+  <col style="width:26%"/>
+  <col style="width:12%"/>
+  <col style="width:15%"/>
+  <col style="width:15%"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>papyrus_number</th>
+    <th>subject</th>
+    <th>location</th>
+    <th>date</th>
+    <th>notes</th>
+    <th>godot_uri_year</th>
+    <th>Gregorian_date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>p. Example 25</td>
+    <td>tax list</td>
+    <td>Karanis</td>
+    <td>the first of the month of Tubi in the fifth year of the reign of Trajan</td>
+    <td> </td>
+    <td>https://godot.date/id/ 7aLvi4Xn9QbhdTJFYu5Sdm</td>
+    <td>December 26, 101 CE</td>
+  </tr>
+  <tr>
+    <td>p. Example 32</td>
+    <td>literary fragment</td>
+    <td>Tebtunis</td>
+    <td>4<sup>th</sup>-3<sup>rd</sup> century BCE</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>p. Example 45</td>
+    <td>letter</td>
+    <td>Oxyrhynchus</td>
+    <td>uncertain</td>
+    <td>Late Antique?</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+<caption>Table 2. The same table as the previous, with a Uniform Resource Identifier from GODOT for the regnal year of Trajan and a conversion to the proleptic Gregorian calendar added to the document in the first row.</caption>
+</table>
+
+
+<p id="p12" rel="dcterms:hasPart" resource="#p12">The proleptic Julian calendar (that is, the application of the Julian calendar to dates before the stabilization of the leap-year system in the early 1<sup>st</sup> c. CE) works well for ancient dates, but for digital purposes, it is generally preferable to express dates using the Gregorian calendar. Date interoperability in digital environments depends heavily on the use of this calendar, which is now widely used for computing even in cultures with their own traditional calendars. The Gregorian calendar becomes proleptic when applied to dates before October 1582, or before its adoption in a particular region. The second step is thus the translation of dates in the original calendrical system to dates in the Gregorian calendar. For individual dates, there are now a number of useful online date converters,<sup><a class="footnote-reference" id="footnote-reference-4" href="#footnote-4">4</a></sup> and while individual websites may become obsolete, it is very likely that such calculators will be available online for the foreseeable future. If dates after 1582 are involved, it is important to know when the Gregorian calendar was adopted in the place where the date in question was assigned (a document from the British colonies in North America dated to October 31, 1751, for example, would use the Julian calendar and would be dated to November 11, 1751 in the Gregorian calendar, since Britain did not adopt the Gregorian calendar until 1752). It is also important to note the date of the new year in a given calendrical system, since many non-Gregorian calendars place this in the spring, summer, or fall, not at the beginning of January.<sup><a class="footnote-reference" id="footnote-reference-5" href="#footnote-5">5</a></sup></p>
+
+</section>
+
+
+<section id="section3">
+
+<h2>Absolute Time: Formatting</h2>
+
+<p id="p13" class="textindent0" rel="dcterms:hasPart" resource="#p13">Once the dating system has been specified and Gregorian dates have been added, the next step toward interoperability is the standardization of the format for those dates. This is easier, because there is a commonly agreed-upon standard for representation. The standard is ISO8601, established in 1988 by the International Standards Organization specifically for the numerical representation of dates and times, and most recently revised in 2004.<sup><a class="footnote-reference" id="footnote-reference-6" href="#footnote-6">6</a></sup> The basic components of the ISO8601 standard are a four-digit Gregorian year, with BCE dates indicated by a leading minus-sign, followed by a two-digit Gregorian month, followed by a two-digit Gregorian day, with hyphens as separators (YYYY-MM-DD). The minimum element is the four-digit year, which the standard does not allow to be truncated, in order to avoid the Y2K problem. Notation may also be extended beyond the date to include 24-hour clock time in relation to UTC time. Two revisions to the standard after 1988 are especially significant for those who work with ancient-world data. First, while the original ISO8601 standard followed the Gregorian calendar in moving directly from 1 BCE to 1 CE, with no zero year, revised versions after 2000 have permitted a zero year to create a continuous number line. As a result, 1 BCE becomes 0000 in ISO8601 terms, 2 BCE becomes -0001, and so on. Second, while the insistence that years are represented by least four digits is unchanged, it is now permissible to express past or future years with more than four digits. The ISO8601 standard also provides a standard notation for temporal intervals, which are perhaps more common than single dates in ancient-world datasets. This notation takes the form &lt;start date&gt;/&lt;end date&gt;, where start and end dates are both expressed according to the standard. </p>
+
+
+<table id="table3" style="caption-side:bottom" border="2">
+  <colgroup>
+  <col style="width:16%"/>
+  <col style="width:15%"/>
+  <col style="width:15%"/>
+  <col style="width:26%"/>
+  <col style="width:12%"/>
+  <col style="width:15%"/>
+  <col style="width:15%"/>
+  <col style="width:18%"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>papyrus_number</th>
+    <th>subject</th>
+    <th>location</th>
+    <th>date</th>
+    <th>notes</th>
+    <th>godot_uri_year</th>
+    <th>Gregorian_date</th>
+    <th>iso8601</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>p. Example 25</td>
+    <td>tax list</td>
+    <td>Karanis</td>
+    <td>the first of the month of Tubi in the fifth year of the reign of Trajan</td>
+    <td></td>
+    <td>https://godot.date/id/ 7aLvi4Xn9QbhdTJFYu5Sdm </td>
+    <td>December 26, 101 CE</td>
+    <td>0101-12-26</td>
+  </tr>
+  <tr>
+    <td>p. Example 32</td>
+    <td>literary fragment</td>
+    <td>Tebtunis</td>
+    <td>4<sup>th</sup>-3<sup>rd</sup> century BCE</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>-0398/-0199</td>
+  </tr>
+  <tr>
+    <td>p. Example 45</td>
+    <td>letter</td>
+    <td>Oxyrhynchus</td>
+    <td>uncertain</td>
+    <td>Late Antique?</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+<caption>Table 3. The same table as the previous, but now with a column for Gregorian dates expressed in a normalized form according to the ISO8601 standard.</caption>
+</table>
+
+
+<p id="p14" rel="dcterms:hasPart" resource="#p14">So in our hypothetical spreadsheet of papyri, we might take the value “4<sup>th</sup>-3<sup>rd</sup> c. BCE” and represent it as “-0398/-0199”, where “-0398” is 399 BCE (the first year in the 4<sup>th</sup> century) and “-0199” is 200 BCE (the last year in the 3<sup>rd</sup>). The date of an Egyptian papyrus signed on “the first of the month of Tubi in the fifth year of the reign of Trajan” can be represented as “0101-12-26” (that is, December 26, 101 CE, the proleptic Gregorian equivalent of that Egyptian month and Roman regnal year).<sup><a class="footnote-reference" id="footnote-reference-7" href="#footnote-7">7</a></sup> The use of this standard representation of dates increases the potential for visualization, reuse, and aggregation of the dataset, even without any further Linked Data measures. Tools are also emerging to facilitate the automated rendering of natural-language temporal expressions in ISO8601-compatible formats.<sup><a class="footnote-reference" id="footnote-reference-8" href="#footnote-8">8</a></sup> On the other hand, the first representation implies a precision and a degree of certainty that may not have been present in the original statement: “around the 4<sup>th</sup> or 3<sup>rd</sup> century BCE” is not the same as “between the precise dates of 399 and 200 BCE”. The Library of Congress has recently addressed this problem with an extension to the ISO8601 standard, the Extended Date-Time Format (EDTF), which includes notations to express approximation, uncertainty, and missing information.<sup><a class="footnote-reference" id="footnote-reference-9" href="#footnote-9">9</a></sup> It also permits the addition of the letter “Y” before the first numeral of a year with more than four digits, to avoid confusion (so the date “10001 B.C.” would become “-Y10000”), and specifies ways to indicate precision with the annotation of significant digits. </p>
+
+<p id="p15" rel="dcterms:hasPart" resource="#p15">If the dataset was not created with a set format for dates, it may also be necessary to clean and standardize the existing date values before converting them to the ISO8601 standard. There are a number of tools available for database cleaning, but it is worth noting here the OpenRefine platform,<sup><a class="footnote-reference" id="footnote-reference-10" href="#footnote-10">10</a></sup> for two reasons. First, it is a well-documented open source project that is both easy to learn and widely adopted, so it is likely to continue to be available for some time; and second, it allows the user to install reconciliation services that permit the matching of database values with values in external vocabularies. This is especially useful for the transformation of a temporal dataset into Linked Data: the URIs for the consular and tribunician dates in GODOT, for example, can be reconciled with a dataset containing such dates through an OpenRefine reconciliation service<sup><a class="footnote-reference" id="footnote-reference-11" href="#footnote-11">11</a></sup> – as can the period definitions in PeriodO, as we will see below.</p>
+
+</section>
+
+
+<section id="section4">
+
+<h2>Absolute Time: Semantic Representation</h2>
+
+<p id="p16" class="textindent0" rel="dcterms:hasPart" resource="#p16">The inclusion in a dataset of Gregorian dates represented according to the ISO8601 standard, perhaps using the conventions of the Library of Congress EDTF, makes the use of time more transparent, and makes it easier to combine that dataset with others that use the same standards. It is not, however, sufficient for the text-encoded markup representation of the dataset. “Text-encoded markup” means here that the dataset can be represented as a single plain-text file in which the structure of the dataset is explained in a human- and computer-readable format with reference to one or more ontologies and/or metadata schemata, and in which the value in every cell of an original table is annotated with the metadata of the column that defined that value. Since this representation does not encode information in tabular terms, with columns and rows, but treats each row as a complete item in itself, containing both attributes and their values, it is often referred to as a serialization. Serialization is a step toward the transformation of a dataset into a Linked Data format, but it is not the only step: at the most basic level, markup defines values in a dataset, not the relationships between them. For the latter, expression as subject-predicate-object triples is necessary. Since the <i>metadata</i> are defined relationally in a valid markup document, however, and since some of the same structures are used in Linked Data representations, it will be useful to begin with the representation of temporal data in Extensible Markup Language (XML). This is the language used by the Text Encoding Initiative, which has extensive participation from the Classics community (Dee, Foradi, and Šarić 2016) and by related ancient-world initiatives like EpiDoc (Cayless et al. 2009), so it is a particularly appropriate place to start in this context.<sup><a class="footnote-reference" id="footnote-reference-12" href="#footnote-12">12</a></sup></p>
+
+<p id="p17" rel="dcterms:hasPart" resource="#p17">XML, like other metadata schemata, is based on a series of elements, conceptual terms that unambiguously identify different data types. An XML document generally includes a header element that specifies the schema it uses – for example, the W3C recommended schema at &lt;<a href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema</a>&gt;. That schema has elements that describe particular kinds of temporal values: “date” for ISO8601 dates precise to the day, “dateTime” for the addition of clock time, “gYear” for Gregorian calendar year.<sup><a class="footnote-reference" id="footnote-reference-13" href="#footnote-13">13</a></sup> So <code>xs:gYear</code>, a tag identifying an XML element, could be used to mark up the string “-0398” to explain that the numbers refer to a Gregorian year according to the standards of the XML Schema. The TEI standard extends this further with elements that can provide additional information about dates that are not expressed in the ISO8601 format, such as non-Gregorian calendar systems, <i>termini post </i>and <i>ante quem</i> (“notBefore” and “notAfter”), and named periods, to which we will return below.<sup><a class="footnote-reference" id="footnote-reference-14" href="#footnote-14">14</a></sup> If our example dataset were being serialized in TEI-XML, for example, the value “December 27, 101 CE” in the proleptic Julian calendar could be expressed as <code>&lt;origDate when-custom=&quot;0101-12-27&quot; datingMethod=&quot;#julian&quot;&gt;December 27, 101 CE&lt;/origDate&gt;</code>, where the element “origDate” denotes the marked-up information as the date of origin of a document or object, the element “when-custom” specifies a date in a non-Gregorian calendar system, and “datingMethod” specifies the calendar system for that date by referring to an element defined elsewhere in the TEI-XML file.<sup><a class="footnote-reference" id="footnote-reference-15" href="#footnote-15">15</a></sup> Further markup could be added to indicate additional attributes like degree of certainty.</p>
+
+<p id="p18" rel="dcterms:hasPart" resource="#p18">TEI-XML is a metadata schema specifically designed for texts, but ancient world datasets reflect material culture and art as well, and different types of data have different metadata requirements. Other widely-used metadata schemata or ontologies also have elements that facilitate the structured representation of absolute time, and several of these are commonly used across other information fields, which can make it easier to connect data across disciplines. The most important are the Dublin Core metadata terms and the W3C OWL-Time Ontology.<sup><a class="footnote-reference" id="footnote-reference-16" href="#footnote-16">16</a></sup> Both of these standards can be used to make explicit the treatment of temporal information in a document, but they serve different purposes. There are several Dublin Core metadata elements that deal with time, but the one of greatest relevance here is <code>dcterms:temporal</code>, which indicates that a value refers to the “temporal characteristics of the resource” it qualifies (rather than, for example, the time of a record’s creation or a time-period that is the subject of a work). The Dublin Core specification is thus flexible but fairly non-specific. The OWL-Time Ontology, on the other hand, provides a rich set of elements that allow complex temporal logic (as described by Allen 1984) to be expressed through the metadata associated with the values in a dataset. Where the Dublin Core “temporal” element might be a calendar date or a range of dates or a verbal expression of time, the OWL-Time Ontology uses specific elements to deal with different temporal datatypes (intervals vs. instants, for example) and structures. Although it is helpful for working with Linked Data to have some knowledge of metadata and ontologies, for the purposes of this cookbook it may be enough simply to know what element should be used to name a given column in a spreadsheet. Using “<code>dcterms:temporal</code>” as a column header for object dates is a clearer expression of what the values in that column mean than just the term “date”, and it is easier to adapt to a Linked Data representation of the dataset.</p>
+
+
+<table id="table4" style="caption-side:bottom" border="2">
+  <colgroup>
+  <col style="width:16%"/>
+  <col style="width:15%"/>
+  <col style="width:15%"/>
+  <col style="width:22%"/>
+  <col style="width:12%"/>
+  <col style="width:15%"/>
+  <col style="width:22%"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>papyrus_number</th>
+    <th>subject</th>
+    <th>location</th>
+    <th>dcterms:temporal</th>
+    <th>notes</th>
+    <th>godot_uri_year</th>
+    <th>xs:date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>p. Example 25</td>
+    <td>tax list</td>
+    <td>Karanis</td>
+    <td>the first of the month of Tubi in the fifth year of the reign of Trajan</td>
+    <td></td>
+    <td>https://godot.date/id/ 7aLvi4Xn9QbhdTJFYu5Sdm </td>
+    <td>0101-12-26</td>
+  </tr>
+  <tr>
+    <td>p. Example 32</td>
+    <td>literary fragment</td>
+    <td>Tebtunis</td>
+    <td>4<sup>th</sup>-3<sup>rd</sup> century BCE</td>
+    <td></td>
+    <td></td>
+    <td>-0398/-0199</td>
+  </tr>
+  <tr>
+    <td>p. Example 45</td>
+    <td>letter</td>
+    <td>Oxyrhynchus</td>
+    <td>uncertain</td>
+    <td>Late Antique?</td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+<caption>Table 4. The sample table with natural-language temporal expressions identified as Dublin Core terms “temporal” values, and ISO8601-standard Gregorian-calendar temporal expressions identified as XML schema “date” values.</caption>
+</table>
+
+</section>
+
+
+<section id="section5">
+
+<h2>Relative Time: Periods</h2>
+
+<p id="p19" class="textindent0" rel="dcterms:hasPart" resource="#p19">Our spreadsheet of papyri now has its original “date” column, with the original natural-language date expressions and the new label “<code>dcterms:temporal</code>”, and its additional column for standardized ISO8601 dates, now identified as “<code>xs:date</code>” values. A spreadsheet with this information could be fairly easily mapped to the EpiDoc standard and serialized for inclusion in an aggregation platform like papyri.info.<sup><a class="footnote-reference" id="footnote-reference-17" href="#footnote-17">17</a></sup> But if it is like most spreadsheets related to the ancient world, a number of rows will have no absolute date values in any of these columns. Instead, the “date” column – or maybe a separate column called “period” or “notes”, as here – might contain a relative chronological expression like “Late Antique”. This presents a greater challenge for interoperability and linking: what does this particular spreadsheet mean by “Late Antique”? Is it referring to a named date range, a stylistic quality, or something else altogether? And if it is referring to a named date range, what chronological and geographic boundaries are implied?</p>
+
+<p id="p20" rel="dcterms:hasPart" resource="#p20">One way to make this clear is by mapping a column of period terms to an ontology like OWL-Time (Cox and Richard 2015) or the simpler Dublin Core period datamodel,<sup><a class="footnote-reference" id="footnote-reference-18" href="#footnote-18">18</a></sup> both of which make it possible to clearly explain the nature and boundaries of the temporal entities one is describing. There are other options more adapted to heritage disciplines: for example, the CIDOC Conceptual Reference Model, or CRM, which has an extension for archaeology and which has paid particular attention to the modeling of temporal entities like periods (Doerr, Kritsotaki, and Stead 2010; Niccolucci and Hermon 2015b; 2015a).<sup><a class="footnote-reference" id="footnote-reference-19" href="#footnote-19">19</a></sup> Ontological mapping may be beyond the capabilities of many of us who would nevertheless like to share our data, however, and in this case there is a simpler solution: the meaning of a term like “Late Antique” can be made explicit by connecting it to a definition in an external authority, like a thesaurus, a defined vocabulary, or a gazetteer, just as other temporal entities like calendar systems or dates can. Other contributions to this cookbook will explain how to link other “named entities” like people or places to external references; the next part of this chapter will explain how to do so with periods.</p>
+
+</section>
+
+
+<section id="section6">
+
+<h2>Relative Time: Alignment</h2>
+
+<p id="p21" class="textindent0" rel="dcterms:hasPart" resource="#p21">Let us return to our spreadsheet. With absolute dates, preparation for a Linked Data representation was a matter of standardization of calendar and format according to shared conventions. With period terms, however, there is no internationally agreed-on, language-independent format or standard: while the underlying concept of a period term like “Late Antiquity” may be recognizable, each country, each discipline, each school of thought within a discipline understands its temporal boundaries somewhat differently, and some use other terms altogether to describe the same conceptual entity. One way to deal with this lack of standardization is to express clearly within a dataset what is meant by a specific term. After ontological mapping that makes it clear that the entity involved is a temporal period, an internal defined vocabulary with specified dates may be used to provide valid values for the “period” element. This is the way the Pleiades project, for example, organizes its references to periods, which appear as follows in the RDF+XML representation of Late Antique period in a specific place record:</p>
+
+<figure id="code1">
+<pre><code>
+	&lt;pleiades:during&gt;
+	  &lt;skos:Concept rdf:about="https://pleiades.stoa.org/vocabularies/time-periods/late-antique"&gt;
+	    &lt;skos:scopeNote xml:lang="en"&gt;
+		  The Late Antique period in Greek and Roman history. For the purposes of Pleiades, this period is 
+		  said to begin in the year 300 and to end in the year 640 after the birth of Christ. [[300, 640]]
+	    &lt;/skos:scopeNote&gt;
+	    &lt;skos:prefLabel xml:lang="en"&gt;Late Antique (AD 300-AD 640)&lt;/skos:prefLabel&gt;
+	    &lt;owl:sameAs rdf:resource="http://n2t.net/ark:/99152/p03wskd6psm"/&gt;
+	    &lt;owl:sameAs rdf:resource="http://pleiades.stoa.org/vocabularies/time-periods/late-antique"/&gt;
+	    &lt;skos:inScheme rdf:resource="https://pleiades.stoa.org/vocabularies/time-periods"/&gt;
+	  &lt;/skos:Concept&gt;
+	&lt;/pleiades:during&gt;
+</code></pre> 
+</figure> 
+
+<p id="p22" rel="dcterms:hasPart" resource="#p22">The <code>pleiades:during</code> element indicates that in the Pleiades datamodel, the place in question is attested in the historical record within a named timespan; the <code>skos:Concept</code> element refers to the Simple Knowledge Organization System datamodel, explaining that the named timespan is a conceptual object;<sup><a class="footnote-reference" id="footnote-reference-20" href="#footnote-20">20</a></sup> and the <code>rdf:about</code> element points to a local defined vocabulary or thesaurus.<sup><a class="footnote-reference" id="footnote-reference-21" href="#footnote-21">21</a></sup> In the Pleiades gazetteer, the definition of the period in time (and in some cases, though not here, in space) is contained in the period’s name (“AD 300-AD 640”), and explained in more detail in the scope note. </p>
+
+<p id="p23" rel="dcterms:hasPart" resource="#p23">There is an additional piece of information here, however. The <code>owl:sameAs</code> element indicates that the concept described by the value “Late Antique” in this record is the same concept as that described in another source – in this case, in the PeriodO gazetteer of period definitions. This will become important for the discussion of the Linked Data representation of periodized information below, but at this stage it is worth pausing at the notion of an external vocabulary, because this is the second way that the meaning of a period term can be made explicit in a dataset. Even if full ontological modeling is not possible for a given dataset or data manager, named entities can still be mapped to external vocabularies that have already carried out that descriptive work, and can serve as shared points of reference to help connect datasets that use different terms or concepts. Several of these external resources are available for temporal data. </p>
+
+<p id="p24" rel="dcterms:hasPart" resource="#p24">The most well-known is the Getty AAT, which maintains an extensive period vocabulary.<sup><a class="footnote-reference" id="footnote-reference-22" href="#footnote-22">22</a></sup> Getty AAT identifiers for periods offer the advantage of a single conceptual representation for named entities that appear in idiosyncratic forms in individual sources. This advantage comes at the cost, however, of specific temporal boundaries: if “Iron Age” is to be a valid concept on a global level, it cannot be defined by dates that apply only in one place, so the only structured references to calendar time in the semantic representation of “Iron Age” in the Getty AAT refer to the creation and modification of the record itself. Temporal information about the period boundaries is expressed only in the note, which explains that the Iron Age “developed at different times in various parts of the world, first appearing in the Middle East and southeastern Europe around 1,200 BCE, and in China around 600 BCE. In the Americas, it did not develop from the Bronze Age but was introduced to Stone Age cultures by European explorers”.<sup><a class="footnote-reference" id="footnote-reference-23" href="#footnote-23">23</a></sup> This definition works well for the explicit definition of the <i>concept </i>to which a dataset refers, but less well to identify the specific dates of the Iron Age in a particular place, which is likely to be closer to the way an ancient-world dataset uses the term (the Iron Age in Greece, the Iron Age in Britain, etc.). </p>
+
+<p id="p25" rel="dcterms:hasPart" resource="#p25">A emerging resource that resolves some of the tension between abstract concept and concrete boundaries is the chronOntology project of the German Archaeological Institute.<sup><a class="footnote-reference" id="footnote-reference-24" href="#footnote-24">24</a></sup> This project uses the CIDOC-CRM to model periods as entities that are both conceptual and situated in time and space. Like the Getty AAT, chronOntology provides URIs for periods, but because these entities are associated with both temporal and spatial boundaries, they make it easier to compare their duration with that of similar conceptual entities in other places (this comparison is further assisted by a timeline visualization of related concepts in the current interface). A search for the term “Late Antique”, for example, produces three unique, dated matches from the chronOntology dataset, which are distinguished by type (in terms of the domain where the temporal entity is used: politics, culture, material culture, architecture), source, and/or date range.<sup><a class="footnote-reference" id="footnote-reference-25" href="#footnote-25">25</a></sup> We might choose one of these as a definition for our own use of “Late Antique” in our spreadsheet, and we could add its URI to a new column in which the URI appears for every row where an item has already been classified as “Late Antique”. The chronOntology platform has the added virtue of a union search across other period vocabularies – specifically, the Getty AAT and the PeriodO gazetteer.</p>
+
+<p id="p26" rel="dcterms:hasPart" resource="#p26">Where the Getty AAT and the chronOntology dataset have attempted to unify period definitions under the smallest number of conceptual headings possible – on the assumption that two different users are likely to have the same concept in mind when they apply the label “Bronze Age”, and different opinions on specific spatiotemporal bounds can be reconciled within a single concept – the PeriodO gazetteer of period definitions has taken a different approach (Rabinowitz et al. 2016).<sup><a class="footnote-reference" id="footnote-reference-26" href="#footnote-26">26</a></sup> Like the Getty AAT and chronOntology, it presents a semantic model for named conceptual entities and provides URIs for instances of those entities; but unlike those resources, its basic unit of analysis is a named period <i>as defined in time and space by an individual authoritative source</i>. The Getty AAT provides a URI for “the Iron Age” in the most general sense of the term; chronOntology provides URIs for period concepts that seem to be broadly accepted in a particular region, and as a result includes far more information about spatial and temporal boundaries than the AAT. Both resources, however, focus on the abstract concept more than concrete usage, and therefore include period designations that lack specific coordinates in space or time or both. Because PeriodO seeks to capture spatiotemporal usage rather than unified concepts, it only includes period definitions with coordinates in both space and time – and because usage can vary from authority to authority even with reference to the same abstract concept in the same place, it sets no limit on the number of varying spatiotemporal definitions related to the same abstract concept. </p>
+
+<p id="p27" rel="dcterms:hasPart" resource="#p27">PeriodO is thus the most granular of the these three sources, and allows the most specific definition of the meaning of “Late Antique” in a given context: not the Getty AAT’s broadest “period in history and the style of art that developed after Severan rule in the Roman Empire”, nor chronOntology’s general definition for the Mediterranean as inferred from a particular publication, but “Late Antique” <i>exactly</i> as defined by the British Museum with respect to “Greece, Cyprus, eastern Balkans, parts of the Caucasus (Georgia, Armenia, etc.), Asia Minor, Levant, Egypt and parts of Italy”, in the original language and terms of the source (with the addition of an ISO8601 representation of the dates and an English translation of non-English labels).<sup><a class="footnote-reference" id="footnote-reference-27" href="#footnote-27">27</a></sup> Like chronOntology, PeriodO uses four-part date ranges (earliest start, latest start, earliest stop, latest stop) to express temporal period boundaries that are themselves intervals, parsing the original natural-language temporal expressions where intent is clear.<sup><a class="footnote-reference" id="footnote-reference-28" href="#footnote-28">28</a></sup></p>
+
+
+<table id="table5" style="caption-side:bottom" border="2">
+  <colgroup>
+  <col style="width:16%"/>
+  <col style="width:15%"/>
+  <col style="width:15%"/>
+  <col style="width:22%"/>
+  <col style="width:12%"/>
+  <col style="width:15%"/>
+  <col style="width:22%"/>
+  <col style="width:22%"/>
+  </colgroup>
+  <thead>
+  <tr>
+    <th>papyrus_number</th>
+    <th>subject</th>
+    <th>location</th>
+    <th>dcterms:temporal</th>
+    <th>notes</th>
+    <th>godot_uri_year</th>
+    <th>xs:date</th>
+    <th>period_uri</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>p. Example 25</td>
+    <td>tax list</td>
+    <td>Karanis</td>
+    <td>the first of the month of Tubi in the fifth year of the reign of Trajan</td>
+    <td></td>
+    <td>https://godot.date/id/ 7aLvi4Xn9QbhdTJFYu5Sdm </td>
+    <td>0101-12-26</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>p. Example 32</td>
+    <td>literary fragment</td>
+    <td>Tebtunis</td>
+    <td>4<sup>th</sup>-3<sup>rd</sup> century BCE</td>
+    <td></td>
+    <td></td>
+    <td>-0398/-0199</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>p. Example 45</td>
+    <td>letter</td>
+    <td>Oxyrhynchus</td>
+    <td>uncertain</td>
+    <td>Late Antique?</td>
+    <td></td>
+    <td></td>
+    <td>http://n2t.net/ark:/ 99152/p08m57hmdw6</td>
+  </tr>
+  </tbody>
+<caption>Table 5. The sample table with the addition of a column for period URIs from one or more external thesauri or gazetteers, here populated with the British Museum definition of “Late Antique” as represented in the PeriodO gazetteer. In a serialization describing “Late Antique?” here as a period value, this URI could be further defined as <code>owl:sameAs </code>or <code>skos:closeMatch</code> for that value.</caption>
+</table>
+
+
+<p id="p28" rel="dcterms:hasPart" resource="#p28">These period thesauri or gazetteers thus operate at different levels of specificity, and as a result have different uses. For datasets in which the primary concern for data-linking is to identify the use of a shared concept, rather than a definition used by any one scholar, national community, etc., the Getty AAT is probably the most valuable resource – and certainly the simplest to search, since it will give the user one and only one “Late Antique” period. For datasets that require a greater degree of specificity about the type and coverage of a period concept, but not necessarily both spatial and chronological information, chronOntology offers both a union search and an API that can be exploited programmatically to extract period values according to specific search parameters. Here, however, the parsing of the results requires more effort on the part of the user: a free-text search for “Late Antique” returns seven matches from the chronOntology thesaurus, three of which have different date-ranges. And in PeriodO, a free-text search for “late antiqu*” returns 23 different definitions of “Late Antique” and “Late Antiquity”, with 15 clearly distinct date-ranges across 16 distinct spatial areas, in nine different original languages from seven different authorities. This certainly helps the user develop a sense of the term’s range of meanings, but it can make it more difficult to choose a specific definition from among them.<sup><a class="footnote-reference" id="footnote-reference-29" href="#footnote-29">29</a></sup> To ease the matching of period definitions in PeriodO with named entities in a dataset, the project provides a reconciliation service that works with OpenRefine.<sup><a class="footnote-reference" id="footnote-reference-30" href="#footnote-30">30</a></sup> This service allows the user to specify values in the existing data – period labels, dates, spatial coverage, etc. – that can be used to identify best matches from the PeriodO dataset. Those matches are provided through the reconciliation service, and the user can add them to a new column in the data table. The process of matching concepts or terms in one dataset to those in another is generally referred to as “alignment”, and it is important for the representation of a given dataset as “five-star” Linked Open Data. </p>
+
+<figure id="figure01">
+	<img alt="" src="images/fig1.png" title="" />
+	<figcaption>Figure 1. Screenshot of OpenRefine reconciliation of example spreadsheet with PeriodO URIs, with the Pleiades definition of “Late Antique” selected.</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section7">
+
+<h2>Relative Time: Semantic Representation</h2>
+
+<p id="p29" class="textindent0" rel="dcterms:hasPart" resource="#p29">The stars in “five-star Linked Open Data” refer to a ranking system originally proposed by Sir Tim Berners-Lee, who has suggested that data on the semantic web could be assessed according to its degree of openness and interconnectivity (Berners-Lee 2010). In the same post, he provides a succinct explanation of the transformation of a dataset like our hypothetical papyrus spreadsheet into Linked Data: “The simplest way to make linked data is to use, in one file, a URI which points into another.” Aligning the period terms in our spreadsheet to URIs for those terms in the Getty AAT, chronOntology, or PeriodO makes our temporal assertions more transparent and gives us an authoritative source for a date-range expressed in ISO8601-formatted dates. But when the data in that spreadsheet are mapped to a semantic-web datamodel like that of the Resource Description Format (RDF) (Heath and Bizer 2011) and expressed in that format or another serialization such as JSON-LD,<sup><a class="footnote-reference" id="footnote-reference-31" href="#footnote-31">31</a></sup> the use of a URI from an external resource in connection with a value in the dataset makes it possible for that dataset to be connected to the broader web of Linked Data. To walk through Berners-Lee’s five stars with our spreadsheet, we can acquire the first star simply by publishing a screenshot of the spreadsheet to the web under an open license; by making the original Excel spreadsheet itself available under an open license, we’ve already expressed the data in machine-readable structured form, which gets us a second star; and if we make that spreadsheet available in a non-proprietary format like CSV, we reach three stars. The fourth star is awarded for the representation of the data as RDF or its equivalents, where the RDF datamodel and references to external, open, shared metadata schemata and ontologies explain what the data in the dataset <i>mean</i>. The final star is reached when the data themselves are connected through URI citations to other Linked Open Data datasets, creating the web of Linked Open Data.</p>
+
+<p id="p30" rel="dcterms:hasPart" resource="#p30">The inclusion of a period URI from a Linked Data source like the Getty AAT, chronOntology, or PeriodO in a periodized dataset thus prepares that dataset for connection to a wider world of periodized information. As more datasets make those connections, it will become easier to discover information from the same period or date-range across multiple heterogeneous datasets. The proof of this concept has been provided by the Pelagios project, which has used references to spatial gazetteers shared across various datasets to link, aggregate, and visualize spatial data in those datasets (Isaksen et al. 2014; Simon, Barker, and Isaksen 2012).<sup><a class="footnote-reference" id="footnote-reference-32" href="#footnote-32">32</a></sup> Several ancient-world data standards now include specifications for the inclusion of periods as named entities in a serialized dataset. These specifications can be taken as models for the semantic representation of periods as Linked Data. I will describe three of them here: EpiDoc TEI-XML, the Pelagios Gazetteer Interchange Format, and the Linked Pasts Linked Places Format.</p>
+
+<p id="p31" rel="dcterms:hasPart" resource="#p31">The EpiDoc standard has already been cited for the expression of absolute dates. As authorities for periods as named entities have begun to appear, EpiDoc has been expanded to include this datatype. A period can be attached to an EpiDoc record according the following basic format, using the <code>@period</code> attribute and an external URI:</p>
+
+<figure id="code2">
+<pre><code>
+	&lt;origDate notBefore="0501" notAfter="0700" period="http://n2t.net/ark:/99152/p08m57hmdw6"&gt;Late Antique&lt;/origDate&gt;
+</code></pre>
+</figure>
+
+<p id="p32" rel="dcterms:hasPart" resource="#p32">In the <code>origDate</code> element, EpiDoc permits the addition of notations that specify the precision of the temporal boundaries with the <code>@precision</code> attribute (e.g. <code>precision=&quot;medium&quot;</code>) and the type of evidence on which the dating is based with the <code>@evidence</code> attribute (e.g. <code>evidence=&quot;lettering&quot;</code>). The specification also states that the period referenced “need not correspond to the numerical date range offered”, so that a given inscription can be associated with both its own absolute dates and a broader cultural or stylistic period.<sup><a class="footnote-reference" id="footnote-reference-33" href="#footnote-33">33</a></sup></p>
+
+<p id="p33" rel="dcterms:hasPart" resource="#p33">The Pelagios Gazetteer Interchange Format (PGIF) was the format developed to connect places between different gazetteers in order to aggregate spatial data from the ancient world and to facilitate the creation of new Linked Data through semantic annotation platforms like Recogito.<sup><a class="footnote-reference" id="footnote-reference-34" href="#footnote-34">34</a></sup> Because both the names and locations of places are time-dependent, this standard included ways to associate places with timespans. Gazetteers published to Pelagios had to be represented as single RDF files. Within those files, references to calendar dates and periods were formatted as follows (example from the TTL/N3 representation of the Epigraphic Database Heidelberg): </p>
+
+<figure id="code3">
+<pre><code>
+	  @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema&gt; . 
+	  @prefix pelagios: &lt;http://pelagios.github.io/vocab/terms#&gt; . 
+	  @prefix relations: &lt;http://pelagios.github.io/vocab/relations#&gt; . 
+	  @prefix dcterms: &lt;http://purl.org/dc/terms/&gt; . 
+	  @prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+	  &lt;https://edh-www.adw.uni-heidelberg.de/edh.inscriptions.n3#HD057724&gt; a pelagios:AnnotatedThing ;
+	    dcterms:title "identification inscription of Sparta (modern Spárti, findspot: Theater) HD057724" ;
+	    dcterms:identifier &lt;https://edh-www.adw.uni-heidelberg.de/edh/inschrift/HD057724&gt; ;
+	    foaf:homepage &lt;https://edh-www.adw.uni-heidelberg.de/edh/inschrift/HD057724&gt; ;
+	    dcterms:temporal "201/400" ;
+	    dcterms:temporal &lt;http://n2t.net/ark:/99152/p0jrrjb67vs&gt; ;
+	    dcterms:language "la" .
+</code></pre>
+</figure>
+
+<p id="p34" rel="dcterms:hasPart" resource="#p34">The <code>@prefix</code> values represent the prefix-namespace bindings that provide the metadata elements used in the representation, so <code>@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; </code>points to the Dublin Core namespace, which identifies the meaning of the <code>temporal</code> attribute. That attribute is used here both for an absolute date range and for a reference to an external URI: in this case, a URI for a representation of the Epigraphic Database Heidelberg’s “Late Antiquity” period in the PeriodO dataset. Here the external identifier corresponds directly to the period vocabulary used internally, but unlike a simple textual label, it provides a stable reference and structured-data representation that makes it easier to align those temporal expressions with other datasets. Note that the date-range for the inscription is not identical to the date-range for the period: as in EpiDoc, an entity can have its own specific dates but also be described with a more general period reference.</p>
+
+<p id="p35" rel="dcterms:hasPart" resource="#p35">PGIF has now officially been superseded by the Linked Places Format developed by the Linked Pasts working group of Pelagios Commons, in close collaboration with the World Historical Gazetteer (Grossner, Janowicz, and Kessler 2016).<sup><a class="footnote-reference" id="footnote-reference-35" href="#footnote-35">35</a></sup> Like the PGIF, the Linked Places standard focuses on interoperability between spatial datasets, but it makes time a much more central element; it relies, for example, on GeoJSON-T, a temporal extension to GeoJSON, which is a JSON standard used to describe space. The Linked Places standard, expressed as JSON-LD, includes elements that describe the general properties of a temporal interval – <code>@start</code>, <code>@end</code>, <code>@earliest</code>, <code>@latest</code>, <code>@duration</code> – as well as <code>@periods</code>, an element that can be used to describe one or more named intervals associated with a place. The RDF ontology that underlies this standard makes extensive use of the OWL-Time ontology, which makes it possible to bound named intervals with other named intervals and to apply Allen’s temporal logic to chronological relationships.<sup><a class="footnote-reference" id="footnote-reference-36" href="#footnote-36">36</a></sup> The <code>@earliest</code> and <code>@latest</code> elements can be combined with the <code>@start</code> and <code>@end</code> elements, so that an interval may have an earliest and latest start and/or an earliest and latest end, as in the four-part dates of the PeriodO and chronOntology datamodels. This structure is due in part to the interest of this ontology in events, which, like periods, are named entities with durations, but offer a finer degree of precision for temporal reasoning (Shaw, Troncy, and Hardman 2009). Temporal attributes in this ontology can be represented as follows, according to the JSON-LD example available in the Linked Pasts GitHub repository; here I adapt the temporal information for the inscription from Sparta in the Epigraphic Database Heidelberg used in the previous example.<sup><a class="footnote-reference" id="footnote-reference-37" href="#footnote-37">37</a></sup></p>
+
+<figure id="code4">
+<pre><code>
+    "when": {
+          "timespans": [
+            {
+              "start": {"in":"0210"},"end": {"in":"0400"}
+            }
+          ],
+          "periods": [
+            {
+              "name": "Late Antiquity",
+              "@id": "periodo:p0jrrjb67vs"
+            }
+          ],
+          "label": "Date range for creation of HD057724",
+		  "duration": "P190Y"
+        },
+</code></pre>
+</figure>
+
+<p id="p36" rel="dcterms:hasPart" resource="#p36">This describes an object with temporal attributes including a start in 210 CE, an end in 400 CE, and a duration of 190 years, as well as an association with the PeriodO URI <code>http://n2t.net/ark:/99152/p0jrrjb67vs</code>, which refers to the definition of “Late Antiquity” used by the Epigraphic Database Heidelberg.</p>
+
+<p id="p37" rel="dcterms:hasPart" resource="#p37">The World Historical Gazetteer uses the Linked Pasts standard to describe the spatio-temporal, place-centered datasets that it integrates. It also offers a reconciliation service that allows users with relatively simple gazetteer data in the LD-TSV format to upload their datasets, validate the format of the dataset against the LD-TSV standard, and reconcile placenames with the Getty Thesaurus of Geographic Names and Wikidata, at which point the dataset can be accessioned by the World Historical Gazetteer for online publication.<sup><a class="footnote-reference" id="footnote-reference-38" href="#footnote-38">38</a></sup> The LD-TSV format requires a start date in the ISO8601 format (with no zero year) for each place entry, and it allows an optional end date in the same format. This is a concrete demonstration of the value of date normalization and an easy way for scholars who wish to publish place-based datasets to transform their spreadsheets into Linked Data. To represent more temporally complex datasets, however, and especially datasets that contain both absolute dates and period terms, it is still necessary to use the full Linked Pasts JSON-LD specification. Files in this format, with the extension “lpf”, can also be uploaded, reconciled, and submitted through the data portal for incorporation in the World Historical Gazetteer. Perhaps even more exciting is the development of a “Linked Traces” format that will use the W3C Web Annotation model to connect objects, people, events, concepts, and other phenomena that move across time and space.<sup><a class="footnote-reference" id="footnote-reference-39" href="#footnote-39">39</a></sup></p>
+
+</section>
+
+
+<section id="section8">
+
+<h2>Relative Time: Making New Periods</h2>
+
+<p id="p38" class="textindent0" rel="dcterms:hasPart" resource="#p38">At this point, we have walked through the standardization and Linked Data representation of absolute calendar dates; we have discussed the alignment of relative dates expressed as named entities (periods) with Linked Data vocabularies, and the addition of URIs to a hypothetical dataset; and we have considered the serialized Linked Data representation of both absolute and relative temporal attributes in TEI-XML (the EpiDoc standard), RDF/TTL (the Epigraphic Database Heidelberg), and JSON-LD (the Linked Places standard). These steps toward the Linked Open Data publication of a dataset move along a scale of increasing complexity, at the most complex end of which is ontological mapping and the creation of new Linked Data vocabularies and schemata to represent the idiosyncrasies of a particular dataset. For some projects, it will be sufficient to format absolute time according to ISO8601 standards and map named temporal expressions to an external vocabulary like the Getty AAT, chronOntology, or PeriodO. Other projects will have the resources to express their own defined period vocabulary as fully-formed Linked Data entities with their own URIs. But in some cases, a project will have a period vocabulary that does not align easily with any of the existing sources for period identifiers, but will lack the resources to create its own URIs and Linked Data representation for that vocabulary. These cases are a particular concern of the PeriodO project, which aims to become a repository for user-contributed period definitions as well as a curated dataset. The project therefore incorporates a specific workflow for the addition of data by the user community.</p>
+
+<p id="p39" rel="dcterms:hasPart" resource="#p39">The PeriodO datamodel is built around two basic datatypes: statements that identify temporal and spatial boundaries for a period term according to a particular authoritative source (these were called “definitions” in the first version of the dataset; now they are labeled “periods”); and sets of definitions expressed by the same authoritative source (“collections” in the first version, now “authorities”). Users may contribute new periods to existing authorities (for example, if an ongoing digital project adds new period terms to its vocabulary), or they may contribute new authorities (a new set of period definitions from an authoritative source not already represented in the dataset, preferably differing from definitions already in the dataset in time, space, or name). The PeriodO data interface has recently been redesigned to incorporate better spatial and temporal visualizations, improve searching and browsing, and facilitate the creation of new authorities and periods by users.<sup><a class="footnote-reference" id="footnote-reference-40" href="#footnote-40">40</a></sup> Instructions for the addition of new authorities and periods are available on the PeriodO project website<sup><a class="footnote-reference" id="footnote-reference-41" href="#footnote-41">41</a></sup> and have been discussed in several publications (Rabinowitz et al. 2016; Rabinowitz, Shaw, and Golden 2018), but the following section will provide a brief overview of the process.</p>
+
+<figure id="figure02">
+	<img alt="" src="images/fig2.png" title="" />
+	<figcaption>Figure 2. Screenshot of the redesigned PeriodO data interface, highlighting the spatial and temporal visualizations for the “Transition from the Eneolithic to the Bronze Age” period in Romania, as defined in the ARIADNE authority.</figcaption>
+</figure>
+
+<p id="p40" rel="dcterms:hasPart" resource="#p40">To create new authorities and definitions, the user must first add a new editable data source in the data-source selection page, by default the splash page of the new browser client.<sup><a class="footnote-reference" id="footnote-reference-42" href="#footnote-42">42</a></sup> To do so, the user selects “In-browser (editable)” in the “Add data source” section of the page. This will create a new dataset stored as a local Indexed Database in the browser cache. In some browsers, the user will be prompted to allow the client to use persistent storage, but in general, if the browser cache is cleared, the dataset will disappear, so it is advisable to navigate to the “Settings” page in the “Data source” menu to create a backup copy, in the form of a downloadable JSON file. When this new in-browser dataset is selected as a data source, it is blank by default; existing authorities can be added from the menu item “Import changes”, which will copy selected authorities or periods from another data source (e.g., the “Canonical” data source). The import of the relevant information from the Canonical dataset is necessary if the user intends to make additions or changes to authorities or periods that have already been published in PeriodO, or to define new periods that are derived from existing definitions.</p>
+
+<p id="p41" rel="dcterms:hasPart" resource="#p41">To add new periods that are not associated with an existing authority in the Canonical dataset, the user must first create the authority in which those periods are defined. This can be done with the “Add authority” command in the “Data source” menu. An authority will usually be either a published source (a book, article, etc.) or an online project with some claim to expertise in a particular chronological context. If the source is a publication with a citation represented as Linked Data through WorldCat or CrossRef, entering a URL or DOI in the “Most published sources” tab will populate citation data automatically; otherwise, the user can manually enter citation data by clicking on the “Other sources” tab. Publication information populated automatically in the first tab can also be edited or expanded in the second.</p>
+
+<p id="p42" rel="dcterms:hasPart" resource="#p42">Once the authority is created, the user can add period definitions by selecting the “Add period” item in the “Authority” menu. These definitions are added through a form that requires certain fields: an original label (in any language and script), a natural-language expression of spatial coverage as stated by the authority, and start and stop dates. The original label, spatial coverage description, and start/stop labels should all be expressed <i>exactly </i>as they appear in the source, in language, script, and wording, without any translation, editing, or parsing by the user. This is of central importance to the PeriodO model, which seeks to record definitions in their original form. The only required parsing is the expression of the start and stop dates as Gregorian years in ISO8601 format, in the “Start year” and “Stop year” fields. If one or both of these dates is a single year in a standard format (e.g. “200 B.C.” or “AD 10” or “250 CE”), the interface will parse them automatically. If the dates are in non-standard formats or involve ranges, the user can deselect “Parse dates automatically” and carry out conversions to ISO8601 manually (note that PeriodO uses the ISO8601 standard that <i>does</i> include a year zero, so BCE dates will all add one year: e.g. “200 BC” becomes “-0199”). In manual mode, checking the “Year range (not a single year)” box will also make it possible to express start, stop, or both in terms of two-part earliest/latest dates, so that a period that begins in the “first quarter of the third century” and ends in “AD 550/600” can be expressed as a four-part date range with earliest start: 0200, latest start: 0225, earliest stop: 0550, latest stop: 0600. The user may also provide additional optional parsing or information, including translations of the period label into other languages, mapping of the description of spatial coverage to named geographic entities represented in Wikidata and other preselected gazetteers, and locator information (the page on which the definition appeared in a print source, the URL of an online source). The current interface also makes it possible to provide additional semantic information about related periods: a period can be identified as a part of a broader period (e.g. “Late Bronze Age” is part of “Bronze Age”), or as a derivative of a period in another authority, to help chart chains of scholarly influence. Additional fields are available to record explanations of the definition offered by the source (“Note”) and any explanations related to the user’s creation of the record (“Editorial Note”). Once a definition is saved, it appears in the local data source just as it would in the Canonical dataset. </p>
+
+<p id="p43" rel="dcterms:hasPart" resource="#p43">Currently, local data sources can be downloaded as JSON files through the “Back up data source” button on the data-source “Settings” page. These files can be loaded back into the client using the “Restore from backup” button on the data-source selection page; this allows a user not only to back up a local dataset to prevent data loss, but also to share it with other users, who can load the backup file as an editable local data source in their own browsers using the “Restore from backup” button. But user-generated authorities and periods are identified in local data sources with temporary identifiers, not URIs. Persistent URIs are only assigned when those authorities or periods are published in the curated Canonical dataset. For inclusion in that dataset, new data must be submitted by users with ORCIDs, in the form of patches. This process maintains a changelog and a provenance history. Patch submission takes place through the “Submit changes” item in the “Data source” menu. After choosing the data source to which the changes should be submitted (to add to the public PeriodO dataset, the source should be “Canonical”), the user is prompted to select which new or modified authorities or periods should be included in the patch. Submitted patches are reviewed and accepted or rejected by the PeriodO editors. When a patch is accepted, new authorities and/or periods are added to the canonical dataset and receive URIs in the form of ARK IDs. These ids include the PeriodO “shoulder”, minted and guaranteed by the EZID system of the California Digital Library, followed by a five-digit alphanumeric suffix that identifies the authority and a further four-digit alphanumeric suffix that identifies the specific period, as follows:</p>
+
+<figure id="figure03">
+	<img alt="" src="images/fig3.png" title="" />
+</figure>
+
+<p id="p44" rel="dcterms:hasPart" resource="#p44">Here the ARK ID provides a unique identifier for the PeriodO dataset as a whole; the first suffix identifies the Epigraphic Database Heidelberg authority; and the second suffix identifies the “Late Antiquity” period. The HTTP URIs resolve to the individual authorities and periods using the suffix pass-through protocol of the ARK ID system (Kunze and Rodgers 2013).</p>
+
+<p id="p45" rel="dcterms:hasPart" resource="#p45">There are several benefits to adding new periods to the PeriodO dataset. Simply creating authorities and periods using a local in-browser data source provides a structured Linked Data representation of that information that can be reused in a larger Linked Data dataset. Submitting a patch with new authorities and periods to the main dataset furnishes those authorities and periods with persistent URIs, which further enhances the expression of a dataset as Linked Data. And contributing to the PeriodO gazetteer increases the general scholarly understanding of the ways different fields and traditions deploy periodization to organize information. In the future, it may also make a user’s dataset easier to aggregate with others and more discoverable in chronological searches.</p>
+
+</section>
+
+
+<section id="section9">
+
+<h2>Conclusion: Why Take the Time?</h2>
+
+<p id="p46" class="textindent0" rel="dcterms:hasPart" resource="#p46">All of the steps described in this recipe for the expression of temporal information as Linked Data are difficult and time-consuming. Even the conversion of non-Gregorian dates to the ISO8601 standard is burdensome, especially when the question of a year zero comes up. Meanwhile, the aggregated time-based search and visualization tools that would demonstrate the usefulness of Linked Data representations of time are still in the prototype stage, and integration work like that done by the Pelagios project with data from ancient-world spatial gazetteers has not yet been carried out. While there are some examples of visualizations that take advantage of periodized data,<sup><a class="footnote-reference" id="footnote-reference-43" href="#footnote-43">43</a></sup> and while there are a number of current initiatives focused on developing the standards and platforms that will facilitate future aggregation and visualization of chronological information,<sup><a class="footnote-reference" id="footnote-reference-44" href="#footnote-44">44</a></sup> there is still no temporal equivalent to the Peripleo spatial search engine. So why go to the trouble of adapting the dates and periods in your spreadsheet or relational database table to Linked Data datamodels, or contributing your period definitions to a gazetteer like PeriodO?</p>
+
+<p id="p47" rel="dcterms:hasPart" resource="#p47">The representation of temporal information as structured data offers both short- and long-term dividends, and these dividends are multiplied in a dataset represented as Linked Data. In the short term, clear indications of calendrical system, the standardization of dates and date formats, and the explanation of period terms with reference to internal or external vocabularies simply make it easier for others to understand and reuse a given dataset. As data publication becomes more prevalent, it is worth thinking about that hypothetical spreadsheet of papyri not just in terms of the research carried out by its creator, but in terms of its benefit to a larger community. The more the creator can be transparent about the meanings of the datatypes a dataset contains, the more useful it will be to a broader audience. This is especially true when the creator of a dataset wishes to develop alternative or non-canonical vocabularies. Because of its focus on semantic information, the Linked Data ecosystem is inherently multivocal: if I have a simple way to explain exactly what I mean by a period term, I can be understood without having to use a conventional term from a defined vocabulary that may not fit my use case well.</p>
+
+<p id="p48" rel="dcterms:hasPart" resource="#p48">In the medium term, the semantic representation of period terms and the association of those terms with URIs in other datasets will make it easier to search across heterogeneous datasets by time. We can now use tools like the Peripleo browser to find information associated with a given ancient place across a variety of databases, even if they do not all call that place by the same name. If a similar Linked Data approach is adopted for periodized data, we will soon be able to search across datasets for items related to the Late Antique period, even when definitions of that period vary from database to database – or, conversely, we will be able to search for items dated to the range 400-500 CE and find records like the papyrus in our hypothetical spreadsheet marked only as “Late Antique”. Thus, not only will this approach to periodization make an individual dataset more transparent, but it will also make the records in that dataset more discoverable and easier to align and aggregate with other datasets. As an added benefit, it will also facilitate the digital visualization of the temporal distribution of items in a dataset: a URI that associates a period label like “Late Antique” with dates will allow records with that label to appear on a digital timeline.</p>
+
+<p id="p49" rel="dcterms:hasPart" resource="#p49">In the long term, the structured representation of periods in datasets related to the past will help us to understand our own scholarly disciplines. Transparent references to the meaning of period terms will highlight the way that usage changes over time, as periodizations are revised or new periodizations are proposed. They will also highlight differences of opinion across scholarship and culture. These genealogical and discursive trends are a particular focus of PeriodO, which tracks derivative relationships across definitions in different authorities, and which is developing visualization tools to compare the spatiotemporal extents assigned to the same term by different scholars at different times. Even more interesting is the possibility that structured temporal information expressed as Linked Open Data will provide training data for natural-language-processing approaches to text corpora. In this scenario, the transparent period definitions and date expressions in Linked Data datasets will be used to help machine-learning algorithms recognize and parse unstructured, opaque temporal references in texts. The first steps in this direction have already been taken (de Boer, van Someren, and Wielinga 2010; Mouroutsou, Markantonatou, and Papavasiliou 2014; Binding, Tudhope, and Vlachidis 2018), and as the quantity of both structured period definitions and structured periodized data grows, this approach will become even more robust. But the potential of linked temporal data to transform future research will only be realized if the historical disciplines take the time in the present to explain and align the ways we talk about time in the past – and share their data openly.</p>
+
+</section>
+
+
+<section id="references">
+
+<h2>Bibliography</h2>
+
+<p id="reference-1" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Allen, James F. 1984. “Towards a General Theory of Action and Time.” <i>Artificial Intelligence</i> 23 (2): 123–54. <a href="https://doi.org/10.1016/0004-3702(84)90008-0">https://doi.org/10.1016/0004-3702(84)90008-0</a>.</span></p>
+
+<p id="reference-2" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Berners-Lee, Tim. 2010. “Linked Data - Design Issues.” Www.W3c.Org. 2010. <a href="https://www.w3.org/DesignIssues/LinkedData.html">https://www.w3.org/DesignIssues/LinkedData.html</a>.</span></p>
+
+<p id="reference-3" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Binding, Ceri, Douglas Tudhope, and Andreas Vlachidis. 2018. “A Study of Semantic Integration across Archaeological Data and Reports in Different Languages.” <i>Journal of Information Science</i>. <a href="https://doi.org/10.1177/0165551518789874">https://doi.org/10.1177/0165551518789874</a>.</span></p>
+
+<p id="reference-4" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Boer, Viktor de, Maarten van Someren, and Bob J. Wielinga. 2010. “Extracting Historical Time Periods from the Web.” <i>Journal of the American Society for Information Science and Technology</i> 61 (9): 1888–1908. <a href="https://doi.org/10.1002/asi.21378">https://doi.org/10.1002/asi.21378</a>.</span></p>
+
+<p id="reference-5" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Cayless, Hugh, Charlotte Roueché, Tom Elliott, and Gabriel Bodard. 2009. “Epigraphy in 2017.” <i>Digital Humanities Quarterly</i> 3 (1). <a href="http://www.digitalhumanities.org/dhq/vol/3/1/000030/000030.html">http://www.digitalhumanities.org/dhq/vol/3/1/000030/000030.html</a>.</span></p>
+
+<p id="reference-6" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Cox, S. J. D., and S. M. Richard. 2015. “A Geologic Timescale Ontology and Service.” <i>Earth Science Informatics</i> 8 (1): 5–19. <a href="https://doi.org/10.1007/s12145-014-0170-6">https://doi.org/10.1007/s12145-014-0170-6</a>.</span></p>
+
+<p id="reference-7" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Dee, Stella, Maryam Foradi, and Filip Šarić. 2016. “Learning by Doing: Learning to Implement the TEI Guidelines through Digital Classics Publication.” In <i>Digital Classics Outside the Echo-Chamber: Teaching, Knowledge Exchange &amp; Public Engagement</i>, edited by Gabriel Bodard and Matteo Romanello, 15–32. London: Ubiquity Press. <a href="http://dx.doi.org/10.5334/bat.b">http://dx.doi.org/10.5334/bat.b</a>.</span></p>
+
+<p id="reference-8" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Deville, Pierre, Catherine Linard, Samuel Martin, Marius Gilbert, Forrest R. Stevens, Andrea E. Gaughan, Vincent D. Blondel, and Andrew J. Tatem. 2014. “Dynamic Population Mapping Using Mobile Phone Data.” <i>Proceedings of the National Academy of Sciences</i> 111 (45): 15888–93. <a href="https://doi.org/10.1073/pnas.1408439111">https://doi.org/10.1073/pnas.1408439111</a>.</span></p>
+
+<p id="reference-9" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Doerr, Martin, Athina Kritsotaki, and Stephen Stead. 2010. “Which Period Is It? A Methodology to Create Thesauri of Historical Periods.” In <i>Beyond the Artifact. Digital Interpretation of the Past. Proceedings of CAA2004, Prato 13-17 April 2004</i>, edited by Franco Niccolucci and Sorin Hermon, 70–75. Budapest: Archaeolingua. <a href="http://proceedings.caaconference.org/files/2004/10_Doerr_et_al_CAA_2004.pdf">http://proceedings.caaconference.org/files/2004/10_Doerr_et_al_CAA_2004.pdf</a>.</span></p>
+
+<p id="reference-10" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Grafton, Anthony T. 1975. “Joseph Scaliger and Historical Chronology: The Rise and Fall of a Discipline.” <i>History and Theory</i> 14 (2): 156–85. <a href="https://doi.org/10.2307/2504611">https://doi.org/10.2307/2504611</a>.</span></p>
+
+<p id="reference-11" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Grossner, Karl, Krzysztof Janowicz, and Carsten Kessler. 2016. “Place, Period, and Setting for Linked Data Gazetteers.” In <i>Placing Names: Enriching and Integrating Gazetteers</i>, edited by Merrick Lex Berman, Ruth Mostern, and Humphrey Southall, 80–96. Bloomington: Indiana University Press.</span></p>
+
+<p id="reference-12" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Heath, Tom, and Christian Bizer. 2011. <i>Linked Data: Evolving the Web into a Global Data Space</i>. 1st ed. Vol. 1. Morgan &amp; Claypool. <a href="http://www.morganclaypool.com/doi/abs/10.2200/S00334ED1V01Y201102WBE001">http://www.morganclaypool.com/doi/abs/10.2200/S00334ED1V01Y201102WBE001</a>.</span></p>
+
+<p id="reference-13" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Isaksen, Leif, Rainer Simon, Elton T. E. Barker, and Pau de Soto Cañamares. 2014. “Pelagios and the Emerging Graph of Ancient World Data.” In <i>Web Sci ’14. Proceedings of the 2014 ACM Conference on Web Science</i>, 197–201. ACM. <a href="http://dl.acm.org/citation.cfm?id=2615569.2615693">http://dl.acm.org/citation.cfm?id=2615569.2615693</a>.</span></p>
+
+<p id="reference-14" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Kunze, John, and R. Rodgers. 2013. “The ARK Identifier Scheme.” <a href="https://tools.ietf.org/html/draft-kunze-ark-15">https://tools.ietf.org/html/draft-kunze-ark-15</a>.</span></p>
+
+<p id="reference-15" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Mouroutsou, Maria, Stella Markantonatou, and Vasilis Papavasiliou. 2014. “The Development of Vocabularies of Historical Period Names from Web Acquired Corpora.” <i>Mediterranean Archaeology &amp; Archaeometry</i> 14 (4): 165–74.</span></p>
+
+<p id="reference-16" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Netser, Michael. 1998. “Population Growth and Decline in the Northern Part of Eretz-Israel during the Historical Period as Related to Climatic Changes.” In <i>Water, Environment and Society in Times of Climatic Change: Contributions from an International Workshop within the Framework of International Hydrological Program (IHP) UNESCO, Held at Ben-Gurion University, Sede Boker, Israel from 7–12 July 1996</i>, edited by Arie S. Issar and N. Brown, 129–45. Kluwe.</span></p>
+
+<p id="reference-17" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Niccolucci, Franco, and Sorin Hermon. 2015a. “Time, Chronology and Classification.” <i>Mathematics and Archaeology</i>, 257–70.</span></p>
+
+<p id="reference-18" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">———. 2015b. “Representing Gazetteers and Period Thesauri in Four-Dimensional Space–Time.” <i>International Journal on Digital Libraries</i>, July, 1–7. <a href="https://doi.org/10.1007/s00799-015-0159-x">https://doi.org/10.1007/s00799-015-0159-x</a>.</span></p>
+
+<p id="reference-19" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Rabinowitz, Adam, Ryan Shaw, Sarah Buchanan, Patrick Golden, and Eric Kansa. 2016. “Making Sense of the Ways We Make Sense of the Past: The PeriodO Project.” <i>Bulletin of the Institute of Classical Studies</i> 59 (2): 42–55. <a href="https://doi.org/10.1111/j.2041-5370.2016.12037.x">https://doi.org/10.1111/j.2041-5370.2016.12037.x</a>.</span></p>
+
+<p id="reference-20" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Rabinowitz, Adam, Ryan Shaw, and Patrick Golden. 2019. “Making up for Lost Time: Digital Epigraphy, Chronology, and the PeriodO Project.” In <i>Crossing Experiences in Digital Epigraphy. From Practice to Discipline</i>, edited by Annamaria De Santis and Irene Rossi, 200–213. Warsaw and Berlin: De Gruyter.</span></p>
+
+<p id="reference-21" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Rasmussen, S. O., K. K. Andersen, A. M. Svensson, J. P. Steffensen, B. M. Vinther, H. B. Clausen, M.-L. Siggaard Andersen, et al. 2006. “A New Greenland Ice Core Chronology for the Last Glacial Termination.” <i>Journal of Geophysical Research: Atmospheres</i> 111 (D6). <a href="https://doi.org/10.1029/2005JD006079">https://doi.org/10.1029/2005JD006079</a>.</span></p>
+
+<p id="reference-22" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Rees, G., and A. Keinan-Schoonbaert. 2019. “Introducing the WebMaps-T working Group.” <i>Medium</i>. June 26. <a href="https://medium.com/pelagios/introducing-the-webmaps-t-working-group-7cff98021e42">https://medium.com/pelagios/introducing-the-webmaps-t-working-group-7cff98021e42</a>.</span></p>
+
+<p id="reference-23" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Shaw, Ryan, Raphaël Troncy, and Lynda Hardman. 2009. “LODE: Linking Open Descriptions of Events.” In <i>The Semantic Web</i>, edited by Asunción Gómez-Pérez, Yong Yu, and Ying Ding, 153–67. Lecture Notes in Computer Science. Springer Berlin Heidelberg.</span></p>
+
+<p id="reference-24" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Simon, Rainer, Elton Barker, and Leif Isaksen. 2012. “Exploring Pelagios: A Visual Browser for Geo-Tagged Datasets.” Workshop presented at the International Workshop on Supporting User’s Exploration of Digital Libraries. <a href="http://eprints.soton.ac.uk/343484">http://eprints.soton.ac.uk/343484</a>.</span></p>
+
+</section>
+
+
+<section id="footnotes">
+
+<h2>Notes</h2>
+
+<p class="footnote" id="footnote-1"><sup><a href="#footnote-reference-1">1</a></sup> <a href="http://www.getty.edu/research/tools/vocabularies/aat">http://www.getty.edu/research/tools/vocabularies/aat</a>; an example of a Unique Resource Identifier (URI) for a calendrical system is  <a href="http://vocab.getty.edu/page/aat/300404479">http://vocab.getty.edu/page/aat/300404479</a>, which refers to the Maya calendar as a conceptual entity. Mapping concepts in a dataset to external ontologies and vocabularies is also the first step toward the preparation of a Linked Data representation, as I will explain below, but it is also useful simply for transparency.</p>
+
+<p class="footnote" id="footnote-2"><sup><a href="#footnote-reference-2">2</a></sup> For example, the periods specified by the ARIADNE data platform use BP with a “present” of 2000 (<a href="http://n2t.net/ark:/99152/p0qhb66">http://n2t.net/ark:/99152/p0qhb66</a>), as do some paleoclimate studies (e.g. Netser 1998, p. 135). The Centre for Ice and Climate at the University of Copenhagen has recently proposed the notation “b2k” to refer to BP dates counting back from 2000, with respect to a new ice-core chronology (Rasmussen et al. 2006).</p>
+
+<p class="footnote" id="footnote-3"><sup><a href="#footnote-reference-3">3</a></sup> <a href="https://godot.date/about">https://godot.date/about</a>. </p>
+
+<p class="footnote" id="footnote-4"><sup><a href="#footnote-reference-4">4</a></sup> For example, the multi-system converter at <a href="https://www.fourmilab.ch/documents/calendar">https://www.fourmilab.ch/documents/calendar</a>, which, when given a date in any one of a number of systems, will express it in all of the calendars on the page.</p>
+
+<p class="footnote" id="footnote-5"><sup><a href="#footnote-reference-5">5</a></sup> The British Julian date of February 28, 1750 would thus correspond to the Gregorian March 11, 1751, since for legal purposes the British new year fell on March 25<sup>th</sup> of the Julian calendar before the Gregorian reform.</p>
+
+<p class="footnote" id="footnote-6"><sup><a href="#footnote-reference-6">6</a></sup> <a href="https://www.iso.org/standard/40874.html">https://www.iso.org/standard/40874.html</a>. A new revision in two parts (ISO/FDIS 8601-1 and 8601-2:2019, basic rules and extensions) has recently been published, and is available at for purchase at <a href="https://www.iso.org/standard/70907.html">https://www.iso.org/standard/70907.html</a> and <a href="https://www.iso.org/standard/70908.html">https://www.iso.org/standard/70908.html</a>. English-language previews are available at <a href="https://www.iso.org/obp/ui#iso:std:iso:8601:-1:ed-1:v1:en">https://www.iso.org/obp/ui#iso:std:iso:8601:-1:ed-1:v1:en</a> and <a href="https://www.iso.org/obp/ui#iso:std:iso:8601:-2:ed-1:v1:en">https://www.iso.org/obp/ui#iso:std:iso:8601:-2:ed-1:v1:en</a>, and a 2016 draft version of the full standard can be found on the Library of Congress website at <a href="http://www.loc.gov/standards/datetime/iso-tc154-wg5_n0038_iso_wd_8601-1_2016-02-16.pdf">http://www.loc.gov/standards/datetime/iso-tc154-wg5_n0038_iso_wd_8601-1_2016-02-16.pdf</a>.</p>
+
+<p class="footnote" id="footnote-7"><sup><a href="#footnote-reference-7">7</a></sup> Dates for Egyptian documents can be converted using the very useful service provided by the Date Converter for Ancient Egypt, <a href="http://aegyptologie.online-resourcen.de/home">http://aegyptologie.online-resourcen.de/home</a>. </p>
+
+<p class="footnote" id="footnote-8"><sup><a href="#footnote-reference-8">8</a></sup> The work of the Hypermedia Research Group at the University of South Wales is especially relevant here: <a href="http://hypermedia.research.southwales.ac.uk">http://hypermedia.research.southwales.ac.uk</a>. </p>
+
+<p class="footnote" id="footnote-9"><sup><a href="#footnote-reference-9">9</a></sup> EDTF: <a href="http://www.loc.gov/standards/datetime/edtf.html">http://www.loc.gov/standards/datetime/edtf.html</a>. Especially relevant for historical data are the addition of the characters “?”, “˜”, and “%” after the four-digit date to indicate uncertainty, approximation, and uncertain approximation, respectively. </p>
+
+<p class="footnote" id="footnote-10"><sup><a href="#footnote-reference-10">10</a></sup> <a href="http://openrefine.org">http://openrefine.org</a>. </p>
+
+<p class="footnote" id="footnote-11"><sup><a href="#footnote-reference-11">11</a></sup> <a href="https://godot.date/api/reconcile">https://godot.date/api/reconcile</a>. </p>
+
+<p class="footnote" id="footnote-12"><sup><a href="#footnote-reference-12">12</a></sup> TEI Consortium: <a href="http://www.tei-c.org/">http://www.tei-c.org</a>. EpiDoc: <a href="https://sourceforge.net/p/epidoc/wiki/Home">https://sourceforge.net/p/epidoc/wiki/Home</a> and <a href="https://github.com/EpiDoc">https://github.com/EpiDoc</a>, with guidelines at <a href="http://www.stoa.org/epidoc/gl/latest">http://www.stoa.org/epidoc/gl/latest</a>. </p>
+
+<p class="footnote" id="footnote-13"><sup><a href="#footnote-reference-13">13</a></sup> <a href="https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes">https://www.w3.org/TR/xmlschema-2/#built-in-primitive-datatypes</a>.</p>
+
+<p class="footnote" id="footnote-14"><sup><a href="#footnote-reference-14">14</a></sup> <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html">http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ND.html</a>. </p>
+
+<p class="footnote" id="footnote-15"><sup><a href="#footnote-reference-15">15</a></sup> For the application of this schema in the EpiDoc standard, see <a href="http://www.stoa.org/epidoc/gl/latest/supp-historigdate.html">http://www.stoa.org/epidoc/gl/latest/supp-historigdate.html</a>. </p>
+
+<p class="footnote" id="footnote-16"><sup><a href="#footnote-reference-16">16</a></sup> Dublin Core Metadata Initiative metadata terms: <a href="http://dublincore.org/documents/dcmi-terms">http://dublincore.org/documents/dcmi-terms</a>; OWL-Time Ontology: <a href="https://www.w3.org/TR/owl-time/#time:TRS">https://www.w3.org/TR/owl-time/#time:TRS</a>. </p>
+
+<p class="footnote" id="footnote-17"><sup><a href="#footnote-reference-17">17</a></sup> Main site at <a href="http://papyri.info">http://papyri.info</a>; Github repository at <a href="https://github.com/papyri">https://github.com/papyri</a>. </p>
+
+<p class="footnote" id="footnote-18"><sup><a href="#footnote-reference-18">18</a></sup> <a href="http://dublincore.org/documents/dcmi-period">http://dublincore.org/documents/dcmi-period</a>. </p>
+
+<p class="footnote" id="footnote-19"><sup><a href="#footnote-reference-19">19</a></sup> CIDOC-CRM specification: <a href="http://www.cidoc-crm.org">http://www.cidoc-crm.org</a>; CRMarchaeo extension: <a href="http://new.cidoc-crm.org/crmarchaeo/fm_releases">http://new.cidoc-crm.org/crmarchaeo/fm_releases</a>. A streamlined version of the CIDOC-CRM forms the core ontology of the Linked Art data model currently under development by the Getty Institute (<a href="https://linked.art/index.html">https://linked.art/index.html</a>); the website for this project provides a good example for the implementation of timespans in a particular model, and it also offers a useful explanation of the JSON-LD serialization it uses (<a href="https://linked.art/model/jsonld">https://linked.art/model/jsonld</a>). </p>
+
+<p class="footnote" id="footnote-20"><sup><a href="#footnote-reference-20">20</a></sup> SKOS reference: <a href="https://www.w3.org/TR/2009/REC-skos-reference-20090818">https://www.w3.org/TR/2009/REC-skos-reference-20090818</a>. </p>
+
+<p class="footnote" id="footnote-21"><sup><a href="#footnote-reference-21">21</a></sup> The Pleiades period thesaurus can be found at <a href="https://pleiades.stoa.org/vocabularies/time-periods">https://pleiades.stoa.org/vocabularies/time-periods</a>. </p>
+
+<p class="footnote" id="footnote-22"><sup><a href="#footnote-reference-22">22</a></sup> A search for “period” in the Getty AAT will return identifiers for hundreds of periods organized by space/culture and arranged in hierarchical facts with multilingual and semantic representations.</p>
+
+<p class="footnote" id="footnote-23"><sup><a href="#footnote-reference-23">23</a></sup> <a href="http://vocab.getty.edu/page/aat/300019279">http://vocab.getty.edu/page/aat/300019279</a>. </p>
+
+<p class="footnote" id="footnote-24"><sup><a href="#footnote-reference-24">24</a></sup> <a href="http://chronontology.dainst.org">http://chronontology.dainst.org</a>. </p>
+
+<p class="footnote" id="footnote-25"><sup><a href="#footnote-reference-25">25</a></sup> <a href="http://chronontology.dainst.org/period/sTAli5CHCKzd">http://chronontology.dainst.org/period/sTAli5CHCKzd</a>; <a href="http://chronontology.dainst.org/period/KyfgoiHYmbZo">http://chronontology.dainst.org/period/KyfgoiHYmbZo</a>; <a href="http://chronontology.dainst.org/period/b6lAiLW6tfW4">http://chronontology.dainst.org/period/b6lAiLW6tfW4</a>. </p>
+
+<p class="footnote" id="footnote-26"><sup><a href="#footnote-reference-26">26</a></sup> <a href="https://perio.do">https://perio.do</a>; <a href="http://n2t.net/ark:/99152/p0">http://n2t.net/ark:/99152/p0</a>. </p>
+
+<p class="footnote" id="footnote-27"><sup><a href="#footnote-reference-27">27</a></sup> “Late Antique” in the Getty AAT: <a href="http://vocab.getty.edu/page/aat/300020666">http://vocab.getty.edu/page/aat/300020666</a>; “Late Antique” in the Mediterranean derived from Peter Brown, <i>The World of Late Antiquity </i>(1989), in chronOntology: <a href="http://chronontology.dainst.org/period/KyfgoiHYmbZo">http://chronontology.dainst.org/period/KyfgoiHYmbZo</a>; “Late Antique” in time and space, exactly as expressed by the British Museum’s defined period vocabulary, in PeriodO: <a href="http://n2t.net/ark:/99152/p08m57hmdw6">http://n2t.net/ark:/99152/p08m57hmdw6</a>. </p>
+
+<p class="footnote" id="footnote-28"><sup><a href="#footnote-reference-28">28</a></sup> For this reason, dates qualified with “circa” or “around” are rendered in the ISO8601 representation as a single Gregorian year, since the extent of uncertainty is rarely clear from the source – but a start-date expressed as “first half of the 5<sup>th</sup> century” can be represented with confidence as “earliest start: 499, latest start: 450”. </p>
+
+<p class="footnote" id="footnote-29"><sup><a href="#footnote-reference-29">29</a></sup> Work is ongoing on an extension to the PeriodO datamodel and platform that will allow users to create custom aggregations of similar periods; these aggregations would be defined by the earliest start, latest stop, and broadest spatial coverage of all the periods in a set, and given their own dereferenceable URIs – so that a user could refer to a “Late Antique” period definition derived from the aggregation of a dozen of the 23 results from this search.</p>
+
+<p class="footnote" id="footnote-30"><sup><a href="#footnote-reference-30">30</a></sup> <a href="https://github.com/periodo/periodo-reconciler">https://github.com/periodo/periodo-reconciler</a>. </p>
+
+<p class="footnote" id="footnote-31"><sup><a href="#footnote-reference-31">31</a></sup> <a href="https://json-ld.org">https://json-ld.org</a>. </p>
+
+<p class="footnote" id="footnote-32"><sup><a href="#footnote-reference-32">32</a></sup> See, for example, the Pelagios Linked Data search engine and visualization interface, Peripleo, at <a href="https://peripleo.pelagios.org">https://peripleo.pelagios.org</a>.</p>
+
+<p class="footnote" id="footnote-33"><sup><a href="#footnote-reference-33">33</a></sup> <a href="http://www.stoa.org/epidoc/gl/latest/supp-historigdate.html">http://www.stoa.org/epidoc/gl/latest/supp-historigdate.html</a>.</p>
+
+<p class="footnote" id="footnote-34"><sup><a href="#footnote-reference-34">34</a></sup> Pelagios Gazetteer Interchange Format: <a href="https://github.com/pelagios/pelagios-cookbook/wiki/Pelagios-Gazetteer-Interconnection-Format">https://github.com/pelagios/pelagios-cookbook/wiki/Pelagios-Gazetteer-Interconnection-Format</a>; Recogito annotation platform: <a href="https://recogito.pelagios.org">https://recogito.pelagios.org</a>. </p>
+
+<p class="footnote" id="footnote-35"><sup><a href="#footnote-reference-35">35</a></sup> See the 2017 whitepaper of the working group at <a href="http://linkedpasts.org/assets/lp_whitepaper.pdf">http://linkedpasts.org/assets/lp_whitepaper.pdf</a>. The Linked Places JSON-LD context and a simplified version, designated LD-TSV, are available in the Linked Places repository of the Linked Pasts Github site at <a href="https://raw.githubusercontent.com/LinkedPasts/linked-places/master/linkedplaces-context-v1.1.jsonld">https://raw.githubusercontent.com/LinkedPasts/linked-places/master/linkedplaces-context-v1.1.jsonld</a> and <a href="https://github.com/LinkedPasts/linked-places/blob/master/tsv_0.2.md">https://github.com/LinkedPasts/linked-places/blob/master/tsv_0.2.md</a>. </p>
+
+<p class="footnote" id="footnote-36"><sup><a href="#footnote-reference-36">36</a></sup> The most current draft (version 1.1) of the Linked Places ontology in RDF is available at <a href="http://linkedpasts.org/ontology/lpo_latest.ttl">http://linkedpasts.org/ontology/lpo_latest.ttl</a>. See also the OWL Time Ontology at <a href="https://www.w3.org/TR/owl-time">https://www.w3.org/TR/owl-time</a>.</p>
+
+<p class="footnote" id="footnote-37"><sup><a href="#footnote-reference-37">37</a></sup> Sample expression: <a href="https://raw.githubusercontent.com/LinkedPasts/linked-places/master/linkedplaces-sample-v1.json">https://raw.githubusercontent.com/LinkedPasts/linked-places/master/linkedplaces-sample-v1.json</a>. The JSON-LD context for data represented in this format is provided by the data standard cited in n. 35.</p>
+
+<p class="footnote" id="footnote-38"><sup><a href="#footnote-reference-38">38</a></sup> A reconciliation tutorial is available at <a href="http://dev.whgazetteer.org/tutorials/walkthrough">http://dev.whgazetteer.org/tutorials/walkthrough</a>.</p>
+
+<p class="footnote" id="footnote-39"><sup><a href="#footnote-reference-39">39</a></sup> Linked Traces format draft v.0.2: <a href="https://github.com/LinkedPasts/linked-traces-format">https://github.com/LinkedPasts/linked-traces-format</a>; Web Annotation Model: <a href="https://www.w3.org/TR/annotation-model">https://www.w3.org/TR/annotation-model</a>; Linked Traces and the World Historical Gazetteer: <a href="http://dev.whgazetteer.org/tutorials/traces">http://dev.whgazetteer.org/tutorials/traces</a>.</p>
+
+<p class="footnote" id="footnote-40"><sup><a href="#footnote-reference-40">40</a></sup> The update to the user interface has no effect on the HTTP resolution of the URIs in the dataset as URLs. The permanent PeriodO URI, an Archival Resource Key (ARK) ID in the form <a href="http://n2t.net/ark:/99152/p0">http://n2t.net/ark:/99152/p0</a>, will always point either to the most stable version of the browser client or, in the event that the client ceases to be supported, to an archival copy of the most current version of the dataset as a JSON-LD serialization.</p>
+
+<p class="footnote" id="footnote-41"><sup><a href="#footnote-reference-41">41</a></sup> <a href="http://perio.do/guide">http://perio.do/guide</a>. </p>
+
+<p class="footnote" id="footnote-42"><sup><a href="#footnote-reference-42">42</a></sup> <a href="https://client.perio.do">https://client.perio.do</a>. </p>
+
+<p class="footnote" id="footnote-43"><sup><a href="#footnote-reference-43">43</a></sup> See, for example, the temporal browser in the ARIADNE data integration platform for archaeology at <a href="http://portal.ariadne-infrastructure.eu">http://portal.ariadne-infrastructure.eu</a> or the TopoTime datamodel and visualization platform developed by Karl Grossner and Elijah Meeks at <a href="http://dh.stanford.edu/topotime/demo_py.html">http://dh.stanford.edu/topotime/demo_py.html</a>, with ongoing documentation at <a href="https://github.com/kgeographer/Topotime">https://github.com/kgeographer/Topotime</a>.</p>
+
+<p class="footnote" id="footnote-44"><sup><a href="#footnote-reference-44">44</a></sup> The Timeline Consortium (<a href="https://timelineconsortium.org">https://timelineconsortium.org</a>) is working to develop interoperable standards and tools for timeline visualizations; Karl Grossner has been developing GeoJSON-T, a temporal extension to the GeoJSON standard (<a href="https://github.com/kgeographer/geojson-t">https://github.com/kgeographer/geojson-t</a>); and the WebMaps-T Working Group of the Pelagios Network now seeks to create a new Javascript library for an integrated map and timeline to display data represented as GeoJSON-T (Rees and Keinan-Schoonbaert 2019).</p>
+
+</section>
+
+
+<footer>
+
+<p class="editorial-note"><a rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers"><i>ISAW Papers</i></a> (ISSN 2164-1471) is a publication of the <a rel="dcterms:publisher" property="dcterms:publisher" href="http://isaw.nyu.edu">Institute for the Study of the Ancient World</a>, <a href="http://nyu.edu/">New York University</a>. This article was anonymously reviewed prior to publication.</p>
+
+<p class="copyright" style="margin-top:1em;text-align:center;color:gray">©2020 <span rel="cc:attributionName">Adam Rabinowitz</span>. Distributed under the terms of the <a rel="cc:license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. </p>
+
+</footer>
+
+
+</article>
+
+</body>
+</html>
