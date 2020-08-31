@@ -29,7 +29,7 @@
  <meta name="DC.subject" content="Cataloging of manuscripts" />
  <meta name="DC.subject" content="Linked data" />
  <meta name="DCTERMS.license" content="Creative Commons Attribution 4.0 Unported (CC-BY)" />
- <meta name="DCTERMS.bibliographicCitation" content="Pietro Maria Liuzzo. 2020. Linked Open Data based on La Syntaxe du Codex for Manuscripts in Beta maṣāḥǝft. ISAW Papers 20.6." />
+ <meta name="DCTERMS.bibliographicCitation" content="Pietro Maria Liuzzo. 2020. Linked Open Data based on La Syntaxe du Codex for Manuscripts in Beta maṣāḥǝft. ISAW Papers 20.7." />
  <meta name="DCTERMS.isPartOf" content="ISAW Papers" />
  <meta name="DCTERMS.identifier.URI" content="TK"/>
 
@@ -47,7 +47,7 @@
 
 <header>
 
-<h2>ISAW Papers 20.6 (2020)</h2>
+<h2>ISAW Papers 20.7 (2020)</h2>
 
 <h1><span rel="dcterms:title">Linked Open Data based on <i>La Syntaxe du Codex</i> for Manuscripts in Beta maṣāḥǝft</span><sup><a class="footnote-reference" id="footnote-reference-1" href="#footnote-1">1</a></sup></h1>
 
@@ -226,7 +226,7 @@
 
 <p id="p26" rel="dcterms:hasPart" resource="#p26">The methodology translates then in the digitally based workflow into the following steps, where numbers identify researcher steps and letters steps performed by the software.</p>
 
-<ol><!--is there a simpler way to do this list with the indenting he wants?-->
+<ol>
   <li>Encode in TEI
     <ol type="a">
       <li>the description<sup><a class="footnote-reference" id="footnote-reference-24" href="#footnote-24">24</a></sup></li>
@@ -1141,19 +1141,19 @@
 	SELECT ?relatedID ?relation 
 	WHERE
 	{
-	{
-	SERVICE &lt;syriaca/api/sparql&gt;             		   (1)       
-	{ 
+	 {
+	 SERVICE &lt;syriaca/api/sparql&gt;             		   (1)       
+	  { 
 	     ?relatedID ?relation &lt;http://syriaca.org/place/104&gt;;
 	     a &lt;http://lawd.info/ontology/conceptualWork&gt; .
-	}
-	}
-	UNION
-	{
-	?annotation oa:hasTarget ?relatedID ;
-	?relation &lt;https://pleiades.stoa.org/places/687928&gt;.
-	?relatedID a &lt;http://lawd.info/ontology/ConceptualWork&gt; .
-	}
+	  }
+	 }
+	 UNION
+	 {
+	 ?annotation oa:hasTarget ?relatedID ;
+	 ?relation &lt;https://pleiades.stoa.org/places/687928&gt;.
+	 ?relatedID a &lt;http://lawd.info/ontology/ConceptualWork&gt; .
+	 }
 
 	}
 </b></code></pre>
