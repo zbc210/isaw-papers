@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" prefix="bibo: http://purl.org/ontology/bibo/
+ cc: http://creativecommons.org/ns#
+ dcmitype: http://purl.org/dc/dcmitype/
+ dcterms: http://purl.org/dc/terms/
+ foaf: http://xmlns.com/foaf/0.1/
+ nm: http://nomisma.org/id/
+ owl:  http://www.w3.org/2002/07/owl#
+ rdfs: http://www.w3.org/2000/01/rdf-schema# 
+ rdfa: http://www.w3.org/ns/rdfa#
+ rdf:  http://www.w3.org/1999/02/22-rdf-syntax-ns#
+ skos: http://www.w3.org/2004/02/skos/core#
+ ">
+ <head>
+ 
+ <title>Applied Use of JSON, GeoJSON, JSON-LD, SPARQL, and IPython Notebooks for Representing and Interacting with Small Datasets</title>
+  
+ <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+ <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+ 
+ <meta name="DC.title" content="Applied Use of JSON, GeoJSON, JSON-LD, SPARQL, and IPython Notebooks for Representing and Interacting with Small Datasets" /> 
+ <meta name="DC.date" content="2020-??-00" />
+ <meta name="DC.format" content="application/xhtml+xml" />
+ <meta name="DC.creator" content="Sebastian Heath" /> 
+ <meta name="DC.language" content="en" /> 
+ <meta name="DC.abstract" content="TK" />
+ <meta name="DC.subject" content="Amphitheaters--Italy--Statistics" />
+ <meta name="DC.subject" content="Linked data--Use studies" />
+ <meta name="DCTERMS.license" content="Creative Commons Attribution 4.0 Unported (CC-BY)" />
+ <meta name="DCTERMS.bibliographicCitation" content="Sebastian Heath. 2020. Applied Use of JSON, GeoJSON, JSON-LD, SPARQL, and IPython Notebooks for Representing and Interacting with Small Datasets. ISAW Papers 20.13." />
+ <meta name="DCTERMS.isPartOf" content="ISAW Papers" />
+ <meta name="DCTERMS.identifier.URI" content="TK"/>
+
+ <link rel="dcterms:isPartOf" href="http://www.worldcat.org/oclc/756047783" />
+ <link rel="dcterms:isPartOf" href="urn:issn:2164-1471" />
+ <link rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers" />
+
+<link rel="stylesheet" href="isaw-publications.css"/>
+
+</head>
+
+<body>
+
+<article>
+
+
+<header>
+
+<h2>ISAW Papers 20.13 (2020)</h2>
+
+<h1><span rel="dcterms:title">Applied Use of JSON, GeoJSON, JSON-LD, SPARQL, and IPython Notebooks for Representing and Interacting with Small Datasets</span></h1>
+
+<h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0003-2039-429X" property="foaf:name">Sebastian Heath</a></span>, Institute for the Study of the Ancient World, New York University</h2>
+
+<p class="doi">URI: <a rel="dcterms:identifier" href="TK">TK</a></p>
+ 
+
+<p class="abstract"><em>Abstract: </em><span id="abstract" property="dcterms:abstract">TK</span></p>
+ 
+
+<p class="subjects"><em>Library of Congress Subjects:</em> <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh87004619">Amphitheaters--Italy--Statistics</a>; <a rel="dcterms:subject" href="http://id.loc.gov/authorities/subjects/sh2013002090">Linked data--Use studies</a>.</p>
+
+
+<nav id="toc">
+
+<h2>Table of Contents</h2>
+
+<ul>
+
+<li><a href="#section1">Introduction</a></li>
+
+<li><a href="#section2">Representing the Data: JSON and GeoJSON</a></li>
+
+<li><a href="#section3">Representing the Data: JSON-LD</a></li>
+
+<li><a href="#section4">Querying the Data: SPARQL and Python</a></li>
+
+<li><a href="#section5">Conclusions</a></li>
+
+<li><a href="#references">References</a></li>
+
+<li><a href="#footnotes">Notes</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+<section id="section1">
+
+<h2>Introduction</h2>
+
+<p id="p1" class="textindent0" rel="dcterms:hasPart" resource="#p1">The main goal of this paper is to show that a selection of the standards, methods, and tools that fall under the rubric of Linked Open Data (LOD) can be the basis for creating flexible representations, as well as interactive presentations, of small datasets. As will become clear, by 'representation' I mean the specific instance of a file that conforms to particular standards and is therefore reusable in multiple computational contexts. By 'presentation' I mean the transformation of that file into more human-readable results, such as visualizations or interactive web-pages. The specific use-case is a dataset providing brief information about Roman amphitheaters. There are approximately 260 of these structures, which occur throughout Roman territory, even if unevenly distributed.<sup><a class="footnote-reference" id="footnote-reference-1" href="#footnote-1">1</a></sup> All were built between the early first century BCE and the early fourth century CE, though most Roman amphitheaters are first or second century CE in date. These aspects of the data - a relatively small number of entities that show spatial and chronological variability within the set - make for an interesting test-case of the use of LOD methods and tools. They also allow the discussion here to be published in conjunction with all the associated data and with brief scripts that many readers will be able to run themselves, either after downloading or in a cloud-based environment.<sup><a class="footnote-reference" id="footnote-reference-2" href="#footnote-2">2</a></sup> There are links to the latter in the text that follows.</p>
+
+<p id="p2" rel="dcterms:hasPart" resource="#p2">The discussion that follows will move from an overview of the specifics of an LOD-informed representation of the phenomenon of Roman amphitheaters, then to querying that data using the SPARQL query language, and finally to a limited implementation of a graphical and interactive user interface. My intent is that this interface is useful as a repeatable and reusable example of working code. LOD influences all parts of what follows, though more general tools will come into play, including the Python programming language and interactive IPython notebooks. These additions mean that there is no attempt to be "pure" or "strict" LOD. Discussion of actual practice will always be to the fore, and that practice will also suggest a path for using data in historical investigation, even if that is not the primary focus here. Although it is a gross generalization to say that computers only work with 1's and 0's and humans work with ideas, working to bridge the gap between those two perspectives remains a topic of discussion within the wider field of "Digital Humanities."<sup><a class="footnote-reference" id="footnote-reference-3" href="#footnote-3">3</a></sup> By the end of this paper, a set of tools and data will have been assembled that offer an additional starting point in this ongoing effort.</p>
+
+<p id="p3" rel="dcterms:hasPart" resource="#p3">There are other introductory topics to address early on. Firstly, "Roman amphitheaters" here usually means fully-enclosed, quite large, at least partially stone, oval, public structures used primarily for the staging of gladiatorial combats, fights involving animals, and public executions.<sup><a class="footnote-reference" id="footnote-reference-4" href="#footnote-4">4</a></sup> These activities made them an important setting for social and political interaction in the Imperial period.<sup><a class="footnote-reference" id="footnote-reference-5" href="#footnote-5">5</a></sup> Amphitheaters are distinct from theaters, which are generally half-round and primarily used for dramatic events. Even the succinctly stated criteria used here highlight that there are borderline cases, including the so-called Gallo-Roman amphitheaters that have seating only partially enclosing an oval arena. Those are included in the dataset, though it would be easy to exclude them from any analyses that would be improved by doing so. There is also dynamism in the number of amphitheaters in use at any one time. The form, or at least permanent stone versions of it, likely originated in southern Italy in the early first century BCE.<sup><a class="footnote-reference" id="footnote-reference-6" href="#footnote-6">6</a></sup> Initial spread was slow, and then from the mid-first century CE to the mid-second century many were built. As new amphitheaters appeared, older ones went out of use. A compelling pairing of growth and loss is the destruction of the amphitheater at Pompeii in 79 CE, an event that buried 20,000 seats in ash, and the opening shortly thereafter of the Flavian Amphitheater in Rome, the so-called Colosseum, which is in use by 80 CE. With 50,000 seats, the Flavian Amphitheater was comparatively huge. Many Roman amphitheaters fell within the range of 10,000 to 25,000 seats. An interface for exploring amphitheater capacities that is built using open data and open tools appears towards the end of this paper (<a href="#figure14">Fig. 14</a>).</p>
+
+<p id="p4" rel="dcterms:hasPart" resource="#p4">Another topic to consider is this paper's audience. I do not mean what follows as a ground-up introduction to using JSON, JSON-LD, GeoJSON, SPARQL, and iPython notebooks to publish data about the Roman Empire. I do offer brief definitions of those terms, but readers with no experience in the Linked Open Data digital ecosystem might not be satisfied with this discussion as an entry point to the topic. Nonetheless, I will stress throughout that representing data using well-documented file formats and then manipulating that data with open-source tools allows the focus to be on the intellectual content of a dataset and on how it can be queried and the results displayed. I will show "out of the box" functionality inherent in file formats, with mapping being the most visually compelling example. The combined application of all the third-party tools that I'll use is tantamount to a test of whether or not I have usefully represented the phenomenon of Roman amphitheaters. To the extent readers think the answer is "yes," this paper is one more contribution that keeps the dialog between standards-compliance and the needs of individual research efforts at the center of discussion of the role of digital tools in Humanistic research.<sup><a class="footnote-reference" id="footnote-reference-7" href="#footnote-7">7</a></sup></p>
+
+</section>
+
+ 
+<section id="section2">
+
+<h2>Representing the Data: JSON and GeoJSON</h2> 
+
+<p id="p5" class="textindent0" rel="dcterms:hasPart" resource="#p5">As of this writing, the dataset under discussion here is available in a GitHub repository published under a Public Domain dedication, meaning that it meets the expectations implied by the 'O' in LOD.<sup><a class="footnote-reference" id="footnote-reference-8" href="#footnote-8">8</a></sup> While the current author is the main contributor, and is certainly responsible for any shortcomings and incompleteness, the commit history shows that early data collection was a shared effort. Versions of this repository are also published via Zenodo.org, which means there is a DOI for the collected resource.<sup><a class="footnote-reference" id="footnote-reference-9" href="#footnote-9">9</a></sup></p>
+
+<p id="p6" rel="dcterms:hasPart" resource="#p6">The main data appears in the file 'roman-amphitheaters.geojson'. By the end of this section, it will be clear that this file contains both structured data about each amphitheater - such as dimensions, an indication of chronology, and capacity - and spatial data in the form of a point giving the center - accurate to meters when possible - of the arena. After exploring a few specifics of this representation, I will show that the data can be queried using the SPARQL query language that works with simple statements known as 'triples'. But before that, a direct look at the serialization - that is the sequence of characters that allow both humans and computers to recognize the information content of a file - will be useful.</p>
+
+<p id="p7" rel="dcterms:hasPart" resource="#p7">Some unpacking of file extensions and names of formats is necessary,. The '.geojson' extension means the information in 'roman-amphitheaters.geojson' is represented using the JSON format as a starting point, with additional compliance to the GeoJSON standard for recording spatial data. For its part, JSON records information as "key-value pairs".<sup><a class="footnote-reference" id="footnote-reference-10" href="#footnote-10">10</a></sup> An example of four key-value pairs adapted from the Roman amphitheater data is:</p>
+
+<figure id="figure01">
+<pre><code>
+	 {
+	   "id": "romeFlavianAmphitheater",
+	   "title": "Flavian Amphitheater at Rome",
+	   "chronogroup": "flavian",
+	   "pleiades": "https://pleiades.stoa.org/places/423025"
+	 }
+</code></pre>
+<figcaption>Fig. 1: Simplified JSON Snippet.</figcaption>
+</figure>
+
+<p id="p8" rel="dcterms:hasPart" resource="#p8">As an isolated snippet of JSON, the above is quite readable, which is one advantage of the format. To the left of each "<code>:</code>" is a '<code>key</code>', and to the right is the associated '<code>value</code>'; these are surrounded by curly brackets, with the implication being that the key-value pairs describe a single entity. The information in Fig. 1 can be rephrased as "There is an amphitheater with the unique ID '<code>romeFlavianAmphitheater</code>'; it has the more human-readable title '<code>Flavian Amphitheater at Rome</code>'; it was built in the Flavian period; and - by the way - it's useful to associate this record with the Pleiades URI '<a href="https://pleiades.stoa.org/places/423025"><code>https://pleiades.stoa.org/places/423025</code></a>'." At the end of that long sentence I am being somewhat wordy, particularly in comparison to the JSON itself. That is because, like many databases, this specific serialization obscures the nature of the connection being made between a vocabulary and the values indicated. In this case, there is a reference to Pleiades, which describes itself as a "gazetteer of past places."<sup><a class="footnote-reference" id="footnote-reference-11" href="#footnote-11">11</a></sup> Visiting the web address in the JSON snippet displays a page that has the title "Roma" and a further description reading "The capital of the Roman Republic and Empire." As used above, then, the link to Pleiades is imprecise. It is not suggesting a narrow equivalence as it is clear that the scope of the Pleiades identifier is far broader than the individual record in the amphitheater dataset. This use is instead an invocation of a well-recognized general identifier within a specific, even idiosyncratic, dataset. This is good Linked Open Data practice, and as will be seen below, one that comes with a good return on effort when this data is made available on the internet in an interactive setting.</p>
+
+<p id="p9" rel="dcterms:hasPart" resource="#p9">
+Pleiades, however, does have an identifier for the Flavian Amphitheater itself (<a href="https://pleiades.stoa.org/places/285857974">https://pleiades.stoa.org/places/285857974</a>) and it will be useful to include that in the amphitheater data. This is easy to do, as shown by the following expanded JSON snippet that adds a key for '<code>pleiadesspecific</code>' (Fig. 2):</p>
+
+<figure id="figure02">
+<pre><code>
+	 {
+	   "id": "romeFlavianAmphitheater",
+	   "title": "Flavian Amphitheater at Rome",
+	   "chronogroup": "flavian",
+	   "pleiades": "https://pleiades.stoa.org/places/423025" ,
+	   "pleiadesspecific": "https://pleiades.stoa.org/places/285857974"
+	 }
+</code></pre>
+<figcaption>Fig. 2: Slightly expanded JSON snippet.</figcaption>
+</figure>
+
+<p id="p10" rel="dcterms:hasPart" resource="#p10">This snippet still remains readable. But it also allows me to introduce an important aspect of using JSON to represent structured data: when information is not known: there is no need to have a blank field. This can be seen by browsing the roman-amphitheaters.geojson file itself; many entries do not have a '<code>pleiadesspecific</code>' key, either because there is no relevant identifier in Pleiades or because it has not yet been entered. Further looking inside that file will find a number of 'fields' that are not present for every entry. These range from expected fields that are sometimes not available for poorly preserved structures, such as maximum length (see '<code>exteriormajor</code>'), to more specialized aspects of amphitheater studies such as the presence or absence of below-ground tunnels in the arena (look for the key '<code>hypogeum</code>').</p>
+
+<p id="p11" rel="dcterms:hasPart" resource="#p11">Direct inspection of the data on Github will certainly reveal that the snippets appearing above are very simplified. The file itself has more structure. This is in part because, as noted, it conforms to the GeoJSON variant of JSON, which here supports directly recording the approximate centerpoints of amphitheaters. A still simplified snippet that indicates how these points appear in the data appears in Fig. 3:</p>
+
+<figure id="figure03">
+<pre><code>
+	{
+	 "type": "Feature",
+	 "id": "romeFlavianAmphitheater",
+	 "properties": {
+	   "title": "Flavian Amphitheater at Rome",
+	   "chronogroup": "flavian",
+	   "pleiades": "https://pleiades.stoa.org/places/423025" ,
+	   "pleiadesspecific": "https://pleiades.stoa.org/places/285857974"
+	},
+	 "geometry": {
+	    "type": "Point",
+	    "coordinates":[
+	     12.492269,
+	     41.890169,
+	     22
+	    ]
+	  }
+	}
+</code></pre>
+<figcaption>Fig. 3: GeoJSON snippet.</figcaption>
+</figure>
+
+<p id="p12" rel="dcterms:hasPart" resource="#p12">GeoJSON is a formally published Internet Engineering Task Force (IETF) proposal, giving it the effective status as a useable standard.<sup><a class="footnote-reference" id="footnote-reference-12" href="#footnote-12">12</a></sup> Although GeoJSON does impose requirements on how information is represented, it remains quite readable. The above snippet builds on the brief information about the Flavian Amphitheater already introduced, but places all but the ID in a '<code>properties</code>' block. There is also a '<code>geometries</code>' block, which in this case defines a point in three dimensional space at longitude 12.492269, latitude  41.890169, and elevation of 22 meters. Again, this specific representation - one that establishes the identity of the Flavian Amphitheater at Rome, gives very brief descriptive informations, and indicates the central point of the structure - has this precise form because it is valid GeoJSON. This conformance to a standard means that readers can copy-and-paste the text into a tool that renders GeoJSON as a map. At the time of this writing, the sites geojsonlint.org and geojson.io work well. Fig. 4 shows the GeoJSON snippet rendered by GeoJSONLint.com.</p>
+
+<figure id="figure04">
+<img class="img-wide" alt="" src="images/image2.png" title="" />
+<figcaption>Fig 4. GeoJSON representing the location of and brief information about the Flavian Colosseum in Rome displayed by the site <a href="http://geojsonlint.com">http://geojsonlint.com</a> alongside a map.</figcaption>
+</figure>
+
+<figure id="figure05">
+<img class="img-wide" alt="" src="images/image3.png" title="" />
+<figcaption>Fig. 5. GitHub map of <a href="https://github.com/sfsheath/roman-amphitheaters/blob/master/roman-amphitheaters.geojson">https://github.com/sfsheath/roman-amphitheaters/blob/master/roman-amphitheaters.geojson</a>.</figcaption>
+</figure>
+
+<p id="p13" rel="dcterms:hasPart" resource="#p13">The complete file lists more amphitheaters and for each one gives more information than in the snippets above. To visually present the dataset's full scope, Fig. 5 shows that GitHub, the website that hosts the data, defaults to displaying geojson files as a map, in this instance as a set of points. By default, the basemap is modern, but it will be apparent to many readers that amphitheaters are spread around the Roman empire, though with more in the Central Mediterranean and western provinces. And when one is on the live version of that page, clicking on any of the markers will show more information about the amphitheater it represents. Additionally, downloading the file will allow it to be opened directly in desktop GIS software such as QGIS, though exploring that avenue lies beyond the scope of this paper.<sup><a class="footnote-reference" id="footnote-reference-13" href="#footnote-13">13</a></sup></p>
+
+</section>
+
+
+<section id="section3">
+
+<h2>Representing the Data: JSON-LD</h2>
+
+<p id="p14" class="textindent0" rel="dcterms:hasPart" resource="#p14">The previous section showed that the GeoJSON variant of JSON can be used to represent both descriptive information about amphitheaters and their locations. Except for the licensing and the use of URLs from Pleiades, it did not speak directly to the topic of Linked Open Data to the extent LOD is a set of specific practices. This section will. Before doing so, however, some preliminaries again need to be in place.</p>
+
+<p id="p15" rel="dcterms:hasPart" resource="#p15">Writing generally and echoing the other contributions to this collection, Linked Open Data can be considered a set of best practices that encourages the sharing of open-licensed data in formats that computers can read as well as usefully manipulate and render. That GitHub and GeoJSONLint can display the spatial information in the amphitheater data is a specific indication that the "read and usefully manipulate" aspect of LOD is being satisfied in this case. Digging deeper into the set of practices that make up LOD, a preferred representation of information within LOD relies on a concept known as the "triple". A triple, in turn, is a three part statement that has a <i>subject</i>, which is the entity being described, a <i>predicate</i>, which is the type of information, and an <i>object</i>, which is the value being recorded. <i>Subject</i>, <i>predicate</i>, and <i>object</i> are technical terms, though ones that are easily identified in simple natural-language sentences. For example, "The Flavian Colosseum in Rome has a seating capacity of fifty thousand." can be understood as a triple having the <i>subject</i> "The Flavian Colosseum at Rome," the <i>predicate</i> "seating capacity," and the <i>object</i> "fifty thousand".</p>
+
+<p id="p16" rel="dcterms:hasPart" resource="#p16">Many forms of digitized information, particularly those which are at all understandable as databases, can be conceived of as triples. For example, a spreadsheet has rows and columns. It is a commonly seen convention to put column names in the first row at the top of a sheet and an identifier in the first column at the left. These are the equivalent of <i>predicate</i> and <i>subject</i> respectively. In such a spreadsheet, individual cells hold values at the intersection of rows and columns, with the values in those cells being the equivalent of <i>objects</i>. Triples can also be recognized in database display and entry screens or in their web-based equivalents. These interfaces will show an indication - often a unique id - of the entity being described by all the information displayed on a screen or webpage; this is the subject. Field names are predicates; and the values in those fields are objects. Subject-predicate-object is, therefore, a fundamental data structure identifiable in many contexts. This article has as a particular concern the identification of triples in JSON and GeoJSON files and also making them computationally actionable using LOD tools.</p>
+
+<p id="p17" rel="dcterms:hasPart" resource="#p17">Referring back to <a href="#figure03">Fig. 3</a> - the GeoJSON snippet indicating the location of the Flavian Amphitheater - one can find many triples in that brief example. To use the terminology of the code itself, all these implicit triples have the subject '<code>romeFlavianAmphitheater</code>'. Predicates include '<code>title</code>', which has the object "<code>Flavian Amphitheater at Rome</code>." The task at hand, then, is to turn these implicit triples that can be intuitively recognized by humans into explicit ones that can be manipulated by LOD-aware software tools. Just as conforming to the GeoJSON standard allowed for location data to be recorded in a way that was widely actionable, the JSON-LD standard, where "LD" is short for "Linked Data," allows a JSON file to indicate how triples can be found.<sup><a class="footnote-reference" id="footnote-reference-14" href="#footnote-14">14</a></sup></p>
+
+<p id="p18" rel="dcterms:hasPart" resource="#p18">Returning to showing examples, Fig. 6 is another simplified snippet, this time of JSON-LD.</p>
+
+<figure id="figure06">
+<pre><code>
+	{
+	 "@context": {
+	  "id": "@id",
+	  "@vocab": "http://purl.org/roman-amphitheaters/vocab/",
+	  "@base": "http://purl.org/roman-amphitheaters/id/",
+	  "dcterms": "http://purl.org/dc/terms/",
+	  "title": {"@id": "dcterms:title"},
+	  "chronogroup":{"@type":"@id"}
+	 },
+	 "id": "romeFlavianAmphitheater",
+	 "title": "Flavian Amphitheater at Rome",
+	 "chronogroup": "flavian",
+	 "pleiades": "https://pleiades.stoa.org/places/423025",
+	 "pleiadesspecific": "https://pleiades.stoa.org/places/285857974"
+	}
+</code></pre>
+<figcaption>Fig. 6. Brief amphitheater data with a JSON-LD context.</figcaption>
+</figure>
+
+<p id="p19" rel="dcterms:hasPart" resource="#p19">The only change to the snippet in <a href="#figure02">Fig. 2</a> is the addition of an '<code>@context</code>' block. That can be thought of as a set of instructions to LOD-aware processors as to how to recognize triples in a JSON file. In it, the line reading '<code>"id": "@id",</code>' indicates that the '<code>id</code>' key in the JSON sets the subject of the triple. The line reading '<code>"title": {"@id": "dcterms:title"}</code>' indicates that the titles in the JSON can be understood as Dublin Core Titles. For its part, the Dublin Core is a widely deployed vocabulary that many tools can recognize.<sup><a class="footnote-reference" id="footnote-reference-15" href="#footnote-15">15</a></sup> The line beginning '<code>@vocab</code>' means that any JSON keys not specifically assigned to well-known vocabularies should be considered part of a set of terms identified by the URL "<a href="http://purl.org/roman-amphitheaters/vocab/"><code>http://purl.org/roman-amphitheaters/vocab/</code></a>".</p>
+
+<p id="p20" rel="dcterms:hasPart" resource="#p20">Rather than pile on more explanation or add more complexity to the snippet in <a href="#figure06">Fig. 6</a>, I want to show that adding the <code>"@context"</code> block worked. That is, it had a computationally actionable effect. Just as with the example of showing that GitHub can render the amphitheater GeoJSON as a map, <a href="#figure07">Fig. 7</a> indicates that there are tools that can recognize and display the triples in the above JSON. Specifically, the site <a href="https://json-ld.org/">https://json-ld.org/</a> includes a "JSON-LD Playground." Readers can paste in JSON-LD here and confirm that the playground is able to recognize the embedded triples. The Playground's "Table" view of the data is selected in <a href="#figure07">Fig. 7</a> because it uses the Subject, Predicate, Object terminology introduced above (the headings of the columns in the lower part of the page). It can be seen that equating the '<code>id</code>' JSON key with the <code>"@id"</code> as specificed by JSON-LD produced the intended result: all the triples have as their subject "<a href="http://purl.org/roman-amphitheaters/id/romeFlavianAmphitheater"><code>http://purl.org/roman-amphitheaters/id/romeFlavianAmphitheater</code></a>."</p>
+
+<figure id="figure07">
+<img class="img-wide" alt="" src="images/image4.png" title="" />
+<figcaption>Fig. 7: Using the JSON-LD Playground to display triples in simplified form.</figcaption>
+</figure>
+
+</section>
+
+
+<section id="section4">
+
+<h2>Querying the Data: SPARQL and Python</h2>
+
+<p id="p21" class="textindent0" rel="dcterms:hasPart" resource="#p21">Confirming that triples are automatically identifiable in a small snippet of JSON is useful as a demonstration. As with the discussion of GeoJSON, it is again the case that the file roman-amphitheaters.geojson is a more complete example of adding an '<code>@context</code>' block to a JSON file so that a wide range of triples are recognizable. There is, however, no display of all the triples that is as visually compelling as displaying all the locations as a map in GitHub. Instead, I will bring in another fundamental tool of Linked Open Data: the SPARQL query language.<sup><a class="footnote-reference" id="footnote-reference-16" href="#footnote-16">16</a></sup> Doing so will be a turning point in this paper. Up to this point, I've kept to examples that I hope most readers can easily repeat: following the link to the GitHub page for the file roman-amphitheaters.geojson will automatically display it as a map; cutting-and-pasting into geojsonlint.com or the playground at jsonld.org has immediately observable effect. There is not an equivalent website for querying JSON-LD files using SPARQL. I will instead use the programming language Python to show that open-source tools can read and query JSON-LD.<sup><a class="footnote-reference" id="footnote-reference-17" href="#footnote-17">17</a></sup> My goal is that a reader with intermediate Python skills, including the ability to run interactive Jupyter/iPython notebooks, can repeat the steps I show.<sup><a class="footnote-reference" id="footnote-reference-18" href="#footnote-18">18</a></sup> I have also linked to a cloud-based tool, Binder, which should mean that many readers, even those with no Python experience, can run the code.<sup><a class="footnote-reference" id="footnote-reference-19" href="#footnote-19">19</a></sup></p>
+
+<p id="p22" rel="dcterms:hasPart" resource="#p22">SPARQL is a query language that searches for patterns of triples. Cutting right to the chase, Fig. 8 is a brief example.</p>
+
+<figure id="figure08">
+<pre><code>
+	PREFIX ramphs: &lt;http://purl.org/roman-amphitheaters/id/&gt;
+	SELECT ?p ?o WHERE {
+	  ramphs:romeFlavianAmphitheater ?p ?o
+	 }
+</code></pre>
+<figcaption>Fig. 8: SPARQL example. The PREFIX line allows the full URL to be shortened using the abbreviation "<code>ramphs:</code>".</figcaption>
+</figure>
+
+<p id="p23" rel="dcterms:hasPart" resource="#p23">In this query, the pattern can be worded as "all triples that begin with <code>ramphs:romeFlavianAmphitheater</code>", with "<code>ramphs:</code>" being a shorthand for the full URL. '<code>?p</code>' is a placeholder for the predicates that will match; '<code>?o</code>' is placeholder for the objects. When applied to the snippet in <a href="#figure06">Fig. 6</a>, it will produce results that are analogous to those seen in the JSON-LD playground.</p>
+
+<p id="p24" rel="dcterms:hasPart" resource="#p24">The parts of a triple that will be "filled in" during the query can be switched. In Fig. 9, the pattern being looked for can be phrased using plain language as "All amphitheaters assigned to the chronological group '<code>Flavian</code>'." This is because the predicate and object have fixed values and the subject of triples that match the pattern they imply will be returned.</p>
+
+<figure id="figure09">
+<pre><code>
+	PREFIX ramphs: &lt;http://purl.org/roman-amphitheaters/id/&gt;
+	PREFIX ramphsv: &lt;http://purl.org/roman-amphitheaters/vocab/&gt;
+	SELECT ?s WHERE {  
+	  ?s ramphsv:chronogroup ramphs:flavian
+	 }
+</code></pre>
+<figcaption>Fig. 9: Simplified SPARQL example that finds all amphitheaters specifically assigned to the Flavian period.</figcaption>
+</figure>
+
+<p id="p25" rel="dcterms:hasPart" resource="#p25">In theory, applying the query in Fig. 9 to the Roman amphitheaters data will list all amphitheaters specifically assigned to the Flavian period, with the so-called Colosseum being among those. But this is a practice-oriented paper within a practice-oriented collection so putting readers in position to make this query actually work is a goal. This will require a slightly different query and a working tool to run it. Writing as I do in mid-2018<!--update?-->, using the Python programming language code and sharing it as an interactive notebook is a good way forward.</p>
+
+<figure id="figure10">
+<pre><code>
+	PREFIX ramphs: &lt;http://purl.org/roman-amphitheaters/resource/&gt;
+	PREFIX gj: &lt;https://purl.org/geojson/vocab#&gt;
+	PREFIX ramphs-p: &lt;http://purl.org/roman-amphitheaters/properties#&gt;
+	PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+	SELECT ?title WHERE {
+
+	?s gj:properties/ramphs-p:chronogroup ramphs:flavian .
+	?s gj:properties/dcterms:title ?title
+	}
+</code></pre>
+<figcaption>Fig. 10. SPARQL query to find '<code>flavian</code>' amphitheaters in the roman-amphitheaters.geojson file.</figcaption>
+</figure>
+
+<p id="p26" rel="dcterms:hasPart" resource="#p26">The exact query that will allow '<code>flavian</code>' amphitheaters to be discovered within the roman-amphitheaters.geojson file requires one major change from the query shown in <a href="#figure09">Fig. 9</a>. Because GeoJSON places descriptive data about the entities it describes into a '<code>properties</code>' block, that structure needs to be taken into account in the query. Fig. 10 is a SPARQL query that does just that. I have included it directly in the text here so that readers can more easily test it in an environment that they create or adapt. Fig. 11 shows this query within the context of an IPython notebook.</p>
+
+<figure id="figure11">
+<img class="img-wide" alt="" src="images/image6.png" title="" />
+<figcaption>Fig 11. IPython notebook implementing SPARQL query to find '<code>flavian</code>' amphitheaters.</figcaption>
+</figure>
+
+<p id="p27" rel="dcterms:hasPart" resource="#p27">At the time of this writing, a cloud-based version of the notebook using the free website Binder is online at <a href="https://mybinder.org/v2/gh/sfsheath/heath-lod-cookbook/master?filepath=jsonld-sparql.ipynb">https://mybinder.org/v2/gh/sfsheath/heath-lod-cookbook/master?filepath=jsonld-sparql.ipynb</a>. For readers not familiar with Binder, it allows IPython notebooks to be run in a cloud-based environment that requires no installation of software by end-users. Clicking-through on the link should be sufficient to run the notebook in a modern browser. While a full introduction to IPython notebooks is beyond the scope of this article, readers with no familiarity can find many tutorials online. And at a minimum, choosing "Run All" from the "Cell" menu near the top of the page will cause a list of "Flavian" amphitheaters to appear below the third "cell" of code.</p>
+
+<p id="p28" rel="dcterms:hasPart" resource="#p28">Readers who have more comfort with IPython notebooks - and by implication with at least simple Python programming - can make edits when running this notebook in Binder or locally after download. Simple changes that will have an immediate effect are to replace '<code>ramphs:flavian</code>' with '<code>ramphs:republican</code>' or with '<code>ramphs:hadrianic</code>.' Either edit will cause the relevant amphitheaters to be listed when the third cell is run.</p>
+
+<p id="p29" rel="dcterms:hasPart" resource="#p29">Being able to query the roman-amphitheaters.geojson file directly using SPARQL within the context of an IPython notebook provides great flexibility, far more than can be fully discussed here. I offer two further examples, one which creates a simple map using the Folium Python modue, and one which creates a simple interactive data visualization using the Pandas Python module and embedded user settable widgets.<sup><a class="footnote-reference" id="footnote-reference-20" href="#footnote-20">20</a></sup> For each I will show the SPARQL query that pulls information from the amphitheaters data as well as a screenshot that shows the query in the context of an IPython notebook. And again I link to a version of the notebook running in Binder, though it is likely the case that at some point in the medium term that exact setup will stop working.</p>
+
+<figure id="figure12">
+<img class="img-wide" alt="" src="images/image5.png" title="" />
+<figcaption>Fig. 12: IPython notebook rendering the results of SPARQL query as a map using the '<code>folium</code>' Python module.</figcaption>
+</figure>
+
+<figure id="figure13">
+<pre><code>
+	PREFIX gj: &lt;https://purl.org/geojson/vocab#&gt;
+	PREFIX ramphs: &lt;http://purl.org/roman-amphitheaters/resource/&gt;
+	PREFIX ramphs-p: &lt;http://purl.org/roman-amphitheaters/properties#&gt;
+	PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+	SELECT * WHERE {
+
+	?s gj:properties/ramphs-p:chronogroup ramphs:flavian .
+	?s gj:properties/dcterms:title ?title .
+
+	?s gj:geometry/gj:coordinates/rdf:first ?long ;
+	   gj:geometry/gj:coordinates/rdf:rest/rdf:first ?lat .
+	}
+</code></pre>
+<figcaption>Fig. 13: SPARQL to find latitude and longitude of Flavian amphitheaters.</figcaption>
+</figure>
+
+<p id="p30" rel="dcterms:hasPart" resource="#p30">Figs. 12 and 13 show the IPython notebook renders maps from SPARQL queries results and the core SPARQL itself that can be copied into other environments. To run the notebook interactively, either download it or run it Binder via the link <a href="https://mybinder.org/v2/gh/sfsheath/heath-lod-cookbook/master?filepath=jsonld-folium.ipynb">https://mybinder.org/v2/gh/sfsheath/heath-lod-cookbook/master?filepath=jsonld-folium.ipynb</a>. The SPARQL query has straightforward aspects. The lines that read in part '<code>gj:geometry/gj:coordinates</code>' accommodate the fact that GeoJSON uses a '<code>geometries</code>' construct that is similar to the '<code>properties</code>' construct discussed above. The last elements of those lines deal with the fact that JSONLD produces a complex structure for JSON arrays. While the details go beyond the scope of this paper, the point that SPARQL can query this data remains true and relevant.<sup><a class="footnote-reference" id="footnote-reference-21" href="#footnote-21">21</a></sup> Again, simple changes can be made to this query, with mapping '<code>republican</code>' amphitheaters a possibility.</p>
+
+<figure id="figure14">
+<img class="img-wide" alt="" src="images/image1.png" title="" />
+<figcaption>Fig. 14: Interactive "widget" embedded within an IPython notebook.</figcaption>
+</figure>
+
+<figure id="figure15">
+<pre><code>
+	PREFIX ramphs: &lt;http://purl.org/roman-amphitheaters/resource/&gt;
+	PREFIX gj: &lt;https://purl.org/geojson/vocab#&gt;
+	PREFIX ramphs-p: &lt;http://purl.org/roman-amphitheaters/properties#&gt;
+	PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+	SELECT ?title ?capacity ?pleiades WHERE {
+
+	?s gj:properties/dcterms:title ?title ;
+	   gj:properties/ramphs-p:capacity/ramphs-p:quantity ?capacity ;
+	   gj:properties/ramphs-p:pleiades ?pleiades
+	   .
+	FILTER ((?capacity &gt; 3000))
+	FILTER (?capacity &lt; 55000)
+</code></pre>
+<figcaption>Fig. 15: SPARQL with addition of '<code>FILTER</code>' statements to set upper and lower of capacity.</figcaption>
+</figure>
+
+<p id="p31" rel="dcterms:hasPart" resource="#p31">Figs. 14 and 15 are a similar pairing for a small interactive interface for listing amphitheaters by seating capacity and also showing a histogram of the selection.<sup><a class="footnote-reference" id="footnote-reference-22" href="#footnote-22">22</a></sup> The cloud-based interactive version is at <a href="https://mybinder.org/v2/gh/sfsheath/heath-lod-cookbook/master?filepath=jsonld-widgets.ipynb">https://mybinder.org/v2/gh/sfsheath/heath-lod-cookbook/master?filepath=jsonld-widgets.ipynb</a>.</p>
+
+<p id="p32" rel="dcterms:hasPart" resource="#p32">Because the code is longer than that in the other notebooks, the screenshot (<a href="#figure14">Fig. 14</a>) shows only the interactive widgets and the resulting output that is displayed when those are changed. The SPARQL query (<a href="#figure15">Fig. 15</a>) uses two <code>FILTER</code> statements to narrow the results. In the IPython notebook the values - here hard coded as 3000 and 55000 - are replaced by one that the user sets with the "Upper limit" and "Lower limit" sliders. While none of the programming here rises to the level of being 'advanced,' it may still be the case that it is most useful for Python programmers familiar with concepts such as defining functions and setting them to handle events generated by users interacting with the interface. I have tried to keep the code relatively simple so that the implementation is straightforward, readable, and ready for adaptation in other contexts.</p>
+
+<p id="p33" rel="dcterms:hasPart" resource="#p33">Looking at the output of this notebook, the initial settings mean that all amphitheaters are included in the histogram, which in turn indicates that the Flavian Amphitheater is very much an outlier in terms of capacity, so much so that it is represented by the single isolated bar at the right. It is clear from this visualization that the bulk of Roman amphitheaters had fewer than 20,000 seats. In an effort to add context to the graphic display, the table above the histogram allows the capacity values to be directly seen. Clicking on the Pleiades URI will open the appropriate page on that site, with the distinct advantage for this application being that a map is displayed. That is a light-weight, easily obtained benefit of using stable identifiers published on the internet in accordance with Linked Open Data principles. The combination of interactivity and linking can support preliminary exploration of this aspect of amphitheaters as they appear in the Roman Empire. Again, the predominant take-away can be that medium size structures are usual and that the example in the imperial capital is an actually an extreme outlier. This is not a new conclusion so the advantage here is allowing users to directly explore the data for themselves. And it is of course the case that new interfaces can be created to allow exploration of other aspects of the data and to implement links to additional public resources. In that regard, this paper has suggested a patterns of implementation and usage as much as it has explored a specific example.</p>
+
+</section>
+
+
+<section id="section5">
+
+<h2>Conclusions</h2>
+
+<p id="p34" class="textindent0" rel="dcterms:hasPart" resource="#p34">Although showing practical use of well-documented formats and open-source tools has been the main goal of the above discussion, there is a larger point. Even within the constraints implied by compliance, using existing standards and tools allows focus on the specific needs of any one research endeavor. I stress that in the example code above steps such as loading the data or including the ability to search triples required very few lines of code. The most expressive sections are the SPARQL queries. That is where I am directly engaging with my own data. To put it another way, the ability to express queries into my data using a single well-documented and fully-supported standard is the payoff for choosing JSON-LD and GeoJSON as my underlying formats. And because I can implement SPARQL queries within IPython notebooks, that environment's ability to support quick creation of interfaces and visual outputs is a follow-on and substantial benefit to using standards and tools created by others. I can represent the data, I can present it, and I can share my work on the public Internet.</p>
+
+<p id="p35" rel="dcterms:hasPart" resource="#p35">I will repeat the list of standards and tools I've used to set up the last point: readers can pick and choose what of the above is useful for them. GeoJSON + JSON is powerful combination for representing data. SPARQL is a powerful tool for querying that data but also for querying any triple-based dataset. IPython widgets and Pandas visualization can work with any data that comes from similar workflows, and with many more. At no point are there proprietary dependencies, which is a pattern of practice and usage that is worthwhile adopting in Linked Open Data and beyond.</p>
+
+</section>
+
+
+<section id="references">
+
+<h2>References</h2>
+
+<p id="reference-1" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Bond et al. 2018: S. Bond, H. Long, and T. Underwood. 2018. “‘Digital’ Is Not the Opposite of ‘Humanities’,” <i>The Chronicle of Higher Education</i> (Nov. 1, 2018). <a href="https://www.chronicle.com/article/Digital-Is-Not-the/241634">https://www.chronicle.com/article/Digital-Is-Not-the/241634</a>.</span></p>
+
+<p id="reference-2" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Dodge 2009: H. Dodge. 2009. “Amphitheatres in the Roman East.” In T. Wilmott (ed.), <i>Roman Amphitheatres and Spectacula: a 21st-Century Perspective</i>, 29-45. Oxford: Archaeopress.</span></p>  
+    
+<p id="reference-3" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Dodge 2014: H. Dodge. 2014. “Building for an Audience: The Architecture of Roman Spectacle.” In R. Ulrich and C. Quenemoen (eds.), <i>A Companion to Roman Architecture</i>, 281-298. Chichester: Wiley Blackwell.</span></p> 
+     
+<p id="reference-4" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Evens 2012: A. Evens. 2012. “Web 2.0 and the Ontology of the Digital,” <i>Digital Humanities Quarterly</i> 6.2. <a href="http://www.digitalhumanities.org/dhqdev/vol/6/2/000120/000120.html">http://www.digitalhumanities.org/dhqdev/vol/6/2/000120/000120.html</a>.</span></p> 
+     
+<p id="reference-5" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Fagan 2011: G. Fagan. 2011. <i>The Lure of the Arena</i>. Cambridge: Cambridge University Press.</span></p>  
+    
+<p id="reference-6" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Fagan 2016: G. Fagan. 2016. “Manipulating Space at the Roman Arena.” In W. Riess and G. Fagan (eds.), <i>The Topography of Violence in the Greco-Roman World</i>, 349-379. Ann Arbor: University of Michigan Press.</span></p>  
+    
+<p id="reference-7" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Laurence et al. 2011: R. Laurence, S. Cleary, and G. Sears. 2011. <i>The City in the Roman West: c. 250 BC - c. AD 250</i>. Cambridge: Cambridge University Press.</span></p> 
+     
+<p id="reference-8" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Marwick 2016: Marwick, B. 2016. “Computational Reproducibility in Archaeological Research: Basic Principles and a Case Study of Their Implementation,” <i>Journal of Archaeological Method and Theory</i> 24(1), 424–50.</span></p>  
+    
+<p id="reference-9" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Tuck 2007: S. Tuck. 2007. “Spectacle and Ideology in the Relief Decorations of the Anfiteatro Campano at Capua,” <i>Journal of Roman Archaeology</i> 20, 255-272.</span></p> 
+
+<p id="reference-10" class="work-cited" rel="dcterms:references" typeof="dcterms:BibliographicResource"><span property="dcterms:bibliographicCitation">Welch 2007: K. Welch. 2007. <i>The Roman Amphitheatre: From its Origin to the Colosseum</i>. Cambridge: Cambridge University Press.</span></p>    
+
+</section>
+
+
+<section id="footnotes">
+
+<h2>Notes</h2>
+
+<p class="footnote" id="footnote-1"><sup><a href="#footnote-reference-1">1</a></sup> Dodge 2009, Laurence et al. 2011.</p>
+
+<p class="footnote" id="footnote-2"><sup><a href="#footnote-reference-2">2</a></sup> Marwick 2016.</p>
+
+<p class="footnote" id="footnote-3"><sup><a href="#footnote-reference-3">3</a></sup> Bond et al 2018.</p>
+
+<p class="footnote" id="footnote-4"><sup><a href="#footnote-reference-4">4</a></sup> Dodge 2014: 281.</p>
+
+<p class="footnote" id="footnote-5"><sup><a href="#footnote-reference-5">5</a></sup> Fagan 2011, Fagan 2014, Tuck 2007.</p>
+
+<p class="footnote" id="footnote-6"><sup><a href="#footnote-reference-6">6</a></sup> Welch 2007.</p>
+
+<p class="footnote" id="footnote-7"><sup><a href="#footnote-reference-7">7</a></sup> Evens 2012.</p>
+
+<p class="footnote" id="footnote-8"><sup><a href="#footnote-reference-8">8</a></sup> See <a href="http://github.com/sfsheath/roman-amphitheaters">http://github.com/sfsheath/roman-amphitheaters</a>, specifically LICENSE.txt.</p>
+
+<p class="footnote" id="footnote-9"><sup><a href="#footnote-reference-9">9</a></sup> The URL version of the DOI is <a href="http://doi.org/10.5281/zenodo.596149">http://doi.org/10.5281/zenodo.596149</a>.</p>
+
+<p class="footnote" id="footnote-10"><sup><a href="#footnote-reference-10">10</a></sup> <a href="https://www.json.org/">https://www.json.org/</a>.</p>
+
+<p class="footnote" id="footnote-11"><sup><a href="#footnote-reference-11">11</a></sup> <a href="https://pleiades.stoa.org">https://pleiades.stoa.org</a>.</p>
+
+<p class="footnote" id="footnote-12"><sup><a href="#footnote-reference-12">12</a></sup> <a href="https://www.rfc-editor.org/info/rfc7946">https://www.rfc-editor.org/info/rfc7946</a>.</p>
+
+<p class="footnote" id="footnote-13"><sup><a href="#footnote-reference-13">13</a></sup> <a href="http://qgis.org/">http://qgis.org/</a>.</p>
+
+<p class="footnote" id="footnote-14"><sup><a href="#footnote-reference-14">14</a></sup> <a href="https://www.w3.org/TR/json-ld/">https://www.w3.org/TR/json-ld/</a> and <a href="https://json-ld.org/">https://json-ld.org/</a>.</p>
+
+<p class="footnote" id="footnote-15"><sup><a href="#footnote-reference-15">15</a></sup> <a href="http://dublincore.org/">http://dublincore.org/</a>.</p>
+
+<p class="footnote" id="footnote-16"><sup><a href="#footnote-reference-16">16</a></sup> <a href="https://www.w3.org/TR/sparql11-overview/">https://www.w3.org/TR/sparql11-overview/</a>.</p>
+
+<p class="footnote" id="footnote-17"><sup><a href="#footnote-reference-17">17</a></sup> RDFLib, <a href="https://github.com/RDFLib">https://github.com/RDFLib</a>, implements the SPARQL searches.</p>
+
+<p class="footnote" id="footnote-18"><sup><a href="#footnote-reference-18">18</a></sup> <a href="http://jupyter.org">http://jupyter.org</a> and <a href="https://ipython.org">https://ipython.org</a>, with the former likely being the better starting point.</p>
+
+<p class="footnote" id="footnote-19"><sup><a href="#footnote-reference-19">19</a></sup> <a href="https://mybinder.org">https://mybinder.org</a> and <a href="https://mybinder.readthedocs.io/">https://mybinder.readthedocs.io/</a>. Over the course of writing and editing this piece, Google launched and is now promoting "Google Colab," which is another cloud-based approach to running Python code. See <a href="https://colab.research.google.com/">https://colab.research.google.com/</a>. Preliminary tests indicate the notebooks will run with minimal change. It is necessary to include "<code>!pip install rdflib</code>" before importing that module.</p><!--does this need updating?-->
+
+<p class="footnote" id="footnote-20"><sup><a href="#footnote-reference-20">20</a></sup> <a href="https://github.com/python-visualization/folium">https://github.com/python-visualization/folium</a> and <a href="https://pandas.pydata.org/">https://pandas.pydata.org/</a>.</p>
+
+<p class="footnote" id="footnote-21"><sup><a href="#footnote-reference-21">21</a></sup> I can offer some more explanation: Geojson specifies that coordinates are represented as a JSON array. RDF can represent an array-like structure by linking one resource to the next resource in a linke list via the <code>rdf:rest</code> predicate. The first resource is pointed to using the '<code>rdf:first</code>' predicate.  In the useage, '<code>rdf:rest</code>' has a plain-language meaning akin to, "This is the resource that begins the rest of the list." It is effectively a '<code>next</code>' predicate by a different name. There is widespread dissatisfaction with the complexity this imposes on the representation of a basic data structure. The SPARQL in <a href="#figure13">Fig. 13</a> moves from the <code>gj:coordinates</code> predicate to the first element of the list of the coordinates, it then repeats that path with further querying of the resource that is next in the sequence.</p>
+
+<p class="footnote" id="footnote-22"><sup><a href="#footnote-reference-22">22</a></sup> <a href="https://github.com/jupyter-widgets/ipywidgets">https://github.com/jupyter-widgets/ipywidgets</a> and <a href="https://ipywidgets.readthedocs.io/en/stable/">https://ipywidgets.readthedocs.io/en/stable/</a>.</p>
+
+</section>
+
+
+<footer>
+
+<p class="editorial-note"><a rel="dcterms:isPartOf" href="http://isaw.nyu.edu/publications/isaw-papers"><i>ISAW Papers</i></a> (ISSN 2164-1471) is a publication of the <a rel="dcterms:publisher" property="dcterms:publisher" href="http://isaw.nyu.edu">Institute for the Study of the Ancient World</a>, <a href="http://nyu.edu/">New York University</a>. This article was anonymously reviewed prior to publication.</p>
+
+<p class="copyright" style="margin-top:1em;text-align:center;color:gray">©2020 <span rel="cc:attributionName">Sebastian Heath</span>. Distributed under the terms of the <a rel="cc:license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Additional rights holders and licenses for figures noted in captions as necessary.</p>
+
+</footer>
+
+</article>
+
+</body>
+</html>
+
