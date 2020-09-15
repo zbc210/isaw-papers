@@ -53,6 +53,9 @@
 
 <h2><span rel="dcterms:creator"><a rel="dcterms:identifier" href="https://orcid.org/0000-0001-5714-4011" property="foaf:name">Pietro Maria Liuzzo</a></span>, Hiob Ludolf Center for Ethiopian Studies, Universität Hamburg</h2>
 
+<p class="textindent0 margintop15em" style="margin-left:2em;margin-right:2em">In: Sarah E. Bond, Paul Dilley, and Ryan Horne, eds. 2020. <a href="TK"><i>Linked Open Data for the Ancient Mediterranean: Structures, Practices, Prospects</i></a>. ISAW Papers 20.</p>
+
+
 <p class="doi">URI: <a rel="dcterms:identifier" href="TK">TK</a></p>
  
 
@@ -220,7 +223,7 @@
 <p id="p25" rel="dcterms:hasPart" resource="#p25">The latter are relational statements in nature and are much better represented in an RDF graph (as in the book, see Fig. 1). However, to be able to iterate the process in one workflow also these hypotheses need to be encoded in the TEI as the description. The researcher will thus only produce TEI, for both purposes and this will be transformed into RDF. The RDF becomes invisible in the workflow.</p>
 
 <figure id="figure01">
-<img alt="" src="images/fig1.png" title="" />
+<img class="img-wide" alt="" src="images/fig1.png" title="" />
 <figcaption>Fig 1. The graph-like representations of the transformation models in <i>La Syntaxe</i></figcaption>
 </figure>
 
@@ -248,12 +251,12 @@
 <p id="p28" rel="dcterms:hasPart" resource="#p28">The enriched table (Fig. 2.1) representation needs also to follow some logic and apply some rules which will be part of a script. For <i>Beta maṣāḥǝft,</i> at the moment we use a simple JS script which takes the results of a SPARQL query (Harris and Seaborne 2013) and transforms them into a table as we will describe below as an example. On-demand the table is then enriched with more data which is taken this time directly from the TEI (Fig. 2.2).</p>
 
 <figure id="figure02.1">
-<img alt="" src="images/fig2.1.png" title="" />
+<img class="img-wide" alt="" src="images/fig2.1.png" title="" />
 <figcaption>Fig. 2.1. Table of Units example</figcaption>
 </figure>
 
 <figure id="figure02.2">
-<img alt="" src="images/fig2.2.png" title="" />
+<img class="img-wide" alt="" src="images/fig2.2.png" title="" />
 <figcaption>Fig. 2.2. Example of enriched table of units</figcaption>
 </figure>
 
@@ -389,11 +392,11 @@
 </figure>
 
 <figure id="figure03.1">
-<img alt="" src="images/fig3.1.png" title="" />
+<img class="img-wide" alt="" src="images/fig3.1.png" title="" />
 <figcaption>Fig 3.1. Ontology property in Protégé</figcaption>
 </figure>
 
-<p>And</p>
+<p>and</p>
 
 <figure id="code5">
 <pre><code><b>
@@ -410,11 +413,11 @@
 </figure>
 
 <figure id="figure03.2">
-<img alt="" src="images/fig3.2.png" title="" />
+<img class="img-wide" alt="" src="images/fig3.2.png" title="" />
 <figcaption>Fig 3.2. Ontology property in Protégé</figcaption>
 </figure>
 
-<p id="p51" rel="dcterms:hasPart" resource="#p51">It is much easier to handle this code with an interface and look at it with a software application like <i>Protégé</i> as shown by figs. 3.1 &amp; 2, though I show the raw RDF so that readers can confirm that the very same structure for triples is used. </p>
+<p id="p51" rel="dcterms:hasPart" resource="#p51">It is much easier to handle this code with an interface and look at it with a software application like <i>Protégé</i> as shown by Figs. 3.1 &amp; 2, though I show the raw RDF so that readers can confirm that the very same structure for triples is used. </p>
 
 <p id="p52" rel="dcterms:hasPart" resource="#p52">This ontology alone does not serve any purpose without reading and understanding the book, its only purpose is to allow the annotation of statements made following <i>La Syntaxe</i>.</p>
 
@@ -543,11 +546,11 @@
   </tbody>
 </table>
 
-<p id="p61" rel="dcterms:hasPart" resource="#p61">To produce the table (see Fig 2.1. and 2.2) as described in <i>La Syntaxe</i> (Andrist, Canart, and Maniaci 2013, 113) the javascript will get the results of this query<sup><a class="footnote-reference" id="footnote-reference-45" href="#footnote-45">45</a></sup> then, for each page, getting the total from the &lt;extent&gt; element of the TEI (1r, 1v, 2r, 2v, etc.) builds a table row with a column for each of the Units (we use also additions and decorations units) and if in the query results there are some with a unit which has a range matching that page, then the unit name is added to that column. Once the looping through all the rows is done, equal rows are collapsed updating the folios range to the correct one. </p>
+<p id="p61" rel="dcterms:hasPart" resource="#p61">To produce the table (see Figs. <a href="#figure02.1">2.1.</a> and <a href="#figure02.2">2.2.</a>) as described in <i>La Syntaxe</i> (Andrist, Canart, and Maniaci 2013, 113) the javascript will get the results of this query<sup><a class="footnote-reference" id="footnote-reference-45" href="#footnote-45">45</a></sup> then, for each page, getting the total from the &lt;extent&gt; element of the TEI (1r, 1v, 2r, 2v, etc.) builds a table row with a column for each of the Units (we use also additions and decorations units) and if in the query results there are some with a unit which has a range matching that page, then the unit name is added to that column. Once the looping through all the rows is done, equal rows are collapsed updating the folios range to the correct one. </p>
 
 <p id="p62" rel="dcterms:hasPart" resource="#p62">Given that the RDF data has triples for each UniCirc which have been defined, a similar or even simpler query could be run to construct a graph only for a specific UniCirc.</p>
 
-<p id="p63" rel="dcterms:hasPart" resource="#p63">For example, if I want to have a graph which has all triples directly involving the main entity for manuscript BNFet45 (see 4.4) I would do something like this</p>
+<p id="p63" rel="dcterms:hasPart" resource="#p63">For example, if I want to have a graph which has all triples directly involving the main entity for manuscript BNFet45 (see <a href="#section4.4">section 4.4</a>) I would do something like this</p>
 
 <figure id="code7">
 <pre><code><b>
@@ -576,11 +579,11 @@
 </figure>
 
 <figure id="figure04">
-<img alt="" src="images/fig4.png" title="" />
+<img class="img-wide" alt="" src="images/fig4.png" title="" />
 <figcaption>Fig 4. The same query with a UniCirc as a subject instead of a manuscript</figcaption>
 </figure>
 
-<p id="p65" rel="dcterms:hasPart" resource="#p65">I can get a description of each UniCirc starting from the observed data (see Fig. 3). With the second query in the example above, for a situation like the one in Example 4 (4.4), where some quires have been taken from BNFet45 to increase BNFet165, I will also have the &lt;msPart&gt; entity which is now part of BNFet165 because it was actually in BNFet45/UniCirc/UniCirc1, whereas a query for the UniCirc2 in that example would return only one UniProd. We can access in the same way both stages of the history of the manuscript. To encode the different, documented, certain or hypothetical circulation units in the history of a manuscript, I need not prepare a description of the reconstructed manuscript and place it together with other real-world entities. I could also search for UniProd within a certain date range, which would not return manuscripts, but only the relevant production units.</p>
+<p id="p65" rel="dcterms:hasPart" resource="#p65">I can get a description of each UniCirc starting from the observed data (see Fig. 3). With the second query in the example above, for a situation like the one in <a href="#section4.4">Example 4 (section 4.4)</a>, where some quires have been taken from BNFet45 to increase BNFet165, I will also have the &lt;msPart&gt; entity which is now part of BNFet165 because it was actually in BNFet45/UniCirc/UniCirc1, whereas a query for the UniCirc2 in that example would return only one UniProd. We can access in the same way both stages of the history of the manuscript. To encode the different, documented, certain or hypothetical circulation units in the history of a manuscript, I need not prepare a description of the reconstructed manuscript and place it together with other real-world entities. I could also search for UniProd within a certain date range, which would not return manuscripts, but only the relevant production units.</p>
 
 <p id="p66" rel="dcterms:hasPart" resource="#p66">Now that the encoding has been described and some aspects of the ontology have been presented we can start to see how the methodology is supported in some of its stages by the TEI and by the triples extracted from it.</p>
 
@@ -663,14 +666,14 @@
 <p id="p76" rel="dcterms:hasPart" resource="#p76">The XML notation above produces the following triples in Fig. 5.1 (which are stored as RDF XML in our project).</p>
 
 <figure id="figure05.1">
-<img alt="" src="images/fig5.1.png" title="" />
+<img class="img-wide" alt="" src="images/fig5.1.png" title="" />
 <figcaption>Fig 5.1. Oxford, Bodleian Library, Bodleian Aeth. e. 8 triples as viewed in the RDF validator (<a href="https://www.w3.org/RDF/Validator">https://www.w3.org/RDF/Validator</a>)</figcaption>
 </figure>
 
 <p id="p77" rel="dcterms:hasPart" resource="#p77">Each part is by default assigned also to the UniProd class, but without any entity to define this unit. A visualization of these nodes is given below (Fig. 5.2).<sup><a class="footnote-reference" id="footnote-reference-49" href="#footnote-49">49</a></sup> Although the Certainty nodes are not in the example above for brevity, there is always the possibility to add these statements.</p>
 
 <figure id="figure05.2">
-<img alt="" src="images/fig5.2.png" title="" />
+<img class="img-wide" alt="" src="images/fig5.2.png" title="" />
 <figcaption>Fig 5.2. Graph visualization of Oxford, Bodleian Library, Bodleian Aeth. e. 8</figcaption>
 </figure>
 
@@ -716,7 +719,7 @@
 <p id="p80" rel="dcterms:hasPart" resource="#p80">These diagrams show UniProd and UniCirc belonging to the subject manuscript, which is explicitly related via one of four properties. Those linked by a transformation (in two steps) either as products or results are given weight 1. UniProd and UniCirc identity declarations (sdc:constituteUnit) are given weight 2. Exact matches are given weight 3. The latter could be omitted, but I am preserving them here for completeness. This might result in some superfluous nodes which have been kept here to allow reading the chart knowing the encoded nodes. There is no chronological implication, the chart represents the units in a flow. For a stratigraphic analysis, they should be read right to left, for a history of the manuscript left to right.</p>
 
 <figure id="figure05.3">
-<img alt="" src="images/fig5.3.png" title="" />
+<img class="img-wide" alt="" src="images/fig5.3.png" title="" />
 <figcaption>Fig 5.3. Syntaxe transformation drawing and Sankey chart of Oxford, Bodleian Library, Bodleian Aeth. e. 8</figcaption>
 </figure>
 
@@ -752,14 +755,14 @@
 <p id="p82" rel="dcterms:hasPart" resource="#p82">The RDF will look after transformation like the tabular view in Fig. 6.1.</p>
 
 <figure id="figure06.1">
-<img alt="" src="images/fig6.1.png" title="" />
+<img class="img-wide" alt="" src="images/fig6.1.png" title="" />
 <figcaption>Fig 6.1. Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37 triples as viewed in the RDF validator (<a href="https://www.w3.org/RDF/Validator">https://www.w3.org/RDF/Validator)</a>.</figcaption>
 </figure>
 
 <p id="p83" rel="dcterms:hasPart" resource="#p83">A class sdc:Hypothetique could have been associated with any statement, but here we will try to stick to the methodology described in the book and assign it to the UniProd. In this way, we are not putting in doubt the existence of the &lt;msPart&gt; as described in the TEI but only the fact it is a UniProd which was added to the other &lt;msPart&gt; with a transformation corresponding to model A1. As it is visible in the following graph visualization, it is not necessary to visualize the information if not required by the project needs (Fig. 6.2).</p>
 
 <figure id="figure06.2">
-<img alt="" src="images/fig6.2.png" title="" />
+<img class="img-wide" alt="" src="images/fig6.2.png" title="" />
 <figcaption>Fig 6.2. Graph visualization of Vatican City, Biblioteca Apostolica Vaticana, Cerulli 37</figcaption>
 </figure>
 
@@ -814,11 +817,11 @@
 <p id="p89" rel="dcterms:hasPart" resource="#p89">These will become triples as in the previous examples. Here we start by defining a UniCirc which is the outcome of the analytical process, the one we learn last about and only in our hypothesis. We assign to this reconstructed previous unique scroll the ID ‘UniCirc1’ (it could have been also UniCirc3, as long as unique in the file) and say that it underwent a transformation with ID ‘tr1’ which produced two UniCirc, ‘UniCirc2’ and ‘UniCirc3’. Only then we say that UniCirc2 and UniCirc3 correspond to the current scrolls. This is repeated in the second scroll and generates a parallel set of ids and UniCirc, i.e. our BDLaethf11 is both BDLaethf11/UniCirc/UniCirc3 and  BDLaethf12/UniCirc/UniCirc3. This looks and is redundant in this case. However, let us think of cases when the two sets of statements are produced independently. At some point, a researcher finds out that two units are part of the same story and the annotations will become much clearer with this further step in the research process only needing to equate the existing instances of transformation like in the example where BDLaethf12/transformation/tr1 is equated to BDLaethf11/transformation/tr1 with the property skos:exactMatch. This example shows also how phenomena involving more than one entity can be represented in RDF (Fig. 7.1), whereas they would need if only encoded in TEI a statement on each side with a pointer to the other. </p>
 
 <figure id="figure07.1">
-<img alt="" src="images/fig7.1.png" title="" />
+<img class="img-wide" alt="" src="images/fig7.1.png" title="" />
 <figcaption>Fig 7.1. Graph visualization of Oxford, Bodleian Library, Bodleian Aeth. f. 11 (R) and Oxford, Bodleian Library, Bodleian Aeth. f. 12 (R)</figcaption>
 </figure>
 
-<p id="p90" rel="dcterms:hasPart" resource="#p90">The Sankey charts here (Fig. 7.2 and 7.3) provide a very clear visualization of the division happening, different in <i>Beta maṣāḥǝft </i>according to the subject of the query.</p>
+<p id="p90" rel="dcterms:hasPart" resource="#p90">The Sankey charts here (Figs. 7.2 and 7.3) provide a very clear visualization of the division happening, different in <i>Beta maṣāḥǝft </i>according to the subject of the query.</p>
 
 <figure id="figure07.2">
 <img alt="" src="images/fig7.2.png" title="" />
@@ -886,7 +889,7 @@
 <p id="p94" rel="dcterms:hasPart" resource="#p94">The difference from the previous example is in here that the transformation underwent by BNFet45 and that which affects BNFet165 are parts of a composite transformation. Using the property in the ontology dedicated to describing the relation between transformation sdc:isPartOfTransformation we can link the individually declared transformation and preserve knowledge about the complex event and its parts, to which a type can also be associated if needed (Fig. 8). This allows modelling multiple transformations as such and as parts.</p>
 
 <figure id="figure08">
-<img alt="" src="images/fig8.png" title="" />
+<img class="img-wide" alt="" src="images/fig8.png" title="" />
 <figcaption>Fig 8. Sankey chart and La Syntaxe drawing of Paris, Bibliothèque nationale de France, BnF Éthiopien 45 and Paris, Bibliothèque nationale de France, BnF Éthiopien 165</figcaption>
 </figure>
 
@@ -928,7 +931,7 @@
 </figure>
 
 <figure id="figure09">
-<img alt="" src="images/fig9.png" title="" />
+<img class="img-wide" alt="" src="images/fig9.png" title="" />
 <figcaption>Fig 9. Sankey Diagram of Bern, Burgerbibliothek, Cod. 459 <i>UniProd</i></figcaption>
 </figure>
 
@@ -970,7 +973,7 @@
 <p id="p101" rel="dcterms:hasPart" resource="#p101">Given this hypothesis, we could already get a visualization (Fig. 10).</p>
 
 <figure id="figure10">
-<img alt="" src="images/fig10.png" title="" />
+<img class="img-wide" alt="" src="images/fig10.png" title="" />
 <figcaption>Fig 10. Sankey Diagram of Hypothesis A for Bern, Burgerbibliothek, Cod. 459</figcaption>
 </figure>
 
@@ -1000,7 +1003,7 @@
 </figure>
 
 <figure id="figure11">
-<img alt="" src="images/fig11.png" title="" />
+<img class="img-wide" alt="" src="images/fig11.png" title="" />
 <figcaption>Fig 11. Sankey Diagram of Hypothesis B for Bern, Burgerbibliothek, Cod. 459</figcaption>
 </figure>
 
@@ -1020,7 +1023,7 @@
 </figure>
 
 <figure id="figure12">
-<img alt="" src="images/fig12.png" title="" />
+<img class="img-wide" alt="" src="images/fig12.png" title="" />
 <figcaption>Fig 12. Sankey Diagram of Hypothesis D for Bern, Burgerbibliothek, Cod. 459</figcaption>
 </figure>
 
@@ -1096,7 +1099,7 @@
 </figure>
 
 <figure id="figure13">
-<img alt="" src="images/fig13.png" title="" />
+<img class="img-wide" alt="" src="images/fig13.png" title="" />
 <figcaption>Fig 13. Sankey Diagram of Hypothesis E for Bern, Burgerbibliothek, Cod. 459</figcaption>
 </figure>
 
@@ -1237,7 +1240,7 @@
 </b></code></pre>
 </figure>
 
-<p>Or</p>
+<p>or</p>
 
 <figure id="code26">
 <pre><code><b>
