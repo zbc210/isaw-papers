@@ -232,7 +232,7 @@
 <p id="p33" rel="dcterms:hasPart" resource="#p33">Following LOD best practices, Syriaca.org uses an HTTP protocol called “content negotiation” so that the HTTP addresses for conceptual URIs can return descriptive Web documents in different formats for different uses. If a human user submits a request through a web browser for the Syriaca.org URI for the city of Edessa (<code><a href="http://syriaca.org/place/78">http://syriaca.org/place/78</a></code>), the Syriaca.org server will “dereference” the URI and return an HTML page in prose, a format useful for human readers.<sup><a class="footnote-reference" id="footnote-reference-63" href="#footnote-63">63</a></sup> This HTML document (which is identified by its own URI, <code><a href="http://syriaca.org/place/78.html">http://syriaca.org/place/78.html</a></code>) defines and describes the concept of the place “Edessa”. If a computer (an application programming interface or API) sends a request for Linked Data to the same URI for the city of Edessa (<code><a href="http://syriaca.org/place/78">http://syriaca.org/place/78</a></code>), content negotiation will result in a different response, returning a Linked Data document (identified by the URI <code><a href="http://syriaca.org/place/78.rdf">http://syriaca.org/place/78.rdf</a></code>) structured according to the Resource Description Framework (RDF) specifications for Linked Data. Syriaca.org represents the same RDF data document in two formats: RDF/XML and Turtle, the Terse RDF Triple Language. Finally, the native data format used by Syriaca.org is TEI XML. Accordingly, representation of the same data in TEI XML is also available through content negotiation. The various data formats available through content negotiation are listed in the table below:</p>
 
 <table id="table1" border="2">
-<caption>Table 1: Sample Syriaca.org Content Negotiation</caption>
+<caption style="caption-side:bottom">Table 1: Sample Syriaca.org Content Negotiation</caption>
 <colgroup>
  <col width="180"/>
  <col width="115"/>
@@ -372,7 +372,6 @@
 <p id="p47" class="textindent0" rel="dcterms:hasPart" resource="#p47">The following code samples and graph visualization illustrate the hybrid use of TEI XML and RDF in the Syriaca.org knowledge graph. These examples have been simplified and abbreviated for clarity.</p>
 
 <figure id="code03">
-<figcaption>Example 3: Native TEI XML Encoding</figcaption>
 <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;?xml-model href="http://syriaca.org/documentation/syriaca-tei-main.rnc" type="application/relax-ng-compact-syntax"?&gt;
 &lt;TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en"&gt;
@@ -416,11 +415,11 @@
     &lt;/text&gt;
 &lt;/TEI&gt;
 </code></pre>
+<figcaption>Example 3: Native TEI XML Encoding</figcaption>
 </figure>
 
 
 <figure id="code04">
-<figcaption>Example 4: RDF XML Serialization</figcaption>
 
 <pre><code>&lt;rdf:RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:schema="http://schema.org/"
@@ -466,67 +465,18 @@
     &lt;/skos:Concept&gt;
 &lt;/rdf:RDF&gt;
 </code></pre>
+<figcaption>Example 4: RDF XML Serialization</figcaption>
 </figure>
 
-<!--
-<p class="CodeSnippet"><span class="T18">    &lt;skos:Concept rdf:about="http://syriaca.org/person/10"&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;rdf:type rdf:resource="http://lawd.info/ontology/Person"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;lawd:hasName&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">            &lt;rdf:Description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">                &lt;lawd:primaryForm xml:lang="en"&gt;Aphrahat&lt;/lawd:primaryForm&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">                &lt;lawd:hasAttestation rdf:resource="http://syriaca.org/bibl/48"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">            &lt;/rdf:Description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;/lawd:hasName&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;dcterms:description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">            &lt;rdf:Description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">                &lt;dcterms:description&gt;Syriac author of 23 ‘Demonstrations’, known as ‘the Persian Sage’.&lt;/dcterms:description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">                &lt;lawd:hasCitation rdf:resource="http://syriaca.org/bibl/48"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">            &lt;/rdf:Description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;/dcterms:description&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;skos:closeMatch rdf:resource="http://viaf.org/viaf/37707408"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;dcterms:relation rdf:resource="http://syriaca.org/place/526"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;syriaca:bornAt rdf:resource="http://syriaca.org/place/526"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;lawd:hasCitation rdf:resource="http://syriaca.org/bibl/48"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;foaf:primaryTopicOf rdf:resource="http://syriaca.org/person/10/html"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;foaf:primaryTopicOf rdf:resource="http://syriaca.org/person/10/tei"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;foaf:primaryTopicOf rdf:resource="http://syriaca.org/person/10/ttl"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">        &lt;foaf:primaryTopicOf rdf:resource="http://syriaca.org/person/10/rdf"/&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">    &lt;/skos:Concept&gt;</span></p>
-
-<p class="CodeSnippet"><span class="T18">&lt;/rdf:RDF&gt;</span></p>
--->
-
 <figure id="figure04">
-	<figcaption>Figure 4: Linked Data Graph Visualization for the Syriac Author Aphrahat (<a href="http://syriaca.org/person/10">http://syriaca.org/person/10</a>)</figcaption>
 	<img class="img-wide" alt="" src="images/fig04.png"/>
+	<figcaption>Figure 4: Linked Data Graph Visualization for the Syriac Author Aphrahat (<a href="http://syriaca.org/person/10">http://syriaca.org/person/10</a>)</figcaption>
 </figure>
 
 
 <figure id="figure05">
-	<figcaption>Figure 5: Srophé Application Serialization Stack</figcaption>
 	<img class="img-wide" alt="" src="images/fig05.png"/>
+	<figcaption>Figure 5: Srophé Application Serialization Stack</figcaption>
 </figure>
 
 </section>
